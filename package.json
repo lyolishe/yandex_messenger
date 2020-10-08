@@ -1,0 +1,13 @@
+{
+  "name": "mf.messenger.praktikum.yandex",
+  "version": "1.0.0",
+  "dependencies": {},
+  "description": "Silence Messenger",
+  "scripts": {
+    "start": "node ./server.js"
+  },
+  "homepage": "https://github.com/lyolishe/mf.messenger.praktikum.yandex/blob/master/README.md",
+  "devDependencies": {
+    "express": "^4.17.1"
+  }
+}
