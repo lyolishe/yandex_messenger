@@ -1,0 +1,154 @@
+body {
+    background: #0B0B0B;
+}
+a, p, div {
+    font-family: inherit;
+}
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.appWrapper {
+    height: 100%;
+}
+
+.container {
+    width: 1280px;
+    min-height: 300px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    flex-flow: row;
+}
+
+.col {
+    display: block;
+    box-sizing: border-box;
+    position: relative;
+    padding: 1rem;
+    max-width: 100%;
+    min-width: 8.33333333%;
+}
+
+.mxAuto {
+    margin-left: auto!important;
+    margin-right: auto!important;
+}
+
+.myAuto {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.card {
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    background-color: #ffffff;
+}
+
+.flexColumn {
+    display: flex;
+    flex-flow: column;
+}
+
+.card.logInCard {
+    border-radius: 0.75rem;
+}
+
+.card > .logInHeader {
+    display: flex;
+    justify-content: center;
+}
+
+.card > .logInBody {
+    display: flex;
+    justify-content: center;
+    padding: 0 4rem;
+}
+
+.formItem {
+    display: inline-block;
+    padding: 0.7rem;
+}
+
+.formControl {
+    display: block;
+}
+
+.formItem > label {
+    display: block;
+    margin-bottom: .5rem;
+}
+
+.card > .loginFooter {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2.5rem;
+    align-items: center;
+}
+
+.link {
+    text-decoration: none;
+    color: #34529E;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+}
+
+.btnCircleOutline {
+    outline: none;
+    border: 1px solid #34529E;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    transition: border 100ms ease ;
+
+}
+.btnCircleOutline:hover {
+    border-width: 2px;
+
+}
+
+.formControl {
+    padding: .1rem .75rem;
+}
+
+.arrowRight {
+    position: relative;
+}
+.arrowRight:after {
+    display: block;
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    content: "";
+}
+
+.arrow {
+    border: solid #34529E;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+.arrowRight {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
