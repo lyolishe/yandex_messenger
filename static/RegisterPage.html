@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/LogInPages.css">
+</head>
+<body>
+<div class="appWrapper">
+    <div class="container flexColumn">
+        <div class="row myAuto">
+            <div class="col mxAuto">
+                <div class="card logInCard">
+                    <div class="logInHeader">
+                        <h3>Sign In</h3>
+                    </div>
+                    <div class="logInBody">
+                        <form id="form">
+                            <div class="formItem">
+                                <label for="name" class="formLabel">
+                                    Full Name
+                                </label>
+                                <input id="name" type="text" class="formControl loginInput"/>
+                            </div>
+                            <!--TODO: написать разделение name на firstName и lastName!-->
+                            <!--Сюда будут js-ом отделяться фамилия от поля сверху! сделано для экономии места и чтобы (не пугать пользака)-->
+                            <input type="text" class="dNone" id="firstName" name="firstName">
+                            <input type="text" class="dNone" id="lastName" name="lastName"/>
+                            <!---->
+                            <div class="formItem">
+                                <label for="login" class="formLabel">
+                                    Login
+                                </label>
+                                <input id="login" type="text" name="login" class="formControl loginInput"/>
+                            </div>
+                            <div class="formItem">
+                                <label for="email" class="formLabel">
+                                    Email
+                                </label>
+                                <input id="email" type="email" name="email" class="formControl loginInput"/>
+                            </div>
+                            <div class="formItem">
+                                <label for="phone" class="formLabel">
+                                    Phone
+                                </label>
+                                <input id="phone" type="tel" name="phone" class="formControl loginInput"/>
+                            </div>
+                            <div class="formItem">
+                                <label for="password" class="formLabel">
+                                    Password
+                                </label>
+                                <input id="password" type="password" name="password" class="formControl loginInput"/>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="loginFooter">
+                        <button type="submit" form="form" class="btn btnPrimary w100">Sign up!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
