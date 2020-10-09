@@ -11,7 +11,8 @@ The App has some features:
 - Traching your friends on map in real time! //WIP
 
 ### **Install** 
-do "~git clone https://github.com/lyolishe/mf.messenger.praktikum.yandex.git"  
+do "~git clone https://github.com/lyolishe/mf.messenger.praktikum.yandex.git"
+or just go to https://wonderful-blackwell-7a88a7.netlify.app
 
 ### **Resources**
 design: https://www.figma.com/file/HowCClv2lrvhTKe3ilvdED/Chat-Lyonya?node-id=0%3A1
