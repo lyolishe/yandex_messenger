@@ -1,0 +1,283 @@
+body {
+    background: #0B0B0B;
+}
+a, p, div {
+    font-family: inherit;
+}
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.appWrapper {
+    height: 100%;
+}
+
+.row {
+    display: flex;
+    flex-flow: row;
+}
+
+.col {
+    display: block;
+    box-sizing: border-box;
+    position: relative;
+    padding: 1rem;
+    max-width: 100%;
+    min-width: 8.33333333%;
+}
+
+.mxAuto {
+    margin-left: auto!important;
+    margin-right: auto!important;
+}
+
+.myAuto {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+
+.mlAuto {
+    margin-left: auto;
+}
+
+.mrAuto {
+    margin-right: auto;
+}
+
+.dNone {
+    display: none;
+}
+
+.w100 {
+    width: 100%;
+}
+
+.flexColumn {
+    display: flex;
+    flex-flow: column;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+.btnPrimary {
+    color: #ffffff;
+    background-color: #34529E;
+    border-color: #34529E;
+    outline-color: rgba(52, 82, 158, 0.8);
+}
+
+.textWhite {
+    color: white!important;
+}
+
+.appWrapper {
+    background-color: #000000;
+    position: relative;
+    overflow: hidden;
+}
+
+.appSideBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 320px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    color: #2e373e;
+}
+
+.sideBarNav {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    border: 1px solid #727272;
+}
+
+.user, .userWrapper {
+    display: flex;
+}
+.userWrapper {
+    padding: 0.5rem;
+}
+.userAvatarWrapper {
+    vertical-align: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 0.75rem;
+}
+
+.navTabs {
+    position: relative;
+    width: 100%;
+}
+
+.menuTabs {
+    display: flex;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+.menuTabs li {
+    display: block;
+    width: 100%;
+    border: 1px solid #000000;
+    cursor: pointer;
+    text-align: center;
+    padding: 0.75rem;
+    transition: background-color .2s ease;
+}
+
+.menuTabs li p {
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+.menuTabs li.active {
+    margin: 0;
+    font-size: 1.6rem;
+    background: #9E9E9E;
+}
+
+.menuTabs li:not(.active):hover {
+    background: #c6c5c5;
+}
+
+.chatList {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.chatList::-webkit-scrollbar {
+    display: none;
+}
+
+.chatList li {
+    display: flex;
+    position: relative;
+    padding: .75rem 0 .75rem 1rem;
+
+}
+
+.chatAvatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 0.75rem;
+    overflow: hidden;
+}
+
+.chatAvatar img {
+    width: 70px;
+    height: 70px;
+}
+
+.chatList li div:last-child {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.chatList li div .time:only-child {
+    margin-top: auto;
+}
+
+
+.chatLastMessage {
+ width: 50%;
+}
+
+.chatLastMessage h4 {
+    margin: 0;
+}
+
+.chatLastMessage p {
+    font-size: 12px;
+    text-overflow: ellipsis;
+}
+
+.messageBadge {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    line-height: 1.5rem;
+    background-color: #34529E;
+}
+
+.time {
+    font-size: 12px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 320px;
+}
+.appMainWrap {
+    flex: 1 1 auto ;
+    overflow: hidden;
+    position: relative;
+}
+.appMain {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.iconPreview {
+    background-color: #ffffff;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 0.75rem;
+}
+
+.btnLink {
+    background-color: transparent;
+    color: #34529E;
+    cursor: pointer;
+}
+.btnLink:focus {
+    outline: none;
+}
