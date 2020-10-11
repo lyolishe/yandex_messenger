@@ -19,6 +19,13 @@ body {
     height: 100%;
 }
 
+.container {
+    max-width: 1280px;
+    min-height: 300px;
+    height: 100%;
+    margin: 0 auto;
+}
+
 .row {
     display: flex;
     flex-flow: row;
@@ -33,31 +40,81 @@ body {
     min-width: 8.33333333%;
 }
 
+.col-6 {
+    display: block;
+    box-sizing: border-box;
+    position: relative;
+    padding: 1rem;
+    flex: 1 1 50%;
+    width: 50%;
+}
+
 .mxAuto {
     margin-left: auto!important;
     margin-right: auto!important;
 }
 
-.m0 {
-    margin: 0;
-}
-
 .myAuto {
-    margin-top: auto;
-    margin-bottom: auto;
+    margin-top: auto!important;;
+    margin-bottom: auto!important;;
 }
 
 
 .mlAuto {
-    margin-left: auto;
+    margin-left: auto!important;;
 }
 
 .mrAuto {
-    margin-right: auto;
+    margin-right: auto;!important;
+}
+
+.m0 {
+    margin: 0!important;;
+}
+
+.mt3 {
+    margin-top: 1rem!important;;
+}
+.mb3 {
+    margin-bottom: 1rem!important;;
+}
+
+.ml3 {
+    margin-left: 1rem!important;;
+}
+
+.mr3 {
+    margin-right: 1rem!important;;
+}
+
+.mx3 {
+    margin-right: 1rem!important;;
+    margin-left: 1rem!important;;
+}
+
+.my3 {
+    margin-top: 1rem!important;;
+    margin-bottom: 1rem!important;;
+}
+
+.pr0 {
+    padding-right: 0!important;
+}
+
+.pl0 {
+    padding-left: 0!important;;
+}
+
+.pt0 {
+    padding-top: 0!important;;
+}
+
+.pt0 {
+    padding-bottom: 0!important;;
 }
 
 .dNone {
-    display: none;
+    display: none!important;;
 }
 
 .w100 {
@@ -83,8 +140,102 @@ body {
     border: 1px solid transparent;
     border-radius: 3px;
 }
+
 .btn:focus {
     outline: none;
+}
+
+.card {
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    background-color: #ffffff;
+}
+
+.flexColumn {
+    display: flex;
+    flex-flow: column;
+}
+
+.card.logInCard {
+    border-radius: 0.75rem;
+}
+
+.card > .logInHeader {
+    display: flex;
+    justify-content: center;
+}
+
+.card > .logInBody {
+    display: flex;
+    justify-content: center;
+    padding: 0 4rem;
+}
+
+.card > .cardBody {
+    display: flex;
+    justify-content: center;
+}
+
+.card > .loginFooter {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2.5rem;
+    align-items: center;
+}
+
+.formItem {
+    display: block;
+    padding: 0.7rem;
+}
+
+.formControl {
+    display: block;
+}
+
+.formItem > label {
+    display: block;
+    margin-bottom: .5rem;
+}
+
+.link {
+    text-decoration: none;
+    color: #34529E;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+.btnCircleOutline {
+    outline: none;
+    border: 1px solid #34529E;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    transition: border 100ms ease ;
+    color: #34529E
+}
+.btnCircleOutline:hover {
+    border-width: 2px;
+}
+
+.formControl {
+    padding: .1rem .75rem;
+}
+
+.btnPrimary {
+    color: #ffffff;
+    background-color: #34529E;
+    border-color: #34529E;
+    outline-color: rgba(52, 82, 158, 0.8);
 }
 
 .btnPrimary {
@@ -137,6 +288,7 @@ body {
 .user {
     padding: 0.5rem;
 }
+
 .userAvatar {
     vertical-align: center;
     width: 50px;
@@ -149,6 +301,16 @@ body {
 .userAvatar img {
     width: 50px;
     height: 50px;
+}
+
+.avatarFull, .avatarFull img {
+    width: 120px;
+    height: 120px;
+}
+
+.avatarFull {
+    vertical-align: center;
+    overflow: hidden;
 }
 
 .navTabs {
@@ -261,6 +423,41 @@ body {
 
 .time {
     font-size: 12px;
+}
+
+.settingsList {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.settingsList li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: .75rem 0 .75rem 1rem;
+    border: 1px solid #757575;
+    cursor: pointer;
+}
+
+.settingsList li:not(.active):hover {
+    background-color: #c6c5c5;
+}
+
+.settingsList li.active {
+    background-color: #9E9E9E;
+}
+
+.settingsList li  {
+    font-size: 20px;
 }
 
 main {

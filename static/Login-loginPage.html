@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <title>Silence</title>
     <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/LogInPages.css">
+    <link rel="stylesheet" href="styles/application.css">
     <link rel="stylesheet" href="styles/@mdi/font/css/materialdesignicons.min.css">
+    <script src="formSubmit.js" type="text/javascript"></script>
 </head>
 <body>
     <div class="appWrapper">
@@ -17,7 +18,7 @@
                             <h3>Log In</h3>
                         </div>
                         <div class="logInBody">
-                            <form id="form">
+                            <form id="form" onsubmit="logFieldValues(event)">
                                 <div class="formItem">
                                     <label for="login" class="formLabel">
                                         Login
