@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Silence</title>
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/application.css">
+    <link rel="stylesheet" href="styles/@mdi/font/css/materialdesignicons.min.css">
+    <script type="text/javascript" src="formSubmit.js"></script>
+</head>
+<body>
+<div class="appWrapper">
+    <div class="appSideBar">
+        <div class="sideBarNav>">
+            <div class="user">
+                <div class="user mxAuto">
+                    <div class="userAvatar">
+                        <img src="./img/Group%20216.png" alt="avatar"/>
+                    </div>
+                    <h3>Current User</h3>
+                </div>
+            </div>
+            <nav class="navTabs">
+                <ul class="menuTabs">
+                    <li><p class="mdi mdi-message-text"></p></li>
+                    <li><p class="mdi mdi-star-outline"></p></li>
+                    <li class="active"><p class="mdi mdi-cog"></p></li>
+                </ul>
+            </nav>
+        </div>
+        <ul class="settingsList">
+            <li class="active">
+                <div class="settingsIcon mdi mdi-account-box">
+                </div>
+                <h4 class="m0">Profile</h4>
+                <div class="mdi mdi-chevron-right"></div>
+            </li>
+            <li>
+                <div class="settingsIcon mdi mdi-star">
+                </div>
+                <h4 class="m0">Favorite</h4>
+                <div class="mdi mdi-chevron-right"></div>
+            </li>
+            <li>
+                <div class="settingsIcon mdi mdi-devices">
+                </div>
+                <h4 class="m0">Devices</h4>
+                <div class="mdi mdi-chevron-right"></div>
+            </li>
+            <li>
+                <div class="settingsIcon mdi mdi-security">
+                </div>
+                <h4 class="m0">Privacy</h4>
+                <div class="mdi mdi-chevron-right"></div>
+            </li>
+            <li>
+                <div class="settingsIcon mdi mdi-cog-box">
+                </div>
+                <h4 class="m0">Configuration</h4>
+                <div class="mdi mdi-chevron-right"></div>
+            </li>
+            <li>
+                <div class="settingsIcon mdi mdi-globe-model">
+                </div>
+                <h4 class="m0">Proxy</h4>
+                <div class="mdi mdi-chevron-right"></div>
+            </li>
+            <li>
+                <div class="settingsIcon mdi mdi-frequently-asked-questions">
+                </div>
+                <h4 class="m0">FAQ</h4>
+                <div class="mdi mdi-chevron-right"></div>
+            </li>
+        </ul>
+    </div>
+    <main>
+        <div class="appMainWrap">
+            <div class="appMain">
+                <nav class="navbar">
+                    <div class="user">
+                        <h3>Profile</h3>
+                    </div>
+                </nav>
+
+                <div class="row myAuto">
+                    <div class="col mxAuto">
+                        <div class="card">
+                            <div class="cardBody">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="row">
+                                            <div class="col mxAuto">
+                                                <div class="avatarFull">
+                                                    <img src="./img/Group%20216.png" alt="avatar">
+                                                </div>
+                                                <button class="btn btnPrimary mdi mdi-folder-upload-outline w100 mt3"> Change</button>
+                                            </div>
+                                        </div>
+                                        <form id="ChangePassword" onsubmit="return logFieldValues(event)">
+                                            <div class="formItem">
+                                                <label for="password" class="formLabel">
+                                                    Password
+                                                </label>
+                                                <input id="password" type="password" name="password" class="formControl loginInput"/>
+                                            </div>
+                                            <div class="formItem">
+                                                <label for="newPassword" class="formLabel">
+                                                    New password
+                                                </label>
+                                                <input id="newPassword" type="password" name="newPassword" class="formControl loginInput"/>
+                                            </div>
+                                            <div class="formItem pr0">
+                                            <button type="submit" class="btn btnPrimary w100">Change password</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-6">
+                                        <form id="profileSettings" onsubmit="return logFieldValues(event)">
+                                            <div class="formItem">
+                                                <label for="name" class="formLabel">
+                                                    Full Name
+                                                </label>
+                                                <input id="name" type="text" class="formControl loginInput"/>
+                                            </div>
+                                            <!--TODO: написать разделение name на firstName и lastName!-->
+                                            <!--Сюда будут js-ом отделяться фамилия от поля сверху! сделано для экономии места (и чтобы не пугать пользака)-->
+                                            <input type="text" class="dNone" id="firstName" name="firstName">
+                                            <input type="text" class="dNone" id="lastName" name="lastName"/>
+                                            <!---->
+                                            <div class="formItem">
+                                                <label for="displayName" class="formLabel">
+                                                    Display Name
+                                                </label>
+                                                <input id="displayName" type="text" name="displayName" class="formControl loginInput"/>
+                                            </div>
+                                            <div class="formItem">
+                                                <label for="email" class="formLabel">
+                                                    Email
+                                                </label>
+                                                <input id="email" type="email" name="email" class="formControl loginInput"/>
+                                            </div>
+                                            <div class="formItem">
+                                                <label for="login" class="formLabel">
+                                                    Login
+                                                </label>
+                                                <input id="login" type="text" name="login" class="formControl loginInput"/>
+                                            </div>
+                                            <div class="formItem">
+                                                <label for="phone" class="formLabel">
+                                                    Phone
+                                                </label>
+                                                <input id="phone" type="tel" name="phone" class="formControl loginInput"/>
+                                            </div>
+                                            <div class="formItem pr0 pt0">
+                                                <button class="btn btnPrimary w100" type="submit">Save profile changes</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>

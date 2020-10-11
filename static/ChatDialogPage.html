@@ -11,7 +11,7 @@
 <div class="appWrapper">
     <div class="appSideBar">
         <div class="sideBarNav>">
-            <div class="row">
+            <div class="user">
                 <div class="user mxAuto">
                     <div class="userAvatar">
                         <img src="./img/Group%20216.png" alt="avatar"/>
@@ -28,7 +28,7 @@
             </nav>
         </div>
         <ul class="chatList">
-            <li>
+            <li class="active">
                 <div class="chatAvatar">
                     <img src="./img/cat.png">
                 </div>
@@ -39,9 +39,6 @@
                     </p>
                 </div>
                 <div>
-                    <p class="messageBadge">
-                        1
-                    </p>
                     <span class="time">
                         01:32
                     </span>
@@ -148,13 +145,45 @@
     <main>
         <div class="appMainWrap">
             <div class="appMain">
-                <div class="row myAuto">
-                    <div class="col mxAuto">
-                        <div class="iconPreview">
-                            ЛОГО В РАЗРАБОТКЕ
-                        </div>
-                        <button class="btn btnLink textWhite">New dialog...</button>
+                 <nav class="navbar">
+                     <div class="user">
+                         <div class="userAvatar">
+                             <img src="./img/cat.png" alt="avatar"/>
+                         </div>
+                         <h3>Cat User</h3>
+                     </div>
+                    <div class="navMenu">
+                        <button class="btn mdi mdi-star-outline"></button>
+                        <button class="btn mdi mdi-dots-vertical"></button>
                     </div>
+                 </nav>
+                <div class="dialog">
+                    <ul class="messageList">
+                        <li class="chatItem">
+                            <div class="messageContent">
+                                Hello world! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+                        </li>
+                        <li class="chatItemResponse">
+                            <div class="messageContent">
+                                Ye, hello. I heard something ‘bout this “russian wine”.
+                                can you bring some of this to me? it’s gonna be party
+                                toonight and you’r invited, bro ;)
+                            </div>
+                        </li>
+                        <li class="chatItem">
+                            <div class="messageContent">
+                                <div class="messageImage">
+                                    <img src="./img/vinniy-pogreb1.jpg">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="messageInputRow">
+                    <button class="btn mdi mdi-folder-upload-outline"></button>
+                    <input type="text" name="message" class="messageInput"/>
+                    <button class="btn mdi mdi-send"></button>
                 </div>
             </div>
         </div>
