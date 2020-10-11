@@ -17,3 +17,6 @@ or just go to https://wonderful-blackwell-7a88a7.netlify.app
 ### **Resources**
 design: https://www.figma.com/file/HowCClv2lrvhTKe3ilvdED/Chat-Lyonya?node-id=0%3A1
 //WIP
+
+
+*Для ревьюеров*: Обращаю Ваше внимание на то, что форма входа разбита на 2 страницы, ввиду того, что было предложено сделать статику. Но я хочу, чтобы при входе было по одной форме на экране единовременно.
