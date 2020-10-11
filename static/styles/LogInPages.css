@@ -77,6 +77,13 @@ body {
     padding: 0 4rem;
 }
 
+.card > .loginFooter {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2.5rem;
+    align-items: center;
+}
+
 .formItem {
     display: block;
     padding: 0.7rem;
@@ -89,13 +96,6 @@ body {
 .formItem > label {
     display: block;
     margin-bottom: .5rem;
-}
-
-.card > .loginFooter {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 2.5rem;
-    align-items: center;
 }
 
 .link {
@@ -121,37 +121,14 @@ body {
     width: 2rem;
     height: 2rem;
     transition: border 100ms ease ;
-
+    color: #34529E
 }
 .btnCircleOutline:hover {
     border-width: 2px;
-
 }
 
 .formControl {
     padding: .1rem .75rem;
-}
-
-.arrowRight {
-    position: relative;
-}
-.arrowRight:after {
-    display: block;
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    content: "";
-}
-
-.arrow {
-    border: solid #34529E;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 3px;
-}
-.arrowRight {
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
 }
 
 .btnPrimary {
