@@ -1,11 +1,5 @@
 body {
     background: #0B0B0B;
-}
-a, p, div {
-    font-family: inherit;
-}
-html,
-body {
     height: 100%;
     width: 100%;
     font-family: Inter, sans-serif;
@@ -13,6 +7,9 @@ body {
     font-weight: 500;
     font-size: 16px;
     line-height: 16px;
+}
+a, p, div {
+    font-family: inherit;
 }
 
 .appWrapper {
