@@ -1,0 +1,78 @@
+<aside class="appSideBar>">
+    <div class="sideBarNav">
+        <div class="user">
+            <div class="user mxAuto">
+                <div class="userAvatar">
+                    <img src="{{user.avatarUrl}}"/>
+                </div>
+                <h3>{{user.firstName}} {{user.lastName}}</h3>
+            </div>
+        </div>
+        <nav class="navTabs">
+            <ul class="menuTabs">
+                {{#each navTabs}}
+                    <li class="{{isActive this.isActive}}"><p class="mdi {{this.icon}}"></p></li>
+                {{/each}}
+            </ul>
+        </nav>
+    </div>
+    <ul class="chatList">
+        {{#each dialog}}
+            <li class="{{isDialogActive this.id}}">
+                <div class="chatAvatar">
+                    <img src="{{this.avatarUtl}}">
+                </div>
+                <div class="w50">
+                    <h5 class="m0">{{this.user.firstName}} {{this.user.lastName}}</h5>
+                    <p class="chatLastMessage">
+                        {{this.lastMessage.time}}
+                    </p>
+                </div>
+                <div>
+                    <span class="time">
+                        {{this.lastMessage.text}}
+                    </span>
+                </div>
+            </li>
+        {{/each}}
+    </ul>
+</aside>
+<main>
+    <div class="appMainWrap">
+        <div class="appMain">
+            <nav class="navbar">
+                <div class="user">
+                    <div class="userAvatar">
+                        <img src="{{responder.avatarUrl}}" alt="avatar"/>
+                    </div>
+                    <h3>{{responder.firstName}} {{responder.lastName}}</h3>
+                </div>
+                <div class="navMenu">
+                    <button class="btn mdi mdi-star-outline"></button>
+                    <button class="btn mdi mdi-dots-vertical"></button>
+                </div>
+            </nav>
+            <div class="dialog">
+                <ul class="messageList">
+                    {{#each messages}}
+                        <li class="{{isUserMessage this.isResponder}}">
+                            <div class="messageContent">
+                                {{this.messageContent}}
+                            </div>
+                            <div class="messageImage">
+                                {{#each messageImages}}
+                                    <img src="{{url}}"/>
+                                {{/each}}
+                            </div>
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="messageInputRow">
+                <button class="btn mdi mdi-folder-upload-outline"></button>
+                <input type="text" name="message" class="messageInput"/>
+                <button class="btn mdi mdi-send"></button>
+            </div>
+        </div>
+    </div>
+</main>

@@ -9,6 +9,8 @@
   "homepage": "https://github.com/lyolishe/mf.messenger.praktikum.yandex/blob/master/README.md",
   "devDependencies": {
     "@mdi/font": "5.6.55",
-    "express": "4.17.1"
+    "express": "4.17.1",
+    "handlebars": "4.7.6",
+    "typescript": "4.0.3"
   }
 }

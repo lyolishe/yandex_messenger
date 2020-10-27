@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "ES6",
+    "target": "ES6",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "lib": [
+      "dom",
+      "es5",
+      "ES6",
+      "scripthost",
+      "es2015.proxy"
+    ]
+  },
+  "exclude": [
+    "node_modules"
+  ],
+
+}
