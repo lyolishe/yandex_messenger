@@ -1,3 +1,5 @@
+import {EventBus} from './EventBus.js'
+
 export const enum Events {
     INIT = "init",
     FLOW_CDM = "flow:component-did-mount",
@@ -39,7 +41,7 @@ export default class Block<T extends Record<string, unknown>> {
         eventBus.on(Events.FLOW_CDU, this._componentDidUpdate.bind(this));
     }
 
-    _createResources() {
+    private _createResources() {
         const { tagName } = this._meta!;
         this._element = this._createDocumentElement(tagName);
     }
@@ -49,13 +51,12 @@ export default class Block<T extends Record<string, unknown>> {
         this.eventBus().emit(Events.FLOW_CDM)
     }
 
-    _componentDidMount() {
-        this.componentDidMount(this._meta?.props);
+    private _componentDidMount() {
+        this.componentDidMount();
         this.eventBus().emit(Events.FLOW_RENDER);
     }
 
-    componentDidMount(oldProps?: T) {
-        return oldProps
+    componentDidMount() {
     }
 
     private _componentDidUpdate(oldProps: T, newProps: T) {
@@ -121,8 +122,8 @@ export default class Block<T extends Record<string, unknown>> {
         return proxy;
     }
 
-    _createDocumentElement(tagName: keyof HTMLElementTagNameMap) {
-        // Можно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
+    private _createDocumentElement(tagName: keyof HTMLElementTagNameMap) {
+        //TODO: Нужно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
         return document.createElement(tagName);
     }
 

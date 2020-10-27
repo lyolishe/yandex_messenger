@@ -1,6 +1,6 @@
 type CallBack = (...args: any) => void
 
-class EventBus {
+export class EventBus {
     listeners: { [event: string]:CallBack[] };
 
     constructor() {

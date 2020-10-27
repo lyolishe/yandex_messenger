@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "ES6",
+    "module": "esnext",
     "target": "ES6",
     "sourceMap": true,
     "noImplicitAny": true,
@@ -18,6 +18,6 @@
   },
   "exclude": [
     "node_modules"
-  ],
+  ]
 
 }
