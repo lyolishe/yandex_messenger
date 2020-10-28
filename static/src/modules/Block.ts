@@ -15,6 +15,8 @@ interface Meta<T> {
 export default class Block<T extends Record<string, unknown>> {
     props: T;
     eventBus: ()=>EventBus;
+    //Для учёта только там, где это нужно, пока нет реализации всех компонентов
+    children: unknown[];
 
     private _element: HTMLElement | null = null;
     private readonly _meta: Meta<T> | null = null;
@@ -27,14 +29,14 @@ export default class Block<T extends Record<string, unknown>> {
         };
 
         this.props = this._makePropsProxy(props);
-
+        this.children = []
         this.eventBus = () => eventBus;
 
         this._registerEvents(eventBus);
         eventBus.emit(Events.INIT);
     }
 
-    _registerEvents(eventBus: EventBus) {
+    private _registerEvents(eventBus: EventBus) {
         eventBus.on(Events.INIT, this.init.bind(this));
         eventBus.on(Events.FLOW_CDM, this._componentDidMount.bind(this));
         eventBus.on(Events.FLOW_RENDER, this._render.bind(this));
@@ -44,6 +46,9 @@ export default class Block<T extends Record<string, unknown>> {
     private _createResources() {
         const { tagName } = this._meta!;
         this._element = this._createDocumentElement(tagName);
+        if (this.props.classList) {
+            this._element.classList.add(...(this.props.classList as string[]))
+        }
     }
 
     init() {

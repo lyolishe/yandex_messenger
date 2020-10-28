@@ -10,4 +10,13 @@ export function get(obj, path, defaultValue = '') {
     }
     return result !== null && result !== void 0 ? result : defaultValue;
 }
+export function api(url) {
+    return fetch(url)
+        .then(response => {
+        if (!response.ok) {
+            throw new Error(response.statusText);
+        }
+        return response.json();
+    });
+}
 //# sourceMappingURL=Utilits.js.map

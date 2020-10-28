@@ -1,4 +1,4 @@
-export const ButtonTmpl =
+export const buttonTmpl =
 `<div>
     {{text}}
 </div>`;

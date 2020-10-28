@@ -1,10 +1,11 @@
 import Block from "../../modules/Block.js";
-import {ButtonTmpl} from "./Button.tmpl.js";
+import {buttonTmpl} from "./ButtonTmpl.js";
 
 export type ButtonProps = {
     onClick?: ()=>void;
     text: string;
     buttonType?: "Primary"|"Link"|"CircleOutline"
+    classList?: string[]
 }
 
 export class Button extends Block<ButtonProps> {
@@ -13,14 +14,13 @@ export class Button extends Block<ButtonProps> {
     }
 
     componentDidMount() {
-        this.element?.classList.add(`btn`, `btn${this.props.buttonType}`)
         if (this.props.onClick && this.element) {
             this.element.onclick = this.props.onClick.bind(this)
         }
     }
 
     render(): string {
-        const tmpl = ButtonTmpl;
+        const tmpl = buttonTmpl;
         return Handlebars.compile(tmpl)(this.props)
     }
 }

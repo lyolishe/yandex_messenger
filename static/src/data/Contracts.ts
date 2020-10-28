@@ -1,20 +1,21 @@
-export interface User {
-    firstName: string;
-    lastName: string;
-    avatarUrl: string;
-    isResponder: boolean;
+export type User = {
+    firstName?: string;
+    lastName?: string;
+    avatarUrl?: string;
+    isResponder?: boolean;
 }
 
-export interface ChatItem {
-    responder: User;
-    lastMessage: {
-        text: string;
-        time: string;
-    }
+export type ChatItem = {
+    responder?: User;
+    lastMessage?: {
+        text?: string;
+        time?: string;
+    },
+    unreadCount?: number;
 }
 
-export interface Message {
-    user: User
-    messageText: string;
-    imagesUrl: string[];
+export type Message = {
+    user?: User
+    messageText?: string;
+    imagesUrl?: string[];
 }

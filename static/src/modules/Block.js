@@ -15,6 +15,7 @@ export default class Block {
             props: props !== null && props !== void 0 ? props : {}
         };
         this.props = this._makePropsProxy(props);
+        this.children = [];
         this.eventBus = () => eventBus;
         this._registerEvents(eventBus);
         eventBus.emit("init" /* INIT */);
@@ -28,6 +29,9 @@ export default class Block {
     _createResources() {
         const { tagName } = this._meta;
         this._element = this._createDocumentElement(tagName);
+        if (this.props.classList) {
+            this._element.classList.add(...this.props.classList);
+        }
     }
     init() {
         this._createResources();

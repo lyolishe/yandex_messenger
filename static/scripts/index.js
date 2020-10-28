@@ -1,18 +1,18 @@
-import { Button } from "../src/components/Button/Button.js";
+import { api } from "../src/modules/Utilits.js";
+import { ChatListBlock } from "../src/components/ChatListBlock/ChatList.js";
+import { ChatItemBlock } from "../src/components/ChatItemBlock/ChatItemBlock.js";
 const render = (id, block) => {
     const target = document.getElementById(id);
     target === null || target === void 0 ? void 0 : target.appendChild(block);
 };
-const buttonProps = {
-    buttonType: "Primary",
-    text: "click me!",
-    onClick: () => {
-        alert(1);
-    }
-};
-const button = new Button(buttonProps);
-render('root', button.getContent());
-setTimeout(() => {
-    button.setProps({ text: "click me, click me, click me!!!!" });
-}, 4000);
+api('../api/chatList.json').then(res => {
+    const chatList = new ChatListBlock({ classList: ['chatList'] });
+    res.forEach((chat) => {
+        var _a;
+        const chatItem = new ChatItemBlock(Object.assign(Object.assign({}, chat), { classList: [], onClick: chatList.onClick }));
+        chatList.children.push(chatItem);
+        (_a = chatList.element) === null || _a === void 0 ? void 0 : _a.appendChild(chatItem.element);
+    });
+    render('root', chatList.element);
+});
 //# sourceMappingURL=index.js.map
