@@ -19,4 +19,8 @@ export function api(url) {
         return response.json();
     });
 }
+export const render = (id, block) => {
+    const target = document.getElementById(id);
+    target === null || target === void 0 ? void 0 : target.appendChild(block);
+};
 //# sourceMappingURL=Utilits.js.map

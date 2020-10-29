@@ -97,7 +97,7 @@ export default class Block<T extends Record<string, unknown>> {
     }
 
     render():string {
-        return ''
+        return this._element?.innerHTML?? ''
     }
 
     getContent(): HTMLElement| null{

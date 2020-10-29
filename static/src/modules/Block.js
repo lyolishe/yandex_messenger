@@ -66,7 +66,8 @@ export default class Block {
             this._element.innerHTML = block;
     }
     render() {
-        return '';
+        var _a, _b;
+        return (_b = (_a = this._element) === null || _a === void 0 ? void 0 : _a.innerHTML) !== null && _b !== void 0 ? _b : '';
     }
     getContent() {
         return this.element;

@@ -15,7 +15,7 @@ export type ChatItem = {
 }
 
 export type Message = {
-    user?: User
+    isResponder?: boolean;
     messageText?: string;
     imagesUrl?: string[];
 }

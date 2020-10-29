@@ -23,3 +23,8 @@ export function api<T>(url: string): Promise<T> {
             return response.json()
         })
 }
+
+export const render = (id: string, block: HTMLElement ): void => {
+    const target = document.getElementById(id);
+    target?.appendChild(block);
+}
