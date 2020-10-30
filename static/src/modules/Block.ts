@@ -9,24 +9,29 @@ export const enum Events {
 
 interface Meta<T> {
     tagName:keyof HTMLElementTagNameMap,
-    props: T
+    props: DefaultBlockProps<T>
 }
 
-export default class Block<T extends Record<string, unknown>> {
-    props: T;
+export type DefaultBlockProps<T>  = {
+    classList?: string[];
+    handlers?: Record<string, Function>;
+} & T
+
+export default class Block<T> {
+    props: DefaultBlockProps<T>;
     eventBus: ()=>EventBus;
     //Для учёта только там, где это нужно, пока нет реализации всех компонентов
     children: unknown[];
 
     private _element: HTMLElement | null = null;
-    private readonly _meta: Meta<T> | null = null;
+    private readonly _meta: Meta<DefaultBlockProps<T>> | null = null;
     private _subscriptions: Map<Element, Record<string, Function>> | null = null
 
-    constructor(tagName:keyof HTMLElementTagNameMap = "div", props: T) {
+    constructor(tagName:keyof HTMLElementTagNameMap = "div", props: DefaultBlockProps<T>) {
         const eventBus = new EventBus();
         this._meta = {
             tagName,
-            props: props?? {}
+            props: props
         };
 
         this.props = this._makePropsProxy(props);
@@ -65,18 +70,18 @@ export default class Block<T extends Record<string, unknown>> {
     componentDidMount() {
     }
 
-    private _componentDidUpdate(oldProps: T, newProps: T) {
+    private _componentDidUpdate(oldProps: DefaultBlockProps<T>, newProps: DefaultBlockProps<T>) {
         const response = this.componentDidUpdate(oldProps, newProps);
         if(response) this.eventBus().emit(Events.FLOW_RENDER);
     }
 
     // Может переопределять пользователь, необязательно трогать
-    componentDidUpdate(oldProps: T, newProps: T) {
+    componentDidUpdate(oldProps: DefaultBlockProps<T>, newProps: DefaultBlockProps<T>) {
         if(oldProps && newProps)
         return true;
     }
 
-    setProps = (nextProps: T) => {
+    setProps = (nextProps: DefaultBlockProps<T>) => {
         if (!nextProps) {
             return;
         }
@@ -106,10 +111,10 @@ export default class Block<T extends Record<string, unknown>> {
         return this.element;
     }
 
-    private _makePropsProxy(props:T):T {
+    private _makePropsProxy(props:DefaultBlockProps<T>):DefaultBlockProps<T> {
 
-        const proxy = new Proxy<T >(props, {
-            set: (target, prop:keyof (T), value) => {
+        const proxy = new Proxy<DefaultBlockProps<T> >(props, {
+            set: (target, prop:keyof (DefaultBlockProps<T>), value) => {
                 const oldProps = { ...this._meta?.props };
                 if (target[prop] !== value) {
                     target[prop] = value;

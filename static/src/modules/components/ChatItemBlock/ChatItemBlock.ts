@@ -1,14 +1,13 @@
 import {ChatItem} from "../../../data/Contracts.js";
-import Block from "../../Block.js";
+import Block, {DefaultBlockProps} from "../../Block.js";
 import {chatItemTmpl} from "./ChatItemTmpl.js";
 
 export type ChatItemProps = ChatItem & {
     onClick?: (e: Event) => void;
-    classList?: string[];
 };
 
 export class ChatItemBlock extends Block<ChatItemProps> {
-    constructor(props: ChatItemProps) {
+    constructor(props: DefaultBlockProps<ChatItemProps>) {
         super("li", props)
     }
 

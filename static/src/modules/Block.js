@@ -13,7 +13,7 @@ export default class Block {
         const eventBus = new EventBus();
         this._meta = {
             tagName,
-            props: props !== null && props !== void 0 ? props : {}
+            props: props
         };
         this.props = this._makePropsProxy(props);
         this.children = [];

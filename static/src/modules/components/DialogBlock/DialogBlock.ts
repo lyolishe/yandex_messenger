@@ -1,13 +1,12 @@
 import {MessageBlock} from "../MessageBlock/MessageBlock.js";
-import Block from "../../Block.js";
+import Block, {DefaultBlockProps} from "../../Block.js";
 
-export type DialogBlockProps = {
+export type DialogBlockProps  = {
     messages: MessageBlock[];
-    classList?: string[];
 }
 
 export class DialogBlock extends Block<DialogBlockProps> {
-    constructor(props: DialogBlockProps) {
+    constructor(props: DefaultBlockProps<DialogBlockProps>) {
         super('div', {...props, classList: ["dialog"]})
     }
 

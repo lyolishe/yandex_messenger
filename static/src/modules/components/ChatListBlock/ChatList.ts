@@ -1,13 +1,9 @@
-import Block from "../../Block.js";
+import Block, {DefaultBlockProps} from "../../Block.js";
 import {ChatItemBlock} from "../ChatItemBlock/ChatItemBlock.js";
 
-export type ChatListProps = {
-    classList: string[]
-}
-
-export class ChatListBlock extends Block<ChatListProps> {
+export class ChatListBlock extends Block<{}> {
     onClick: (e: Event) => void
-    constructor(props?: ChatListProps) {
+    constructor(props?: DefaultBlockProps<{}>) {
         super('ul', {...props, classList: ["chatList"]});
         this.onClick = function onClick(e: Event){
             this.children.forEach((elem:ChatItemBlock)=> {

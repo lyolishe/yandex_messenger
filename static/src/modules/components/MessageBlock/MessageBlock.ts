@@ -1,14 +1,13 @@
-import Block from "../../Block.js";
+import Block, {DefaultBlockProps} from "../../Block.js";
 import {messageBlockTmpl} from "./MessageBlockTmpl.js";
 import {Message} from "../../../data/Contracts.js";
 
 export type MessageProps = {
     message: Message;
-    classList: string[];
 }
 
 export class MessageBlock extends Block<MessageProps> {
-    constructor(props: MessageProps) {
+    constructor(props: DefaultBlockProps<MessageProps>) {
         super("li", props);
     }
 

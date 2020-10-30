@@ -1,14 +1,13 @@
-import Block from "../../Block.js";
+import Block, {DefaultBlockProps} from "../../Block.js";
 import {buttonTmpl} from "./ButtonTmpl.js";
 
 export type ButtonProps = {
     onClick?: ()=>void;
     text: string;
-    classList?: string[]
 }
 
 export class Button extends Block<ButtonProps> {
-    constructor(props: ButtonProps) {
+    constructor(props: DefaultBlockProps<ButtonProps>) {
         super("button", props);
     }
 

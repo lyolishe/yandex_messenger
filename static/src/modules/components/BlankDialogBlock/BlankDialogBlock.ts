@@ -1,4 +1,4 @@
-import Block from "../../Block.js";
+import Block, {DefaultBlockProps} from "../../Block.js";
 import {blankDialogBlockTmpl} from "./BlankDialogBlockTmpl.js";
 
 export type BlankDialogBlockProps = {
@@ -8,10 +8,9 @@ export type BlankDialogBlockProps = {
     text?: string;
     iconUrl?: string;
     buttonClasses?: string;
-    classList?: string[]
 }
 
-export const blankDialogPageInitProps: BlankDialogBlockProps = {
+export const blankDialogPageInitProps: DefaultBlockProps<BlankDialogBlockProps> = {
     handlers: {
         onNewDialog: () => {
             alert("New message modal in progress!")
@@ -24,7 +23,7 @@ export const blankDialogPageInitProps: BlankDialogBlockProps = {
 }
 
 export class BlankDialogBlock extends Block<BlankDialogBlockProps>{
-    constructor(props: BlankDialogBlockProps) {
+    constructor(props: DefaultBlockProps<BlankDialogBlockProps>) {
         super('div', props);
     }
 
