@@ -6,12 +6,11 @@ export class Button extends Block {
     }
     componentDidMount() {
         if (this.props.onClick && this.element) {
-            this.element.onclick = this.props.onClick.bind(this);
+            this.element.onclick = this.props.onClick;
         }
     }
     render() {
-        const tmpl = buttonTmpl;
-        return Handlebars.compile(tmpl)(this.props);
+        return Handlebars.compile(buttonTmpl)(this.props);
     }
 }
 //# sourceMappingURL=Button.js.map

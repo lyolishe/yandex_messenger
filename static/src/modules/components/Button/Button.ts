@@ -4,7 +4,6 @@ import {buttonTmpl} from "./ButtonTmpl.js";
 export type ButtonProps = {
     onClick?: ()=>void;
     text: string;
-    buttonType?: "Primary"|"Link"|"CircleOutline"
     classList?: string[]
 }
 
@@ -15,12 +14,11 @@ export class Button extends Block<ButtonProps> {
 
     componentDidMount() {
         if (this.props.onClick && this.element) {
-            this.element.onclick = this.props.onClick.bind(this)
+            this.element.onclick = this.props.onClick
         }
     }
 
     render(): string {
-        const tmpl = buttonTmpl;
-        return Handlebars.compile(tmpl)(this.props)
+        return Handlebars.compile(buttonTmpl)(this.props)
     }
 }

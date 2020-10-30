@@ -20,6 +20,7 @@ export default class Block<T extends Record<string, unknown>> {
 
     private _element: HTMLElement | null = null;
     private readonly _meta: Meta<T> | null = null;
+    private _subscriptions: Map<Element, Record<string, Function>> | null = null
 
     constructor(tagName:keyof HTMLElementTagNameMap = "div", props: T) {
         const eventBus = new EventBus();
@@ -94,6 +95,7 @@ export default class Block<T extends Record<string, unknown>> {
         // Нужно не в строку компилировать (или делать это правильно),
         // либо сразу в DOM-элементы возвращать из compile DOM-ноду
         if(this._element) this._element.innerHTML = block;
+        this._attachListeners()
     }
 
     render():string {
@@ -132,11 +134,70 @@ export default class Block<T extends Record<string, unknown>> {
         return document.createElement(tagName);
     }
 
+    private _attachListeners(): void {
+        this._gatherListeners();
+
+        const iterator = this._subscriptions?.entries();
+        let item = iterator?.next();
+        while (!item?.done) {
+            const [elem, events] = item?.value!;
+            Object.keys(events).forEach(eventName => {
+                elem.addEventListener(eventName, (events[eventName] as EventHandlerNonNull));
+            });
+            item = iterator?.next();
+        }
+    }
+
+    _gatherListeners() {
+        const block = this._element;
+        const stack = [block];
+        const subscriptions: Map<Element, Record<string, Function>> = new Map();
+
+        while (stack.length) {
+            const current = stack.pop();
+            if (!current)
+                break;
+            const attrs = Array.from(current.attributes).filter(attr => attr.name.startsWith('on'));
+
+            if (!attrs.length) {
+                const children = Array.from(current.children);
+                stack.push(...(children as HTMLElement[]));
+                continue;
+            }
+
+            if (!subscriptions.get(current)) {
+                subscriptions.set(current, {});
+            }
+            const events = subscriptions.get(current);
+
+
+            attrs.forEach(attr => {
+                const eventName = attr.name.substring(2).toLocaleLowerCase();
+
+                const handler = (this.props.handlers as Record<string, Function>)[attr.value]
+
+                if (events) {
+                    events[eventName] = handler;
+                }
+
+                current.removeAttribute(attr.name);
+            });
+            const children = Array.from(current.children);
+            stack.push(...(children as HTMLElement[]));
+        }
+
+        this._subscriptions = subscriptions;
+    }
+
     show() {
-        if(this.getContent()) this.getContent()!.style.display = "block"
+        if(this.getContent()) {
+            this.getContent()!.style.display = "block"
+        }
     }
 
     hide() {
-        if(this.getContent()) this.getContent()!.style.display = "none"
+        if(this.getContent()) {
+            this.getContent()!.style.display = "none"
+        }
     }
 }
