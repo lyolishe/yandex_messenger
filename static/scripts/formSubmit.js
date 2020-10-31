@@ -1,5 +1,4 @@
-"use strict";
-function logFieldValues(ev) {
+export function logFieldValues(ev) {
     ev.preventDefault();
     const values = {};
     const inputs = ev.target.getElementsByTagName("input");

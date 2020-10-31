@@ -23,4 +23,7 @@ export const render = (id, block) => {
     const target = document.getElementById(id);
     target === null || target === void 0 ? void 0 : target.appendChild(block);
 };
+export function splitCamelCase(str) {
+    return str.replace(/([a-z])([A-Z])/g, '$1 $2');
+}
 //# sourceMappingURL=Utilits.js.map

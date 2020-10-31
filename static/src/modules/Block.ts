@@ -34,7 +34,9 @@ export default class Block<T> {
             props: props
         };
 
-        this.props = this._makePropsProxy(props);
+        if(props){
+            this.props = this._makePropsProxy(props);
+        }
         this.children = []
         this.eventBus = () => eventBus;
 
@@ -52,7 +54,7 @@ export default class Block<T> {
     private _createResources() {
         const { tagName } = this._meta!;
         this._element = this._createDocumentElement(tagName);
-        if (this.props.classList) {
+        if (this.props?.classList) {
             this._element.classList.add(...(this.props.classList as string[]))
         }
     }
@@ -153,7 +155,7 @@ export default class Block<T> {
         }
     }
 
-    _gatherListeners() {
+    private _gatherListeners() {
         const block = this._element;
         const stack = [block];
         const subscriptions: Map<Element, Record<string, Function>> = new Map();

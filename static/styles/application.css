@@ -591,6 +591,14 @@ main {
     margin: 10px 0;
     border-radius: 30px;
 }
+
 .messageInput:focus {
     outline: none;
+}
+
+.invalidFeedback {
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
 }

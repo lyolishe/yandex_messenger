@@ -28,3 +28,7 @@ export const render = (id: string, block: HTMLElement ): void => {
     const target = document.getElementById(id);
     target?.appendChild(block);
 }
+
+export function splitCamelCase(str: string) {
+    return str.replace(/([a-z])([A-Z])/g, '$1 $2')
+}

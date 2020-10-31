@@ -1,4 +1,4 @@
-function logFieldValues(ev: Event) {
+export function logFieldValues(ev: Event) {
     ev.preventDefault()
     const values: Record<string, unknown> = {};
     const inputs = (ev.target as HTMLFormElement).getElementsByTagName("input")

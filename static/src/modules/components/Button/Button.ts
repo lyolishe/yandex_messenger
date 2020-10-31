@@ -4,11 +4,15 @@ import {buttonTmpl} from "./ButtonTmpl.js";
 export type ButtonProps = {
     onClick?: ()=>void;
     text: string;
+    type: string;
+    form: string;
 }
 
 export class Button extends Block<ButtonProps> {
     constructor(props: DefaultBlockProps<ButtonProps>) {
         super("button", props);
+        (this.element as HTMLButtonElement).setAttribute('form', props.form);
+        this.element?.setAttribute('type', props.type)
     }
 
     componentDidMount() {

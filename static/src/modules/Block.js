@@ -15,7 +15,9 @@ export default class Block {
             tagName,
             props: props
         };
-        this.props = this._makePropsProxy(props);
+        if (props) {
+            this.props = this._makePropsProxy(props);
+        }
         this.children = [];
         this.eventBus = () => eventBus;
         this._registerEvents(eventBus);
@@ -28,9 +30,10 @@ export default class Block {
         eventBus.on("flow:component-did-update" /* FLOW_CDU */, this._componentDidUpdate.bind(this));
     }
     _createResources() {
+        var _a;
         const { tagName } = this._meta;
         this._element = this._createDocumentElement(tagName);
-        if (this.props.classList) {
+        if ((_a = this.props) === null || _a === void 0 ? void 0 : _a.classList) {
             this._element.classList.add(...this.props.classList);
         }
     }
