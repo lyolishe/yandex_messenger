@@ -66,8 +66,9 @@ export default class Block {
         // Используйте шаблонизатор из npm или напишите свой безопасный
         // Нужно не в строку компилировать (или делать это правильно),
         // либо сразу в DOM-элементы возвращать из compile DOM-ноду
-        if (this._element)
+        if (this._element) {
             this._element.innerHTML = block;
+        }
         this._attachListeners();
     }
     render() {
@@ -87,9 +88,7 @@ export default class Block {
                     this.eventBus().emit("flow:component-did-update" /* FLOW_CDU */, oldProps, this.props);
                     return true;
                 }
-                else {
-                    return false;
-                }
+                return false;
             },
             deleteProperty: () => {
                 throw new Error('нет доступа');

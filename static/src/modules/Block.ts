@@ -101,7 +101,10 @@ export default class Block<T> {
         // Используйте шаблонизатор из npm или напишите свой безопасный
         // Нужно не в строку компилировать (или делать это правильно),
         // либо сразу в DOM-элементы возвращать из compile DOM-ноду
-        if(this._element) this._element.innerHTML = block;
+        if(this._element) {
+            this._element.innerHTML = block;
+        }
+
         this._attachListeners()
     }
 
@@ -122,9 +125,8 @@ export default class Block<T> {
                     target[prop] = value;
                     this.eventBus().emit(Events.FLOW_CDU, oldProps, this.props);
                     return true;
-                } else {
-                    return false;
                 }
+                return false;
             },
             deleteProperty: ()=> {
 
