@@ -19,7 +19,7 @@ api<User>('../api/userBlock.json').then(user => {
 }).then(()=> {
     sideBar.element?.appendChild(new NavTabsBlock().element!)
 }).then(()=> {
-    api<ChatItem[]>('../api/chatList.json').then(chatList => {
+    api<ChatItem[]>('../src/api/chatList.json').then(chatList => {
         const chats = new ChatListBlock();
         chatList.forEach(chatItem=> {
             const chat = new ChatItemBlock({onClick: chats.onClick, ...chatItem})
@@ -30,7 +30,7 @@ api<User>('../api/userBlock.json').then(user => {
     })
 });
 
-api<{responder: User, messages: Message[]}>('../api/dialogWithCat.json').then(data => {
+api<{responder: User, messages: Message[]}>('../src/api/dialogWithCat.json').then(data => {
     const userBlock = new UserBlock(data.responder);
     const navBar = new DialogNavBlock({userBlock});
     const messages = data.messages.map(message => new MessageBlock({message, classList: message.isResponder? ["chatItemResponse"] : ["chatItem"]}));

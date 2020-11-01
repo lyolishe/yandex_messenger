@@ -8,9 +8,7 @@ import { ChatItemBlock } from "../src/modules/components/ChatItemBlock/ChatItemB
 import { BlankDialogBlock, blankDialogPageInitProps } from "../src/modules/components/BlankDialogBlock/BlankDialogBlock.js";
 let sideBar = new Block("aside", { classList: ["appSideBar"] });
 let main = new Block("main", {});
-render('root', sideBar.element);
-render('root', main.element);
-api('../api/userBlock.json').then(user => {
+api('../src/api/userBlock.json').then(user => {
     var _a;
     const userBlock = new UserBlock(user);
     (_a = sideBar.element) === null || _a === void 0 ? void 0 : _a.appendChild(userBlock.element);
@@ -18,7 +16,7 @@ api('../api/userBlock.json').then(user => {
     var _a;
     (_a = sideBar.element) === null || _a === void 0 ? void 0 : _a.appendChild(new NavTabsBlock().element);
 }).then(() => {
-    api('../api/chatList.json').then(chatList => {
+    api('../src/api/chatList.json').then(chatList => {
         var _a;
         const chats = new ChatListBlock();
         chatList.forEach(chatItem => {
@@ -36,4 +34,6 @@ const dialogBlock = new BlankDialogBlock(blankDialogPageInitProps);
 const appWrapper = new Block('div', { classList: ["appWrapper"] });
 (_b = appWrapper.element) === null || _b === void 0 ? void 0 : _b.append(app.element);
 (_c = main.element) === null || _c === void 0 ? void 0 : _c.append(appWrapper.element);
+render('root', sideBar.element);
+render('root', main.element);
 //# sourceMappingURL=ChatListPage.js.map

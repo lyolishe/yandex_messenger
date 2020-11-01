@@ -1,6 +1,6 @@
 import Block from "../Block.js";
 import { FormItemBlock } from "../FormItem/FormItemBlock.js";
-import { logFieldValues } from "../../../scripts/formSubmit.js";
+import { logFieldValues } from "../Utilits.js";
 export class Form extends Block {
     constructor(props) {
         var _a, _b, _c, _d;

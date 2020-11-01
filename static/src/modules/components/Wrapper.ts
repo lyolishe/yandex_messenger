@@ -1,14 +1,15 @@
 import Block, {DefaultBlockProps} from "../Block.js";
 
 export type WrapperProps = {
-    layers: Block<{}>[]
+    layers?: Wrapper[]
     classList: string[]
 }
 
+//TODO: Тоже треш, перепридумать заполнение слоёв
 export class Wrapper extends Block<WrapperProps> {
     constructor(props: DefaultBlockProps<WrapperProps>) {
         super('div', props)
-        this._buildLayers();
+        this._buildLayers()
     }
 
     get lastLayer(): HTMLElement {
@@ -20,9 +21,11 @@ export class Wrapper extends Block<WrapperProps> {
     }
 
     private _buildLayers = () => {
-        this.props.layers.reduce((curr, next)=>{
-            curr?.appendChild(next.element!);
-            return next.element
-        }, this.element)
+        if (this.props.layers) {
+            this.props.layers.reduce((curr, next) => {
+                curr?.appendChild(next.element!);
+                return next.element
+            }, this.element)
+        }
     }
 }

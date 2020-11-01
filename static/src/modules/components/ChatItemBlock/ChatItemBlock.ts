@@ -9,6 +9,9 @@ export type ChatItemProps = ChatItem & {
 export class ChatItemBlock extends Block<ChatItemProps> {
     constructor(props: DefaultBlockProps<ChatItemProps>) {
         super("li", props)
+        if (this.props.isActive) {
+            this.element?.classList.add('active');
+        }
     }
 
     componentDidMount() {

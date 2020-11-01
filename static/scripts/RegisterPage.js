@@ -7,9 +7,9 @@ import { RegisterForm } from "../src/modules/components/RegisterForm/RegisterFor
 const wrapper = new Wrapper({
     classList: ["container", "flexColumn"],
     layers: [
-        new Block('div', { classList: ["row", "myAuto"] }),
-        new Block('div', { classList: ["col", "mxAuto"] }),
-        new Block('div', { classList: ["card", "logInCard"] })
+        new Wrapper({ classList: ["row", "myAuto"] }),
+        new Wrapper({ classList: ["col", "mxAuto"] }),
+        new Wrapper({ classList: ["card", "logInCard"] })
     ]
 });
 const card = wrapper.lastLayer;

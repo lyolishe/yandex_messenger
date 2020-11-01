@@ -13,18 +13,13 @@ import {
 let sideBar = new Block("aside", {classList: ["appSideBar"]})
 let main = new Block("main", {})
 
-
-
-render('root', sideBar.element!);
-render('root', main.element!)
-
-api<User>('../api/userBlock.json').then(user => {
+api<User>('../src/api/userBlock.json').then(user => {
     const userBlock = new UserBlock(user)
     sideBar.element?.appendChild(userBlock.element!)
 }).then(()=> {
     sideBar.element?.appendChild(new NavTabsBlock().element!)
 }).then(()=> {
-    api<ChatItem[]>('../api/chatList.json').then(chatList => {
+    api<ChatItem[]>('../src/api/chatList.json').then(chatList => {
         const chats = new ChatListBlock();
         chatList.forEach(chatItem=> {
             const chat = new ChatItemBlock({onClick: chats.onClick, ...chatItem})
@@ -41,3 +36,6 @@ app.element?.append(dialogBlock.element!)
 const appWrapper = new Block('div', {classList: ["appWrapper"]})
 appWrapper.element?.append(app.element!)
 main.element?.append(appWrapper.element!);
+
+render('root', sideBar.element!);
+render('root', main.element!)

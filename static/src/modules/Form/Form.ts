@@ -1,6 +1,6 @@
 import Block, {DefaultBlockProps} from "../Block.js";
 import {FormItemBlock, FormItemBlockProps} from "../FormItem/FormItemBlock.js";
-import {logFieldValues} from "../../../scripts/formSubmit.js";
+import {logFieldValues} from "../Utilits.js";
 
 export type FormProps = {
     initialValues?: Record<string, string|number>

@@ -26,4 +26,12 @@ export const render = (id, block) => {
 export function splitCamelCase(str) {
     return str.replace(/([a-z])([A-Z])/g, '$1 $2');
 }
+export function logFieldValues(ev) {
+    const values = {};
+    const inputs = ev.target.getElementsByTagName("input");
+    for (const input of inputs) {
+        values[input.name] = input.value;
+    }
+    console.log(values);
+}
 //# sourceMappingURL=Utilits.js.map

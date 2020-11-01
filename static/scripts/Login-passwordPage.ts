@@ -2,14 +2,14 @@ import {Wrapper} from "../src/modules/components/Wrapper.js";
 import Block from "../src/modules/Block.js";
 import {Button} from "../src/modules/components/Button/Button.js";
 import {render} from "../src/modules/Utilits.js";
-import {PasswordForm} from "../src/modules/components/LoginForm/PasswordForm.js";
+import {PasswordForm} from "../src/modules/components/LoginForm/LoginForm.js";
 
 const wrapper = new Wrapper({
     classList: ["container", "flexColumn"],
     layers: [
-        new Block<{}>('div', {classList: ["row", "myAuto"]}),
-        new Block<{}>('div', {classList: ["col", "mxAuto"]}),
-        new Block<{}>('div', {classList: ["card", "logInCard"]})
+        new Wrapper({classList: ["row", "myAuto"]}),
+        new Wrapper({classList: ["col", "mxAuto"]}),
+        new Wrapper({classList: ["card", "logInCard"]})
     ]}
 )
 const card = wrapper.lastLayer;
