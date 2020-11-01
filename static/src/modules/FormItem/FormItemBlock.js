@@ -1,5 +1,5 @@
-import Block from "../../../Block.js";
-import { Validation } from "../../../Validation.js";
+import Block from "../Block.js";
+import { Validation } from "../Validation.js";
 import { formItemTmpl } from "./FormItemTmpl.js";
 export class FormItemBlock extends Block {
     constructor(props) {

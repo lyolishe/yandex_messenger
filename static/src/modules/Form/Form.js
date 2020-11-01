@@ -1,20 +1,21 @@
-import Block from "../../Block.js";
-import { FormItemBlock } from "./FormItem/FormItemBlock.js";
-import { logFieldValues } from "../../../../scripts/formSubmit.js";
+import Block from "../Block.js";
+import { FormItemBlock } from "../FormItem/FormItemBlock.js";
+import { logFieldValues } from "../../../scripts/formSubmit.js";
 export class Form extends Block {
     constructor(props) {
         var _a, _b, _c, _d;
         super('form', props);
         this._attachFormItems = () => {
-            var _a, _b, _c, _d;
-            const items = (_a = this.element) === null || _a === void 0 ? void 0 : _a.getElementsByTagName('formitem');
-            for (let item of items) {
+            var _a, _b, _c;
+            const items = Array.from((_a = this.element) === null || _a === void 0 ? void 0 : _a.getElementsByTagName('formitem')).reverse();
+            while (items.length) {
+                const item = items.pop();
                 const dataset = item.dataset;
                 const initialValue = (_c = (_b = this.props) === null || _b === void 0 ? void 0 : _b.initialValues) === null || _c === void 0 ? void 0 : _c[dataset['name']];
                 const formItem = new FormItemBlock(Object.assign(Object.assign({}, dataset), { initialValue }));
                 this.formItems.push(formItem);
-                (_d = item.parentNode) === null || _d === void 0 ? void 0 : _d.insertBefore(formItem.element, item);
-                item.remove();
+                item === null || item === void 0 ? void 0 : item.after(formItem.element);
+                item === null || item === void 0 ? void 0 : item.remove();
             }
         };
         this._onSubmit = (e) => {

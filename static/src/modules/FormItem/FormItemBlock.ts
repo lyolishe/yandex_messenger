@@ -1,5 +1,5 @@
-import Block, {DefaultBlockProps} from "../../../Block.js";
-import {Validation, Validator} from "../../../Validation.js";
+import Block, {DefaultBlockProps} from "../Block.js";
+import {Validation, Validator} from "../Validation.js";
 import {formItemTmpl} from "./FormItemTmpl.js";
 
 export type FormItemBlockProps = {

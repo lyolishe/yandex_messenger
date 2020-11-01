@@ -1,6 +1,6 @@
-import Block, {DefaultBlockProps} from "../../Block.js";
-import {FormItemBlock, FormItemBlockProps} from "./FormItem/FormItemBlock.js";
-import {logFieldValues} from "../../../../scripts/formSubmit.js";
+import Block, {DefaultBlockProps} from "../Block.js";
+import {FormItemBlock, FormItemBlockProps} from "../FormItem/FormItemBlock.js";
+import {logFieldValues} from "../../../scripts/formSubmit.js";
 
 export type FormProps = {
     initialValues?: Record<string, string|number>
@@ -23,16 +23,18 @@ export class Form extends Block<FormProps> {
     }
 
     private readonly _attachFormItems = () => {
-        const items = this.element?.getElementsByTagName('formitem');
-        for (let item of items!) {
+        const items = Array.from(this.element?.getElementsByTagName('formitem')!).reverse();
+
+        while (items.length) {
+            const item = items.pop()
             const dataset = (item as HTMLElement).dataset;
             const initialValue = this.props?.initialValues?.[dataset['name']!];
-
             const formItem = new FormItemBlock({...dataset, initialValue} as FormItemBlockProps);
             this.formItems.push(formItem);
-            item.parentNode?.insertBefore(formItem.element!, item);
-            item.remove();
+            item?.after(formItem.element!);
+            item?.remove()
         }
+
     }
 
     private readonly _onSubmit = (e: Event) => {

@@ -1,7 +1,7 @@
 import Block, {DefaultBlockProps} from "../Block.js";
 
 export type WrapperProps = {
-    children: Block<{}>[]
+    layers: Block<{}>[]
     classList: string[]
 }
 
@@ -20,7 +20,7 @@ export class Wrapper extends Block<WrapperProps> {
     }
 
     private _buildLayers = () => {
-        this.props.children.reduce((curr, next)=>{
+        this.props.layers.reduce((curr, next)=>{
             curr?.appendChild(next.element!);
             return next.element
         }, this.element)

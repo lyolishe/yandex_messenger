@@ -3,7 +3,7 @@ export class Wrapper extends Block {
     constructor(props) {
         super('div', props);
         this._buildLayers = () => {
-            this.props.children.reduce((curr, next) => {
+            this.props.layers.reduce((curr, next) => {
                 curr === null || curr === void 0 ? void 0 : curr.appendChild(next.element);
                 return next.element;
             }, this.element);
