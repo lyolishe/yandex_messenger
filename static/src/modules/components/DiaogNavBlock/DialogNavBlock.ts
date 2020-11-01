@@ -1,14 +1,13 @@
-import {UserBlockProps} from "../UserBlock/UserBlock.js";
-import Block from "../../Block.js";
+import Block, {DefaultBlockProps} from "../../Block.js";
 import {dialogNavTmpl} from "./DialogNavTmpl.js";
+import {UserBlock} from "../UserBlock/UserBlock";
 
 export type DialogNavBlockProps = {
-    userBlock: Block<UserBlockProps>;
-    classList?: string[];
+    userBlock: UserBlock;
 }
 
 export class DialogNavBlock extends Block<DialogNavBlockProps>{
-    constructor(props: DialogNavBlockProps) {
+    constructor(props: DefaultBlockProps<DialogNavBlockProps>) {
         super("nav", {...props, classList: ["navbar"]});
     }
 

@@ -6,35 +6,10 @@
     <link rel="stylesheet" href="../styles/normalize.css">
     <link rel="stylesheet" href="../styles/application.css">
     <link rel="stylesheet" href="../styles/@mdi/font/css/materialdesignicons.min.css">
-    <script src="../scripts/formSubmit.ts" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js" integrity="sha512-zT3zHcFYbQwjHdKjCu6OMmETx8fJA9S7E6W7kBeFxultf75OPTYUJigEKX58qgyQMi1m1EgenfjMXlRZG8BXaw==" crossorigin="anonymous"></script>
+    <script type="module" src="../scripts/Login-loginPage.js"></script>
 </head>
 <body>
-    <div class="appWrapper">
-        <div class="container flexColumn">
-            <div class="row myAuto">
-                <div class="col mxAuto">
-                    <div class="card logInCard">
-                        <div class="logInHeader">
-                            <h3>Log In</h3>
-                        </div>
-                        <div class="logInBody">
-                            <form id="form" onsubmit="logFieldValues(event)">
-                                <div class="formItem">
-                                    <label for="login" class="formLabel">
-                                        Login
-                                    </label>
-                                    <input id="login" type="text" name="login" class="formControl loginInput"/>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="loginFooter">
-                            <a href="RegisterPage.html" class="link">Sign In</a>
-                            <button type="submit" form="form" class="btn btnCircleOutline"> <span class="mdi mdi-arrow-right"></span> </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="root" class="appWrapper"></div>
 </body>
 </html>

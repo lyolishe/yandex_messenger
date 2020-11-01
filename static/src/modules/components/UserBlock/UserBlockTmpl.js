@@ -1,8 +1,10 @@
 export const userBlockTmpl = `
     <div class="user">
+        {{#if avatarUrl}}
         <div class="userAvatar">
             <img src="{{avatarUrl}}"/>
         </div>
+        {{/if}}
         <h3>{{firstName}} {{lastName}}</h3>
     </div>
 `;

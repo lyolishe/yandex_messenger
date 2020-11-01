@@ -1,4 +1,4 @@
-type CallBack = (...args: any) => void
+type CallBack = (...args: unknown[]) => void
 
 export class EventBus {
     listeners: { [event: string]:CallBack[] };

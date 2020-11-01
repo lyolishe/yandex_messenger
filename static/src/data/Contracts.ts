@@ -12,10 +12,17 @@ export type ChatItem = {
         time?: string;
     },
     unreadCount?: number;
+    isActive: boolean;
 }
 
 export type Message = {
     isResponder?: boolean;
     messageText?: string;
     imagesUrl?: string[];
+}
+
+export type SettingProps = {
+    active?: boolean;
+    point?: string;
+    class?: string;
 }

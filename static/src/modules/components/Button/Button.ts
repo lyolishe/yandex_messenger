@@ -1,26 +1,27 @@
-import Block from "../../Block.js";
+import Block, {DefaultBlockProps} from "../../Block.js";
 import {buttonTmpl} from "./ButtonTmpl.js";
 
 export type ButtonProps = {
     onClick?: ()=>void;
     text: string;
-    buttonType?: "Primary"|"Link"|"CircleOutline"
-    classList?: string[]
+    type: string;
+    form?: string;
 }
 
 export class Button extends Block<ButtonProps> {
-    constructor(props: ButtonProps) {
+    constructor(props: DefaultBlockProps<ButtonProps>) {
         super("button", props);
+        this.element?.setAttribute('form', props.form!);
+        this.element?.setAttribute('type', props.type)
     }
 
     componentDidMount() {
         if (this.props.onClick && this.element) {
-            this.element.onclick = this.props.onClick.bind(this)
+            this.element.onclick = this.props.onClick
         }
     }
 
     render(): string {
-        const tmpl = buttonTmpl;
-        return Handlebars.compile(tmpl)(this.props)
+        return Handlebars.compile(buttonTmpl)(this.props)
     }
 }

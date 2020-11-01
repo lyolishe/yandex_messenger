@@ -14,7 +14,8 @@
       "ES6",
       "DOM.Iterable",
       "scripthost",
-      "es2015.proxy"
+      "es2015.proxy",
+      "es2019"
     ]
   },
   "exclude": [

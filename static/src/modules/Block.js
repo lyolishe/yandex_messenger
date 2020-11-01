@@ -3,6 +3,7 @@ export default class Block {
     constructor(tagName = "div", props) {
         this._element = null;
         this._meta = null;
+        this._subscriptions = null;
         this.setProps = (nextProps) => {
             if (!nextProps) {
                 return;
@@ -12,9 +13,11 @@ export default class Block {
         const eventBus = new EventBus();
         this._meta = {
             tagName,
-            props: props !== null && props !== void 0 ? props : {}
+            props: props
         };
-        this.props = this._makePropsProxy(props);
+        if (props) {
+            this.props = this._makePropsProxy(props);
+        }
         this.children = [];
         this.eventBus = () => eventBus;
         this._registerEvents(eventBus);
@@ -27,9 +30,10 @@ export default class Block {
         eventBus.on("flow:component-did-update" /* FLOW_CDU */, this._componentDidUpdate.bind(this));
     }
     _createResources() {
+        var _a;
         const { tagName } = this._meta;
         this._element = this._createDocumentElement(tagName);
-        if (this.props.classList) {
+        if ((_a = this.props) === null || _a === void 0 ? void 0 : _a.classList) {
             this._element.classList.add(...this.props.classList);
         }
     }
@@ -62,8 +66,10 @@ export default class Block {
         // Используйте шаблонизатор из npm или напишите свой безопасный
         // Нужно не в строку компилировать (или делать это правильно),
         // либо сразу в DOM-элементы возвращать из compile DOM-ноду
-        if (this._element)
+        if (this._element) {
             this._element.innerHTML = block;
+        }
+        this._attachListeners();
     }
     render() {
         var _a, _b;
@@ -82,9 +88,7 @@ export default class Block {
                     this.eventBus().emit("flow:component-did-update" /* FLOW_CDU */, oldProps, this.props);
                     return true;
                 }
-                else {
-                    return false;
-                }
+                return false;
             },
             deleteProperty: () => {
                 throw new Error('нет доступа');
@@ -96,13 +100,59 @@ export default class Block {
         //TODO: Нужно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
         return document.createElement(tagName);
     }
+    _attachListeners() {
+        var _a;
+        this._gatherListeners();
+        const iterator = (_a = this._subscriptions) === null || _a === void 0 ? void 0 : _a.entries();
+        let item = iterator === null || iterator === void 0 ? void 0 : iterator.next();
+        while (!(item === null || item === void 0 ? void 0 : item.done)) {
+            const [elem, events] = item === null || item === void 0 ? void 0 : item.value;
+            Object.keys(events).forEach(eventName => {
+                elem.addEventListener(eventName, events[eventName]);
+            });
+            item = iterator === null || iterator === void 0 ? void 0 : iterator.next();
+        }
+    }
+    _gatherListeners() {
+        const block = this._element;
+        const stack = [block];
+        const subscriptions = new Map();
+        while (stack.length) {
+            const current = stack.pop();
+            if (!current)
+                break;
+            const attrs = Array.from(current.attributes).filter(attr => attr.name.startsWith('on'));
+            if (!attrs.length) {
+                const children = Array.from(current.children);
+                stack.push(...children);
+                continue;
+            }
+            if (!subscriptions.get(current)) {
+                subscriptions.set(current, {});
+            }
+            const events = subscriptions.get(current);
+            attrs.forEach(attr => {
+                const eventName = attr.name.substring(2).toLocaleLowerCase();
+                const handler = this.props.handlers[attr.value];
+                if (events) {
+                    events[eventName] = handler;
+                }
+                current.removeAttribute(attr.name);
+            });
+            const children = Array.from(current.children);
+            stack.push(...children);
+        }
+        this._subscriptions = subscriptions;
+    }
     show() {
-        if (this.getContent())
+        if (this.getContent()) {
             this.getContent().style.display = "block";
+        }
     }
     hide() {
-        if (this.getContent())
+        if (this.getContent()) {
             this.getContent().style.display = "none";
+        }
     }
 }
 //# sourceMappingURL=Block.js.map

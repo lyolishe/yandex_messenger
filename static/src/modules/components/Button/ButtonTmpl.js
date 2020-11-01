@@ -1,4 +1,4 @@
-export const buttonTmpl = `<div>
+export const buttonTmpl = `
     {{text}}
-</div>`;
+`;
 //# sourceMappingURL=ButtonTmpl.js.map
