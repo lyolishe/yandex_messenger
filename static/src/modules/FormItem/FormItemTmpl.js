@@ -3,7 +3,7 @@ export const formItemTmpl = `
         {{label}}
     </label>
     <input id="{{name}}"
-    {{#if placeholder}} {{placeholder}} {{/if}}
+    {{#if placeholder}} placeholder="{{placeholder}}" {{/if}}
     {{#if type}} type="{{type}}" {{/if}}
     {{#if name}} name="{{name}}" {{/if}}
     class="formControl loginInput" 
