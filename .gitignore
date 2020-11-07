@@ -1,3 +1,5 @@
 /node_modules
 /.idea
-/npm-debug.log
+/static/outDir
+npm-debug.log
+netlify.toml
