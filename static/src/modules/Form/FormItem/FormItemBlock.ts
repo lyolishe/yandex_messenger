@@ -1,5 +1,5 @@
-import Block, {DefaultBlockProps} from "../Block.js";
-import {Validation, Validator} from "../Validation.js";
+import Block, {DefaultBlockProps} from "../../Block.js";
+import {Validation, Validator} from "../../Validation.js";
 import {formItemTmpl} from "./FormItemTmpl.js";
 
 export type FormItemBlockProps = {
@@ -26,7 +26,7 @@ export class FormItemBlock extends Block<FormItemBlockProps>{
 
         this.errors = [];
 
-        const input = this.element?.getElementsByTagName('input')
+        const input = this.element.getElementsByTagName('input')
         if (input) {
             this.validator = new Validation(input[0]!, props.validateMessages, props.validators);
             input[0].addEventListener('blur', this.appendErrors.bind(this))
@@ -40,7 +40,7 @@ export class FormItemBlock extends Block<FormItemBlockProps>{
     }
 
     appendErrors = ():void => {
-        if(this.element?.lastElementChild?.tagName === 'span'.toUpperCase()) {
+        if(this.element.lastElementChild?.tagName === 'span'.toUpperCase()) {
             this.removeErrors();
         }
 
@@ -54,7 +54,7 @@ export class FormItemBlock extends Block<FormItemBlockProps>{
 
     removeErrors = (): void => {
         this.errors = []
-        if (this.element?.lastElementChild?.tagName === 'span'.toUpperCase()) {
+        if (this.element.lastElementChild?.tagName === 'span'.toUpperCase()) {
             this.element.removeChild(this.element.lastElementChild);
         }
     }

@@ -10,7 +10,7 @@ import { DialogBlock } from "../src/modules/components/DialogBlock/DialogBlock.j
 import { MessageInputBlock } from "../src/modules/components/MessageInputBlock/MessageInputBlock.js";
 let sideBar = new Block("aside", { classList: ["appSideBar"] });
 let main = new Block("main", {});
-api('../api/userBlock.json').then(user => {
+api('../src/api/userBlock.json').then(user => {
     var _a;
     const userBlock = new UserBlock(user);
     (_a = sideBar.element) === null || _a === void 0 ? void 0 : _a.appendChild(userBlock.element);

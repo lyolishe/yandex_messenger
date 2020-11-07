@@ -1,8 +1,9 @@
 import {Wrapper} from "../src/modules/components/Wrapper.js";
 import Block from "../src/modules/Block.js";
 import {Button} from "../src/modules/components/Button/Button.js";
-import {LoginForm} from "../src/modules/components/LoginForm/LoginForm.js";
+import {loginFormTmpl} from "../src/modules/Form/FormTamplates/LoginFormTmpl.js";
 import {render} from "../src/modules/Utilits.js";
+import {Form} from "../src/modules/Form/Form.js";
 
 const wrapper = new Wrapper({
     classList: ["container", "flexColumn"],
@@ -31,11 +32,11 @@ if (submitBtn.element){
     cardFooter.element?.appendChild(submitBtn.element)
 }
 
-const form = new LoginForm({id: "form", method: "Login-passwordPage.html"});
+const form = new Form({id: "form", method: "Login-passwordPage.html"}, loginFormTmpl);
 
-cardBody.element?.appendChild(form.element!);
-card.appendChild(cardHeader.element!);
-card.appendChild(cardBody.element!);
-card.appendChild(cardFooter.element!);
+cardBody.element?.appendChild(form.element);
+card.appendChild(cardHeader.element);
+card.appendChild(cardBody.element);
+card.appendChild(cardFooter.element);
 
-render('root', wrapper.element!);
+render('root', wrapper.element);

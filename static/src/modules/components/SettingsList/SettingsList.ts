@@ -24,7 +24,7 @@ export class SettingItem extends Block<SettingsItemProps> {
     constructor(props: DefaultBlockProps<SettingsItemProps>) {
         super('li', props);
         if (this.props.active) {
-            this.element?.classList.add('active');
+            this.element.classList.add('active');
         }
     }
 
@@ -39,7 +39,7 @@ export class SettingsList extends Block<{}> {
         super('ul', {...props, classList: ["settingsList"]});
         this.onClick = function onClick(e: Event){
             this.children.forEach((elem:ChatItemBlock)=> {
-                elem.element?.classList.remove('active');
+                elem.element.classList.remove('active');
             });
             (e.currentTarget as HTMLElement).classList.add('active');
         }.bind(this)

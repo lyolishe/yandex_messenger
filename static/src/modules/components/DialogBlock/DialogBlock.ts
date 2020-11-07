@@ -13,9 +13,9 @@ export class DialogBlock extends Block<DialogBlockProps> {
     componentDidMount() {
         const list = new Block('ul', {classList: ["messageList"]})
         this.props.messages.forEach(message => {
-            list.element?.appendChild(message.element!);
+            list.element.appendChild(message.element);
         })
-        this.element?.append(list.element!);
+        this.element.append(list.element);
     }
 
     render(): string {

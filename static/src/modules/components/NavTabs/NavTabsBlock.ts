@@ -7,8 +7,7 @@ export class NavTabsBlock extends Block<{}> {
     }
 
     render(): string {
-        const tmpl = navTabsTmpl;
-        return Handlebars.compile(tmpl)(this.props)
+        return Handlebars.compile(navTabsTmpl)(this.props)
     }
 }
 

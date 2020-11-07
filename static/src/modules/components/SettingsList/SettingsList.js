@@ -15,10 +15,9 @@ export const settingsList = [
 ];
 export class SettingItem extends Block {
     constructor(props) {
-        var _a;
         super('li', props);
         if (this.props.active) {
-            (_a = this.element) === null || _a === void 0 ? void 0 : _a.classList.add('active');
+            this.element.classList.add('active');
         }
     }
     render() {
@@ -30,8 +29,7 @@ export class SettingsList extends Block {
         super('ul', Object.assign(Object.assign({}, props), { classList: ["settingsList"] }));
         this.onClick = function onClick(e) {
             this.children.forEach((elem) => {
-                var _a;
-                (_a = elem.element) === null || _a === void 0 ? void 0 : _a.classList.remove('active');
+                elem.element.classList.remove('active');
             });
             e.currentTarget.classList.add('active');
         }.bind(this);

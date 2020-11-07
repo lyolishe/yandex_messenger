@@ -12,10 +12,10 @@ export class DialogNavBlock extends Block<DialogNavBlockProps>{
     }
 
     componentDidMount() {
-        this.element?.appendChild(this.props.userBlock.element!);
+        this.element.appendChild(this.props.userBlock.element);
     }
 
     render(): string {
-        return  this.element?.innerHTML + dialogNavTmpl
+        return  this.element.innerHTML + dialogNavTmpl
     }
 }

@@ -11,12 +11,12 @@ export type ButtonProps = {
 export class Button extends Block<ButtonProps> {
     constructor(props: DefaultBlockProps<ButtonProps>) {
         super("button", props);
-        this.element?.setAttribute('form', props.form!);
-        this.element?.setAttribute('type', props.type)
+        this.element.setAttribute('form', props.form!);
+        this.element.setAttribute('type', props.type)
     }
 
     componentDidMount() {
-        if (this.props.onClick && this.element) {
+        if (this.props.onClick) {
             this.element.onclick = this.props.onClick
         }
     }

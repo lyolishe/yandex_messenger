@@ -5,8 +5,7 @@ export class NavTabsBlock extends Block {
         super('nav', { classList: ["navTabs"] });
     }
     render() {
-        const tmpl = navTabsTmpl;
-        return Handlebars.compile(tmpl)(this.props);
+        return Handlebars.compile(navTabsTmpl)(this.props);
     }
 }
 //# sourceMappingURL=NavTabsBlock.js.map

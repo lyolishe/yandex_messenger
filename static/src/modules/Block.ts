@@ -23,16 +23,18 @@ export default class Block<T> {
     //Для учёта только там, где это нужно, пока нет реализации всех компонентов
     children: unknown[];
 
-    private _element: HTMLElement | null = null;
-    private readonly _meta: Meta<DefaultBlockProps<T>> | null = null;
-    private _subscriptions: Map<Element, Record<string, Function>> | null = null
+    private _element: HTMLElement;
+    private readonly _meta: Meta<DefaultBlockProps<T>>;
+    private _subscriptions: Map<Element, Record<string, Function>>;
+    private _tmpl?: string;
 
-    constructor(tagName:keyof HTMLElementTagNameMap = "div", props: DefaultBlockProps<T>) {
+    constructor(tagName:keyof HTMLElementTagNameMap = "div", props: DefaultBlockProps<T>, tmpl?: string) {
         const eventBus = new EventBus();
         this._meta = {
             tagName,
             props: props
         };
+        this._tmpl = tmpl;
 
         if(props){
             this.props = this._makePropsProxy(props);
@@ -91,7 +93,7 @@ export default class Block<T> {
         Object.assign(this.props, nextProps);
     };
 
-    get element(): HTMLElement | null {
+    get element(): HTMLElement {
         return this._element;
     }
 
@@ -101,18 +103,15 @@ export default class Block<T> {
         // Используйте шаблонизатор из npm или напишите свой безопасный
         // Нужно не в строку компилировать (или делать это правильно),
         // либо сразу в DOM-элементы возвращать из compile DOM-ноду
-        if(this._element) {
-            this._element.innerHTML = block;
-        }
-
+        this._element.innerHTML = block;
         this._attachListeners()
     }
 
     render():string {
-        return this._element?.innerHTML?? ''
+        return this._tmpl? this._tmpl : this._element.innerHTML?? ''
     }
 
-    getContent(): HTMLElement| null{
+    getContent(): HTMLElement{
         return this.element;
     }
 

@@ -2,8 +2,9 @@ var _a, _b;
 import { Wrapper } from "../src/modules/components/Wrapper.js";
 import Block from "../src/modules/Block.js";
 import { Button } from "../src/modules/components/Button/Button.js";
-import { LoginForm } from "../src/modules/components/LoginForm/LoginForm.js";
+import { loginFormTmpl } from "../src/modules/Form/FormTamplates/LoginFormTmpl.js";
 import { render } from "../src/modules/Utilits.js";
+import { Form } from "../src/modules/Form/Form.js";
 const wrapper = new Wrapper({
     classList: ["container", "flexColumn"],
     layers: [
@@ -28,7 +29,7 @@ if (submitBtn.element) {
     submitBtn.element.innerHTML = "<span class=\"mdi mdi-arrow-right\"></span>";
     (_a = cardFooter.element) === null || _a === void 0 ? void 0 : _a.appendChild(submitBtn.element);
 }
-const form = new LoginForm({ id: "form", method: "Login-passwordPage.html" });
+const form = new Form({ id: "form", method: "Login-passwordPage.html" }, loginFormTmpl);
 (_b = cardBody.element) === null || _b === void 0 ? void 0 : _b.appendChild(form.element);
 card.appendChild(cardHeader.element);
 card.appendChild(cardBody.element);
