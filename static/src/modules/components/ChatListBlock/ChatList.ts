@@ -7,7 +7,7 @@ export class ChatListBlock extends Block<{}> {
         super('ul', {...props, classList: ["chatList"]});
         this.onClick = function onClick(e: Event){
             this.children.forEach((elem:ChatItemBlock)=> {
-                elem.element?.classList.remove('active');
+                elem.element.classList.remove('active');
             });
             (e.currentTarget as HTMLElement).classList.add('active');
         }.bind(this)

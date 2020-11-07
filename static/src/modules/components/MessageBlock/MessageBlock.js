@@ -5,8 +5,7 @@ export class MessageBlock extends Block {
         super("li", props);
     }
     render() {
-        const tmpl = messageBlockTmpl;
-        return Handlebars.compile(tmpl)(this.props.message);
+        return Handlebars.compile(messageBlockTmpl)(this.props.message);
     }
 }
 //# sourceMappingURL=MessageBlock.js.map

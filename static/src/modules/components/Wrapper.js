@@ -6,7 +6,7 @@ export class Wrapper extends Block {
         this._buildLayers = () => {
             if (this.props.layers) {
                 this.props.layers.reduce((curr, next) => {
-                    curr === null || curr === void 0 ? void 0 : curr.appendChild(next.element);
+                    curr.appendChild(next.element);
                     return next.element;
                 }, this.element);
             }
@@ -15,7 +15,7 @@ export class Wrapper extends Block {
     }
     get lastLayer() {
         let current = this.element;
-        while (current === null || current === void 0 ? void 0 : current.lastElementChild) {
+        while (current.lastElementChild) {
             current = current.lastElementChild;
         }
         return current;

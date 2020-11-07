@@ -12,7 +12,6 @@ export class MessageBlock extends Block<MessageProps> {
     }
 
     render(): string {
-        const tmpl = messageBlockTmpl;
-        return Handlebars.compile(tmpl)(this.props.message);
+        return Handlebars.compile(messageBlockTmpl)(this.props.message);
     }
 }

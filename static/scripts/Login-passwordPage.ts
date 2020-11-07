@@ -2,7 +2,8 @@ import {Wrapper} from "../src/modules/components/Wrapper.js";
 import Block from "../src/modules/Block.js";
 import {Button} from "../src/modules/components/Button/Button.js";
 import {render} from "../src/modules/Utilits.js";
-import {PasswordForm} from "../src/modules/components/LoginForm/LoginForm.js";
+import {passwordFormTmpl} from "../src/modules/Form/FormTamplates/LoginFormTmpl.js";
+import {Form} from "../src/modules/Form/Form.js";
 
 const wrapper = new Wrapper({
     classList: ["container", "flexColumn"],
@@ -24,13 +25,13 @@ if (cardHeader.element) {
     cardHeader.element.innerHTML = "<h3>Log In</h3>"
 }
 
-cardFooter.element?.appendChild(submitBtn.element!)
+cardFooter.element?.appendChild(submitBtn.element)
 
-const form = new PasswordForm({id: "form", method: "ChatListPage.html"});
+const form = new Form({id: "form", method: "ChatListPage.html"}, passwordFormTmpl);
 
-cardBody.element?.appendChild(form.element!);
-card.appendChild(cardHeader.element!);
-card.appendChild(cardBody.element!);
-card.appendChild(cardFooter.element!);
+cardBody.element?.appendChild(form.element);
+card.appendChild(cardHeader.element);
+card.appendChild(cardBody.element);
+card.appendChild(cardFooter.element);
 
-render('root', wrapper.element!);
+render('root', wrapper.element);

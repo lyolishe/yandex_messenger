@@ -8,7 +8,6 @@ export class UserBlock extends Block<User> {
     }
 
     render(): string {
-        const tmpl = userBlockTmpl;
-        return Handlebars.compile(tmpl)(this.props)
+        return Handlebars.compile(userBlockTmpl)(this.props)
     }
 }

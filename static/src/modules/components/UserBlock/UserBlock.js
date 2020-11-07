@@ -5,8 +5,7 @@ export class UserBlock extends Block {
         super("div", props);
     }
     render() {
-        const tmpl = userBlockTmpl;
-        return Handlebars.compile(tmpl)(this.props);
+        return Handlebars.compile(userBlockTmpl)(this.props);
     }
 }
 //# sourceMappingURL=UserBlock.js.map

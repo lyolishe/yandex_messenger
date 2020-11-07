@@ -13,7 +13,7 @@ import {MessageInputBlock} from "../src/modules/components/MessageInputBlock/Mes
 let sideBar = new Block("aside", {classList: ["appSideBar"]})
 let main = new Block("main", {})
 
-api<User>('../api/userBlock.json').then(user => {
+api<User>('../src/api/userBlock.json').then(user => {
     const userBlock = new UserBlock(user)
     sideBar.element?.appendChild(userBlock.element!)
 }).then(()=> {

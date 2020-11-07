@@ -1,9 +1,6 @@
 import { EventBus } from './EventBus.js';
 export default class Block {
-    constructor(tagName = "div", props) {
-        this._element = null;
-        this._meta = null;
-        this._subscriptions = null;
+    constructor(tagName = "div", props, tmpl) {
         this.setProps = (nextProps) => {
             if (!nextProps) {
                 return;
@@ -15,6 +12,7 @@ export default class Block {
             tagName,
             props: props
         };
+        this._tmpl = tmpl;
         if (props) {
             this.props = this._makePropsProxy(props);
         }
@@ -66,14 +64,12 @@ export default class Block {
         // Используйте шаблонизатор из npm или напишите свой безопасный
         // Нужно не в строку компилировать (или делать это правильно),
         // либо сразу в DOM-элементы возвращать из compile DOM-ноду
-        if (this._element) {
-            this._element.innerHTML = block;
-        }
+        this._element.innerHTML = block;
         this._attachListeners();
     }
     render() {
-        var _a, _b;
-        return (_b = (_a = this._element) === null || _a === void 0 ? void 0 : _a.innerHTML) !== null && _b !== void 0 ? _b : '';
+        var _a;
+        return this._tmpl ? this._tmpl : (_a = this._element.innerHTML) !== null && _a !== void 0 ? _a : '';
     }
     getContent() {
         return this.element;

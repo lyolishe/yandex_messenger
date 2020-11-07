@@ -3,7 +3,8 @@ import { Wrapper } from "../src/modules/components/Wrapper.js";
 import Block from "../src/modules/Block.js";
 import { Button } from "../src/modules/components/Button/Button.js";
 import { render } from "../src/modules/Utilits.js";
-import { PasswordForm } from "../src/modules/components/LoginForm/LoginForm.js";
+import { passwordFormTmpl } from "../src/modules/Form/FormTamplates/LoginFormTmpl.js";
+import { Form } from "../src/modules/Form/Form.js";
 const wrapper = new Wrapper({
     classList: ["container", "flexColumn"],
     layers: [
@@ -22,7 +23,7 @@ if (cardHeader.element) {
     cardHeader.element.innerHTML = "<h3>Log In</h3>";
 }
 (_a = cardFooter.element) === null || _a === void 0 ? void 0 : _a.appendChild(submitBtn.element);
-const form = new PasswordForm({ id: "form", method: "ChatListPage.html" });
+const form = new Form({ id: "form", method: "ChatListPage.html" }, passwordFormTmpl);
 (_b = cardBody.element) === null || _b === void 0 ? void 0 : _b.appendChild(form.element);
 card.appendChild(cardHeader.element);
 card.appendChild(cardBody.element);

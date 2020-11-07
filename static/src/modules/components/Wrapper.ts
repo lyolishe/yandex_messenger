@@ -14,16 +14,16 @@ export class Wrapper extends Block<WrapperProps> {
 
     get lastLayer(): HTMLElement {
         let current = this.element;
-        while (current?.lastElementChild) {
+        while (current.lastElementChild) {
             current = current.lastElementChild as HTMLElement ;
         }
-        return current!;
+        return current;
     }
 
     private _buildLayers = () => {
         if (this.props.layers) {
             this.props.layers.reduce((curr, next) => {
-                curr?.appendChild(next.element!);
+                curr.appendChild(next.element);
                 return next.element
             }, this.element)
         }
