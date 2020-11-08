@@ -1,3 +1,4 @@
+/*
 import Block from "../src/modules/components/Block.js";
 import {api, render} from "../src/modules/Utilits.js";
 import {ChatItem, Message, User} from "../src/data/Contracts.js";
@@ -38,3 +39,4 @@ api<{responder: User, messages: Message[]}>('../src/api/dialogWithCat.json').the
 
 render('root', sideBar.element!);
 render('root', main.element!)
+*/

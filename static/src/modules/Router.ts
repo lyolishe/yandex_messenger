@@ -1,5 +1,5 @@
-import Block from "./components/Block";
 import {Route} from "./Route.js";
+import {Page} from "./components/Page/Page";
 
 export class Router {
     private static __instance: Router;
@@ -21,7 +21,7 @@ export class Router {
         Router.__instance = this;
     }
 
-    use(pathname: string, block: new ()=> Block) {
+    use(pathname: string, block: typeof Page) {
         const route = new Route(pathname, block, {rootQuery: this._rootQuery});
         this.routes.push(route);
         return this
@@ -29,6 +29,7 @@ export class Router {
 
     start() {
         window.onpopstate = ((event: PopStateEvent) => {
+            event.preventDefault()
             this._onRoute((event.currentTarget as Window).location.pathname)
         }).bind(this)
         this._onRoute(window.location.pathname)

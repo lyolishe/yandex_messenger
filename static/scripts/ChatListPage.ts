@@ -1,3 +1,4 @@
+/*
 import Block from "../src/modules/components/Block.js";
 import {api, render} from "../src/modules/Utilits.js";
 import {ChatItem, User} from "../src/data/Contracts.js";
@@ -34,4 +35,4 @@ appWrapper.element?.append(app.element!)
 main.element?.append(appWrapper.element!);
 
 render('root', sideBar.element!);
-render('root', main.element!)
+render('root', main.element!)*/

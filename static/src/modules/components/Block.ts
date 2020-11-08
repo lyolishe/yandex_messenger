@@ -25,9 +25,9 @@ export default class Block<T = {}> {
     private _element: HTMLElement;
     private readonly _meta: Meta<DefaultBlockProps<T>>;
     private _subscriptions: Map<Element, Record<string, Function>>;
-    private _tmpl?: string;
+    private _tmpl: string;
 
-    constructor(tagName:keyof HTMLElementTagNameMap = "div", props: DefaultBlockProps<T>, tmpl?: string) {
+    constructor(tagName:keyof HTMLElementTagNameMap = "div", props: DefaultBlockProps<T>, tmpl: string = `<children></children>`) {
         const eventBus = new EventBus();
         this._meta = {
             tagName,
@@ -72,14 +72,16 @@ export default class Block<T = {}> {
     componentDidMount() {
     }
 
-    private _componentDidUpdate(oldProps: DefaultBlockProps<T>, newProps: DefaultBlockProps<T>) {
+    private _componentDidUpdate(oldProps: DefaultBlockProps<T>, newProps: DefaultBlockProps<T>)  {
         const response = this.componentDidUpdate(oldProps, newProps);
         if(response) this.eventBus().emit(Events.FLOW_RENDER);
     }
 
     // Может переопределять пользователь, необязательно трогать
-    componentDidUpdate(oldProps: DefaultBlockProps<T>, newProps: DefaultBlockProps<T>) {
-        if(oldProps && newProps)
+    componentDidUpdate(oldProps: DefaultBlockProps<T>, newProps: DefaultBlockProps<T>): boolean {
+        if(oldProps && newProps){
+            return true
+        }
         return true;
     }
 
@@ -107,7 +109,7 @@ export default class Block<T = {}> {
     }
 
     render():string {
-        return this._tmpl? this._tmpl : this._element.innerHTML?? ''
+        return this._element.innerHTML || this._tmpl
     }
 
     getContent(): HTMLElement{
@@ -145,10 +147,11 @@ export default class Block<T = {}> {
 
         if (this.props.children?.length && place) {
             this.props.children.forEach(child => {
-                place && place.parentElement?.appendChild(child.element);
+                place.parentElement?.append(child.element);
             })
-            place.remove();
         }
+        place && place.remove()
+
     }
 
     private _attachListeners(): void {
