@@ -41,3 +41,7 @@ export function logFieldValues(ev: Event) {
     }
     console.log(values)
 }
+
+export function isEqual(lhs: unknown, rhs: unknown) {
+    return lhs === rhs;
+}

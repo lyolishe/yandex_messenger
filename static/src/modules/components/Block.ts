@@ -21,7 +21,6 @@ export type DefaultBlockProps<T = {}>  = {
 export default class Block<T = {}> {
     props: DefaultBlockProps<T>;
     eventBus: ()=>EventBus;
-    //Для учёта только там, где это нужно, пока нет реализации всех компонентов
 
     private _element: HTMLElement;
     private readonly _meta: Meta<DefaultBlockProps<T>>;
