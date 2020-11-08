@@ -1,4 +1,4 @@
-import Block from "../../Block.js";
+import Block from "../../components/Block.js";
 import {navTabsTmpl} from "./NavTabsTmpl.js";
 
 export class NavTabsBlock extends Block<{}> {

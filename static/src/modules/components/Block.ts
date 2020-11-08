@@ -1,4 +1,4 @@
-import {EventBus} from './EventBus.js'
+import {EventBus} from '../EventBus.js'
 
 export const enum Events {
     INIT = "init",
@@ -7,21 +7,21 @@ export const enum Events {
     FLOW_RENDER = "flow:render",
 }
 
-interface Meta<T> {
+interface Meta<T ={}> {
     tagName:keyof HTMLElementTagNameMap,
     props: DefaultBlockProps<T>
 }
 
-export type DefaultBlockProps<T>  = {
+export type DefaultBlockProps<T = {}>  = {
     classList?: string[];
     handlers?: Record<string, Function>;
+    children?: Block[];
 } & T
 
-export default class Block<T> {
+export default class Block<T = {}> {
     props: DefaultBlockProps<T>;
     eventBus: ()=>EventBus;
     //Для учёта только там, где это нужно, пока нет реализации всех компонентов
-    children: unknown[];
 
     private _element: HTMLElement;
     private readonly _meta: Meta<DefaultBlockProps<T>>;
@@ -39,7 +39,6 @@ export default class Block<T> {
         if(props){
             this.props = this._makePropsProxy(props);
         }
-        this.children = []
         this.eventBus = () => eventBus;
 
         this._registerEvents(eventBus);
@@ -56,8 +55,8 @@ export default class Block<T> {
     private _createResources() {
         const { tagName } = this._meta!;
         this._element = this._createDocumentElement(tagName);
-        if (this.props?.classList) {
-            this._element.classList.add(...(this.props.classList as string[]))
+        if (this.props.classList) {
+            this._element.classList.add(...this.props.classList)
         }
     }
 
@@ -105,6 +104,7 @@ export default class Block<T> {
         // либо сразу в DOM-элементы возвращать из compile DOM-ноду
         this._element.innerHTML = block;
         this._attachListeners()
+        this._placeChildren()
     }
 
     render():string {
@@ -123,9 +123,8 @@ export default class Block<T> {
                 if (target[prop] !== value) {
                     target[prop] = value;
                     this.eventBus().emit(Events.FLOW_CDU, oldProps, this.props);
-                    return true;
                 }
-                return false;
+                return true;
             },
             deleteProperty: ()=> {
 
@@ -140,6 +139,17 @@ export default class Block<T> {
     private _createDocumentElement(tagName: keyof HTMLElementTagNameMap) {
         //TODO: Нужно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
         return document.createElement(tagName);
+    }
+
+    private _placeChildren() {
+        const place = this._element.getElementsByTagName('children')[0]
+
+        if (this.props.children?.length && place) {
+            this.props.children.forEach(child => {
+                place && place.parentElement?.appendChild(child.element);
+            })
+            place.remove();
+        }
     }
 
     private _attachListeners(): void {

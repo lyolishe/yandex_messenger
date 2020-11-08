@@ -1,14 +1,14 @@
-import Block from "../src/modules/Block.js";
+import Block from "../src/modules/components/Block.js";
 import {api, render} from "../src/modules/Utilits.js";
 import {ChatItem, User} from "../src/data/Contracts.js";
-import {UserBlock} from "../src/modules/components/UserBlock/UserBlock.js";
-import {NavTabsBlock} from "../src/modules/components/NavTabs/NavTabsBlock.js";
-import {ChatListBlock} from "../src/modules/components/ChatListBlock/ChatList.js";
-import {ChatItemBlock} from "../src/modules/components/ChatItemBlock/ChatItemBlock.js";
+import {UserBlock} from "../src/modules/blocks/UserBlock/UserBlock.js";
+import {NavTabsBlock} from "../src/modules/blocks/NavTabs/NavTabsBlock.js";
+import {ChatListBlock} from "../src/modules/blocks/ChatListBlock/ChatList.js";
+import {ChatItemBlock} from "../src/modules/blocks/ChatItemBlock/ChatItemBlock.js";
 import {
     BlankDialogBlock,
     blankDialogPageInitProps
-} from "../src/modules/components/BlankDialogBlock/BlankDialogBlock.js";
+} from "../src/modules/blocks/BlankDialogBlock/BlankDialogBlock.js";
 
 let sideBar = new Block("aside", {classList: ["appSideBar"]})
 let main = new Block("main", {})
@@ -21,12 +21,8 @@ api<User>('../src/api/userBlock.json').then(user => {
 }).then(()=> {
     api<ChatItem[]>('../src/api/chatList.json').then(chatList => {
         const chats = new ChatListBlock();
-        chatList.forEach(chatItem=> {
-            const chat = new ChatItemBlock({onClick: chats.onClick, ...chatItem})
-            chats.children.push(chat)
-            chats.element?.appendChild(chat.element!)
-        })
-        sideBar.element?.appendChild(chats.element!);
+        chats.setProps({children: chatList.map(chatItem => new ChatItemBlock({onClick: chats.onClick, ...chatItem}))})
+        sideBar.element?.appendChild(chats.element);
     })
 });
 

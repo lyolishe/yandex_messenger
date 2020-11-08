@@ -1,9 +1,9 @@
 import {Wrapper} from "../src/modules/components/Wrapper.js";
-import Block from "../src/modules/Block.js";
+import Block from "../src/modules/components/Block.js";
 import {Button} from "../src/modules/components/Button/Button.js";
 import {render} from "../src/modules/Utilits.js";
-import {passwordFormTmpl} from "../src/modules/Form/FormTamplates/LoginFormTmpl.js";
-import {Form} from "../src/modules/Form/Form.js";
+import {passwordFormTmpl} from "../src/modules/components/Form/FormTamplates/LoginFormTmpl.js";
+import {Form} from "../src/modules/components/Form/Form.js";
 
 const wrapper = new Wrapper({
     classList: ["container", "flexColumn"],

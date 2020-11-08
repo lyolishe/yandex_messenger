@@ -1,4 +1,4 @@
-import Block, {DefaultBlockProps} from "../../Block.js";
+import Block, {DefaultBlockProps} from "../../components/Block.js";
 import {dialogNavTmpl} from "./DialogNavTmpl.js";
 import {UserBlock} from "../UserBlock/UserBlock";
 

@@ -1,13 +1,13 @@
 import {Wrapper} from "../src/modules/components/Wrapper.js";
-import {ChangeAvatar} from "../src/modules/components/ChangeAvatar/ChangeAvatar.js";
-import Block from "../src/modules/Block.js";
+import {ChangeAvatar} from "../src/modules/blocks/ChangeAvatar/ChangeAvatar.js";
+import Block from "../src/modules/components/Block.js";
 import {api, render} from "../src/modules/Utilits.js";
 import {User} from "../src/data/Contracts.js";
-import {UserBlock} from "../src/modules/components/UserBlock/UserBlock.js";
-import {NavTabsBlock} from "../src/modules/components/NavTabs/NavTabsBlock.js";
-import {SettingItem, SettingsList, settingsList} from "../src/modules/components/SettingsList/SettingsList.js";
-import {Form} from "../src/modules/Form/Form.js";
-import {changePasswordTmpl, profileSettingsTmpl} from "../src/modules/Form/FormTamplates/ProfileFormTmpl.js";
+import {UserBlock} from "../src/modules/blocks/UserBlock/UserBlock.js";
+import {NavTabsBlock} from "../src/modules/blocks/NavTabs/NavTabsBlock.js";
+import {SettingItem, settingsList, SettingsList} from "../src/modules/blocks/SettingsList/SettingsList.js";
+import {Form} from "../src/modules/components/Form/Form.js";
+import {changePasswordTmpl, profileSettingsTmpl} from "../src/modules/components/Form/FormTamplates/ProfileFormTmpl.js";
 
 
 let sideBar = new Block("aside", {classList: ["appSideBar"]})
@@ -22,11 +22,7 @@ api<User>('../src/api/userBlock.json').then(user => {
     sideBar.element.appendChild(new NavTabsBlock().element)
 }).then(()=>{
     const settings = new SettingsList()
-    settingsList.forEach(settingItem=> {
-        const setting = new SettingItem({...settingItem, onClick: settings.onClick});
-        settings.children.push(setting)
-        settings.element.appendChild(setting.element)
-    })
+    settings.setProps({children: settingsList.map(point => new SettingItem({onClick: settings.onClick, ...point}))})
     sideBar.element.appendChild(settings.element);
 })
 

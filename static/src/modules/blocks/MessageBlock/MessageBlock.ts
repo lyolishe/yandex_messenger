@@ -1,4 +1,4 @@
-import Block, {DefaultBlockProps} from "../../Block.js";
+import Block, {DefaultBlockProps} from "../../components/Block.js";
 import {messageBlockTmpl} from "./MessageBlockTmpl.js";
 import {Message} from "../../../data/Contracts.js";
 

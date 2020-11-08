@@ -1,6 +1,6 @@
 //TODO: Сделать нормальный компонент под смену аватарки
 
-import Block from "../../Block.js";
+import Block from "../../components/Block.js";
 import {User} from "../../../data/Contracts.js";
 
 export const changeAvatarTmpl = `

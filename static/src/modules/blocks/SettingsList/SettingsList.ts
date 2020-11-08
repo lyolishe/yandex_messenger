@@ -1,6 +1,5 @@
 import {SettingProps} from "../../../data/Contracts.js";
-import Block, {DefaultBlockProps} from "../../Block.js";
-import {ChatItemBlock} from "../ChatItemBlock/ChatItemBlock.js";
+import Block, {DefaultBlockProps} from "../../components/Block.js";
 
 export const settingTmpl = `
 <div class="settingsIcon mdi {{class}}"></div>
@@ -18,17 +17,23 @@ export const settingsList: SettingProps[] = [
     {active: false, class:"mdi-frequently-asked-questions", point: "FAQ"},
 ];
 export type SettingsItemProps = SettingProps & {
-    onClick: (e: Event) => void
+    onClick?: (e: Event) => void
 }
 export class SettingItem extends Block<SettingsItemProps> {
     constructor(props: DefaultBlockProps<SettingsItemProps>) {
         super('li', props);
-        if (this.props.active) {
-            this.element.classList.add('active');
+
+        if (this.props.onClick) {
+            this.element.onclick = this.props.onClick
         }
     }
 
     render(): string {
+        if (this.props.active) {
+            this.element.classList.add('active');
+        } else {
+            this.element.classList.remove('active');
+        }
         return Handlebars.compile(settingTmpl)(this.props)
     }
 }
@@ -36,12 +41,13 @@ export class SettingItem extends Block<SettingsItemProps> {
 export class SettingsList extends Block<{}> {
     onClick: (e: Event) => void
     constructor(props?: DefaultBlockProps<{}>) {
-        super('ul', {...props, classList: ["settingsList"]});
-        this.onClick = function onClick(e: Event){
-            this.children.forEach((elem:ChatItemBlock)=> {
-                elem.element.classList.remove('active');
-            });
-            (e.currentTarget as HTMLElement).classList.add('active');
-        }.bind(this)
+        super('ul', {...props,classList: ["settingsList"]}, `<children></children>`);
+        this.onClick = ((e: Event) => {
+            this.props.children?.forEach((child: SettingItem) => {
+                child.setProps({active: false})
+            })
+            const currentTarget: SettingItem = (this.props.children as SettingItem[]).find((child) => child.element == e.currentTarget)!;
+            currentTarget.setProps({active: true});
+        }).bind(this)
     }
 }
