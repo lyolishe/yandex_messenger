@@ -4,7 +4,7 @@
   "dependencies": {},
   "description": "Silence Messenger",
   "scripts": {
-    "start": "node ./server.js"
+    "start": "tsc -w & node ./server.js"
   },
   "homepage": "https://github.com/lyolishe/mf.messenger.praktikum.yandex/blob/master/README.md",
   "devDependencies": {

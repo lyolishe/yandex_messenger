@@ -15,7 +15,7 @@ import {Page} from "../../components/Page/Page.js";
 export class DialogPage extends Page{
     menuItemId: string
     constructor() {
-        super({menuItemId: null});
+        super();
     }
 
     onPickDialog (chatId: string) {
@@ -37,7 +37,7 @@ export class DialogPage extends Page{
             })
         }).then(() => {
             if (this.menuItemId) {
-                api<{ responder: User, messages: Message[] }>(`../src/api/dialogWith${this.props.menuItemId}.json`).then(data => {
+                api<{ responder: User, messages: Message[] }>(`../src/api/dialogWith${this.menuItemId}.json`).then(data => {
                     const userBlock = new UserBlock(data.responder);
                     const navBar = new DialogNavBlock({userBlock});
                     const dialog = new DialogBlock({messages: data.messages});

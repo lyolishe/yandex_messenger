@@ -38,9 +38,9 @@ export class SettingItem extends Block<SettingsItemProps> {
     }
 }
 
-export class SettingsList extends Block<{}> {
+export class SettingsList extends Block<{onPick?: (id: string)=> void}> {
     onClick: (e: Event) => void
-    constructor(props?: DefaultBlockProps<{}>) {
+    constructor(props?: DefaultBlockProps<{onPick: (id: string)=> void}>) {
         super('ul', {...props,classList: ["settingsList"]}, `<children></children>`);
         this.onClick = ((e: Event) => {
             this.props.children?.forEach((child: SettingItem) => {
@@ -48,6 +48,7 @@ export class SettingsList extends Block<{}> {
             })
             const currentTarget: SettingItem = (this.props.children as SettingItem[]).find((child) => child.element == e.currentTarget)!;
             currentTarget.setProps({active: true});
+            props?.onPick(currentTarget.props.point!)
         }).bind(this)
     }
 }

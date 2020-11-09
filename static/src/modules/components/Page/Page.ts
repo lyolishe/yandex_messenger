@@ -1,12 +1,8 @@
-import Block, {DefaultBlockProps} from "../Block.js";
+import Block from "../Block.js";
 
-export type PageProps = {
-    menuItemId: string | null
-}
-
-export class Page extends Block<PageProps>{
-   constructor(props: DefaultBlockProps<PageProps>) {
-       super('div', {...props});
+export class Page extends Block{
+   constructor() {
+       super('div', {});
    }
 
     createPage(): void {

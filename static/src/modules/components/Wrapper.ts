@@ -2,7 +2,6 @@ import Block, {DefaultBlockProps} from "./Block.js";
 
 export type WrapperProps = {
     layers?: Wrapper[]
-    classList: string[]
 }
 
 //TODO: Тоже треш, перепридумать заполнение слоёв
