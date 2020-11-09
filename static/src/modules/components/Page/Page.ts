@@ -6,11 +6,10 @@ export type PageProps = {
 
 export class Page extends Block<PageProps>{
    constructor(props: DefaultBlockProps<PageProps>) {
-       super('div', {...props}, `<children></children>`);
+       super('div', {...props});
    }
 
-
-   createPage(): void {
+    createPage(): void {
 
    }
 }

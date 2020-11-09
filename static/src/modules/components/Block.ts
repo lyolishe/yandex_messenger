@@ -109,7 +109,7 @@ export default class Block<T = {}> {
     }
 
     render():string {
-        return this._element.innerHTML || this._tmpl
+        return this._tmpl
     }
 
     getContent(): HTMLElement{

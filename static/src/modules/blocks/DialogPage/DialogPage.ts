@@ -13,20 +13,19 @@ import {Page} from "../../components/Page/Page.js";
 
 
 export class DialogPage extends Page{
+    menuItemId: string
     constructor() {
         super({menuItemId: null});
-        this.createPage()
     }
 
     onPickDialog (chatId: string) {
-        this.setProps({menuItemId: chatId});
+        this.menuItemId = chatId
+        this.createChat()
     }
 
-
-    createPage() {
-        const sideBar = new Block('aside', {classList: ["appSideBar"]}, `<children></children>`)
-        const main = new Block('main', {}, `<children></children>`)
-        this.setProps({children: [sideBar, main], ...this.props})
+    componentDidMount() {
+        const sideBar = new Block('aside', {classList: ["appSideBar"]})
+        const main = new Block('main', {})
 
         api<User>('../src/api/userBlock.json').then(user => {
             return [new UserBlock(user), new NavTabsBlock()]
@@ -34,11 +33,10 @@ export class DialogPage extends Page{
             api<ChatItem[]>('../src/api/chatList.json').then(chatList => {
                 const chats = new ChatListBlock({onDialogPick: this.onPickDialog.bind(this)});
                 chats.setProps({children: chatList.map(chatItem => new ChatItemBlock({onClick: chats.onClick, ...chatItem})), ...chats.props})
-                sideBar.setProps({children: [user, navTab, chats], ...sideBar.props})
+                sideBar.setProps({...sideBar.props, children: [user, navTab, chats]})
             })
-            return sideBar
         }).then(() => {
-            if (this.props.menuItemId) {
+            if (this.menuItemId) {
                 api<{ responder: User, messages: Message[] }>(`../src/api/dialogWith${this.props.menuItemId}.json`).then(data => {
                     const userBlock = new UserBlock(data.responder);
                     const navBar = new DialogNavBlock({userBlock});
@@ -46,13 +44,28 @@ export class DialogPage extends Page{
                     const app = new Block('div', {classList: ["appMain"], children: [navBar, dialog, new MessageInputBlock()]});
                     const appWrapper = new Block('div', {classList: ["appWrapper"], children: [app]})
                     main.setProps({...main.props, children:[appWrapper]})
+                    this.setProps({...this.props, children: [sideBar, main]})
                 })
             } else {
                 const dialogBlock = new BlankDialogBlock(blankDialogPageInitProps)
                 const app = new Block('div', {classList: ["appMain"], children: [dialogBlock]});
                 const appWrapper = new Block('div', {classList: ["appWrapper"], children: [app]})
                 main.setProps({...main.props, children: [appWrapper]});
+                this.setProps({...this.props, children: [sideBar, main]})
             }
+        })
+    }
+
+
+    createChat() {
+        const main = this.props.children?.[1]!
+        this.menuItemId && api<{ responder: User, messages: Message[] }>(`../src/api/dialogWith${this.menuItemId}.json`).then(data => {
+            const userBlock = new UserBlock(data.responder);
+            const navBar = new DialogNavBlock({userBlock});
+            const dialog = new DialogBlock({messages: data.messages});
+            const app = new Block('div', {classList: ["appMain"], children: [navBar, dialog, new MessageInputBlock()]});
+            const appWrapper = new Block('div', {classList: ["appWrapper"], children: [app]})
+            main.setProps({...main.props, children:[appWrapper]})
         })
     }
 }
