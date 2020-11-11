@@ -12,7 +12,7 @@
       "dom",
       "es5",
       "ES6",
-      "DOM.Iterable",
+      "dom.Iterable",
       "scripthost",
       "es2015.proxy",
       "es2019"
