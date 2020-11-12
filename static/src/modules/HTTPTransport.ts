@@ -19,6 +19,7 @@ export class HTTPTransport {
             const xhr = new XMLHttpRequest;
 
             xhr.open(method, apiBasePath+url);
+            xhr.withCredentials = true
             xhr.timeout = timeout;
             if(headers){
                 for (let key in headers) {

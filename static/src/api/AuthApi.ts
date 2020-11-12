@@ -18,7 +18,10 @@ export class AuthApi extends HTTPTransport {
     }
 
     static get = () => {
-        return HTTPTransport.request('/auth/user', {method: METHODS.GET})
+        return HTTPTransport.request('/auth/user', {method: METHODS.GET, headers: {
+                'accept':'application/json',
+                'credentials': 'include',
+            }})
     }
 
     static logout = () => {
