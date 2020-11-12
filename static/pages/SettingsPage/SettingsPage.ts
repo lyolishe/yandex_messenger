@@ -1,11 +1,12 @@
-import {Page} from "../../components/Page/Page.js";
-import Block from "../../components/Block.js";
-import {api} from "../../Utilits.js";
-import {User} from "../../../data/Contracts.js";
-import {UserBlock} from "../UserBlock/UserBlock.js";
-import {NavTabsBlock} from "../NavTabs/NavTabsBlock.js";
-import {SettingItem, settingsList, SettingsList} from "../SettingsList/SettingsList.js";
+import {Page} from "../../src/modules/components/Page/Page.js";
+import Block from "../../src/modules/components/Block.js";
+import {useApi} from "../../src/modules/Utilits.js";
+import {UserResponse} from "../../src/data/Contracts.js";
+import {UserBlock} from "../../src/modules/blocks/UserBlock/UserBlock.js";
+import {NavTabsBlock} from "../../src/modules/blocks/NavTabs/NavTabsBlock.js";
+import {SettingItem, settingsList, SettingsList} from "../../src/modules/blocks/SettingsList/SettingsList.js";
 import {createProfileSettings} from "./ProffileSettings.js";
+import {AuthApi} from "../../src/api/AuthApi.js";
 
 export class SettingsPage extends Page {
     menuItemId: string;
@@ -23,7 +24,7 @@ export class SettingsPage extends Page {
         const sideBar = new Block('aside', {classList: ["appSideBar"]})
         const main = this.createMain()
 
-        api<User>('../src/api/userBlock.json').then(user => {
+        useApi<UserResponse>(AuthApi.get()).then(user => {
             const userBlock = new UserBlock(user)
             const settings = new SettingsList({onPick: this.onPickPoint.bind(this)});
             settings.setProps({children: settingsList.map(point => new SettingItem({onClick: settings.onClick, ...point}))})

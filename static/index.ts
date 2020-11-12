@@ -1,11 +1,11 @@
 import {Router} from "./src/modules/Router.js";
-import {DialogPage} from "./src/modules/blocks/DialogPage/DialogPage.js";
-import {SettingsPage} from "./src/modules/blocks/SettingsPage/SettingsPage.js";
+import {DialogPage} from "./pages/DialogPage/DialogPage.js";
+import {SettingsPage} from "./pages/SettingsPage/SettingsPage.js";
 import {useApi} from "./src/modules/Utilits.js";
 import {AuthApi} from "./src/api/AuthApi.js";
-import {LoginPage} from "./src/modules/blocks/LoginPage/LoginPage.js";
+import {LoginPage} from "./pages/LoginPage/LoginPage.js";
 import {UserResponse} from "./src/data/Contracts.js";
-import {RegisterPage} from "./src/modules/blocks/RegisterPage/RegisterPage.js";
+import {RegisterPage} from "./pages/RegisterPage/RegisterPage.js";
 
 const router = new Router("root");
 

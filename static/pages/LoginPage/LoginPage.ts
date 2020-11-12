@@ -1,15 +1,15 @@
-import {Page} from "../../components/Page/Page.js";
-import {SignInRequest, UserResponse} from "../../../data/Contracts.js";
-import {AuthApi} from "../../../api/AuthApi.js";
-import {useApi} from "../../Utilits.js";
-import {Router} from "../../Router.js";
-import {Wrapper} from "../../components/Wrapper.js";
-import Block from "../../components/Block.js";
-import {Button} from "../../components/Button/Button.js";
-import {Form} from "../../components/Form/Form.js";
-import {loginFormTmpl, passwordFormTmpl} from "../../components/Form/FormTamplates/LoginFormTmpl.js";
-import {Card} from "../Card/Card.js";
-import {Link} from "../Link.js";
+import {Page} from "../../src/modules/components/Page/Page.js";
+import {SignInRequest, UserResponse} from "../../src/data/Contracts.js";
+import {AuthApi} from "../../src/api/AuthApi.js";
+import {useApi} from "../../src/modules/Utilits.js";
+import {Router} from "../../src/modules/Router.js";
+import {Wrapper} from "../../src/modules/components/Wrapper.js";
+import Block from "../../src/modules/components/Block.js";
+import {Button} from "../../src/modules/components/Button/Button.js";
+import {Form} from "../../src/modules/components/Form/Form.js";
+import {loginFormTmpl, passwordFormTmpl} from "../../src/modules/components/Form/FormTamplates/LoginFormTmpl.js";
+import {Card} from "../../src/modules/blocks/Card/Card.js";
+import {Link} from "../../src/modules/blocks/Link.js";
 
 export class LoginPage extends Page{
     form: Form

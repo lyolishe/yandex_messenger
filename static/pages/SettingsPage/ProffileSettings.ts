@@ -1,9 +1,9 @@
-import Block from "../../components/Block.js";
-import {Wrapper} from "../../components/Wrapper.js";
-import {ChangeAvatar} from "../ChangeAvatar/ChangeAvatar.js";
-import {Form} from "../../components/Form/Form.js";
-import {changePasswordTmpl, profileSettingsTmpl} from "../../components/Form/FormTamplates/ProfileFormTmpl.js";
-import {UserBlock} from "../UserBlock/UserBlock.js";
+import Block from "../../src/modules/components/Block.js";
+import {Wrapper} from "../../src/modules/components/Wrapper.js";
+import {ChangeAvatar} from "../../src/modules/blocks/ChangeAvatar/ChangeAvatar.js";
+import {Form} from "../../src/modules/components/Form/Form.js";
+import {changePasswordTmpl, profileSettingsTmpl} from "../../src/modules/components/Form/FormTamplates/ProfileFormTmpl.js";
+import {UserBlock} from "../../src/modules/blocks/UserBlock/UserBlock.js";
 
 export const createProfileSettings = (): Block => {
     const appWrapper = new Wrapper({classList: ['appMainWrap']})
@@ -30,7 +30,7 @@ export const createProfileSettings = (): Block => {
 
     formsWrapper.lastLayer.appendChild(formRow.element)
 
-    const nav = new Block('nav', {classList: ["navbar"], children: [new UserBlock({firstName: "Profile"})]})
+    const nav = new Block('nav', {classList: ["navbar"], children: [new UserBlock({first_name: "Profile"})]})
 
     appManin.element.appendChild(nav.element);
     appManin.element.appendChild(formsWrapper.element);

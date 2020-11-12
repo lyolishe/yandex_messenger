@@ -30,7 +30,7 @@ export function useApi<T>(result: Promise<XMLHttpRequest>): Promise<T> {
         if (!response.status.toString().startsWith('2')){
             throw new Error(response.statusText)
         }
-        return response.response as T
+        return JSON.parse(response.response) as T
     })
 }
 

@@ -1,9 +1,9 @@
 import Block, {DefaultBlockProps} from "../../components/Block.js";
 import {userBlockTmpl} from "./UserBlockTmpl.js";
-import {User} from "../../../data/Contracts.js";
+import {UserResponse} from "../../../data/Contracts.js";
 
-export class UserBlock extends Block<User> {
-    constructor(props: DefaultBlockProps<User>) {
+export class UserBlock extends Block<UserResponse> {
+    constructor(props: DefaultBlockProps<UserResponse>) {
         super("div", props);
     }
 

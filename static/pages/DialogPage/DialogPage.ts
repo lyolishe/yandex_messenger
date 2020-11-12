@@ -1,15 +1,15 @@
-import Block from "../../components/Block.js";
-import {api} from "../../Utilits.js";
-import {ChatItem, Message, User} from "../../../data/Contracts.js";
-import {UserBlock} from "../UserBlock/UserBlock.js";
-import {NavTabsBlock} from "../NavTabs/NavTabsBlock.js";
-import {ChatListBlock} from "../ChatListBlock/ChatList.js";
-import {ChatItemBlock} from "../ChatItemBlock/ChatItemBlock.js";
-import {DialogNavBlock} from "../DiaogNavBlock/DialogNavBlock.js";
-import {DialogBlock} from "../DialogBlock/DialogBlock.js";
-import {MessageInputBlock} from "../MessageInputBlock/MessageInputBlock.js";
-import {BlankDialogBlock, blankDialogPageInitProps} from "../BlankDialogBlock/BlankDialogBlock.js";
-import {Page} from "../../components/Page/Page.js";
+import Block from "../../src/modules/components/Block.js";
+import {api, useApi} from "../../src/modules/Utilits.js";
+import {ChatItem, Message, User, UserResponse} from "../../src/data/Contracts.js";
+import {UserBlock} from "../../src/modules/blocks/UserBlock/UserBlock.js";
+import {NavTabsBlock} from "../../src/modules/blocks/NavTabs/NavTabsBlock.js";
+import {ChatListBlock} from "../../src/modules/blocks/ChatListBlock/ChatList.js";
+import {ChatItemBlock} from "../../src/modules/blocks/ChatItemBlock/ChatItemBlock.js";
+import {DialogBlock} from "../../src/modules/blocks/DialogBlock/DialogBlock.js";
+import {MessageInputBlock} from "../../src/modules/blocks/MessageInputBlock/MessageInputBlock.js";
+import {BlankDialogBlock, blankDialogPageInitProps} from "../../src/modules/blocks/BlankDialogBlock/BlankDialogBlock.js";
+import {Page} from "../../src/modules/components/Page/Page.js";
+import {AuthApi} from "../../src/api/AuthApi.js";
 
 
 export class DialogPage extends Page{
@@ -27,7 +27,7 @@ export class DialogPage extends Page{
         const sideBar = new Block('aside', {classList: ["appSideBar"]})
         const main = new Block('main', {})
 
-        api<User>('../src/api/userBlock.json').then(user => {
+        useApi<UserResponse>(AuthApi.get()).then(user => {
             return [new UserBlock(user), new NavTabsBlock()]
         }).then(([user, navTab]) => {
             api<ChatItem[]>('../src/api/chatList.json').then(chatList => {
@@ -38,10 +38,10 @@ export class DialogPage extends Page{
         }).then(() => {
             if (this.menuItemId) {
                 api<{ responder: User, messages: Message[] }>(`../src/api/dialogWith${this.menuItemId}.json`).then(data => {
-                    const userBlock = new UserBlock(data.responder);
-                    const navBar = new DialogNavBlock({userBlock});
+                    //const userBlock = new UserBlock(data.responder);
+                    //const navBar = new DialogNavBlock({userBlock});
                     const dialog = new DialogBlock({messages: data.messages});
-                    const app = new Block('div', {classList: ["appMain"], children: [navBar, dialog, new MessageInputBlock()]});
+                    const app = new Block('div', {classList: ["appMain"], children: [/*navBar,*/ dialog, new MessageInputBlock()]});
                     const appWrapper = new Block('div', {classList: ["appWrapper"], children: [app]})
                     main.setProps({...main.props, children:[appWrapper]})
                     this.setProps({...this.props, children: [sideBar, main]})
@@ -60,10 +60,10 @@ export class DialogPage extends Page{
     createChat() {
         const main = this.props.children?.[1]!
         this.menuItemId && api<{ responder: User, messages: Message[] }>(`../src/api/dialogWith${this.menuItemId}.json`).then(data => {
-            const userBlock = new UserBlock(data.responder);
-            const navBar = new DialogNavBlock({userBlock});
+            //const userBlock = new UserBlock(data.responder);
+            //const navBar = new DialogNavBlock({userBlock});
             const dialog = new DialogBlock({messages: data.messages});
-            const app = new Block('div', {classList: ["appMain"], children: [navBar, dialog, new MessageInputBlock()]});
+            const app = new Block('div', {classList: ["appMain"], children: [/*navBar,*/ dialog, new MessageInputBlock()]});
             const appWrapper = new Block('div', {classList: ["appWrapper"], children: [app]})
             main.setProps({...main.props, children:[appWrapper]})
         })
