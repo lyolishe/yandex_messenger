@@ -147,7 +147,7 @@ export default class Block<T = {}> {
 
         if (this.props.children?.length && place) {
             this.props.children.forEach(child => {
-                place.parentElement?.append(child.element);
+                place.parentElement?.append(child?.element);
             })
         }
         place && place.remove()

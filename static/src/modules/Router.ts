@@ -1,5 +1,13 @@
 import {Route} from "./Route.js";
 import {Page} from "./components/Page/Page";
+import {UserResponse} from "../data/Contracts";
+
+enum Routes {
+    Login = '/login',
+    Register = '/register',
+    Chats = '/',
+    Settings = '/settings'
+}
 
 export class Router {
     private static __instance: Router;
@@ -27,11 +35,16 @@ export class Router {
         return this
     }
 
-    start() {
+    start(user?: UserResponse) {
         window.onpopstate = ((event: PopStateEvent) => {
             event.preventDefault()
             this._onRoute((event.currentTarget as Window).location.pathname)
         }).bind(this)
+
+        if (!user) {
+            this._onRoute(Routes.Login)
+        }
+
         this._onRoute(window.location.pathname)
     }
 
@@ -39,8 +52,7 @@ export class Router {
         const route = this.getRoute(pathname);
 
         if(!route) {
-            this.redirect();
-            return;
+            return this.redirect();
         }
 
         if (this._currentRoute) {
@@ -69,6 +81,6 @@ export class Router {
     }
 
     redirect() {
-        this._onRoute(this.routes[0].pathname)
+        this._onRoute(Routes.Chats)
     }
 }

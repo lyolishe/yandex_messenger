@@ -1,4 +1,4 @@
-import {Wrapper} from "../src/modules/components/Wrapper.js";
+/*import {Wrapper} from "../src/modules/components/Wrapper.js";
 import Block from "../src/modules/components/Block.js";
 import {Button} from "../src/modules/components/Button/Button.js";
 import {loginFormTmpl} from "../src/modules/components/Form/FormTamplates/LoginFormTmpl.js";
@@ -39,4 +39,4 @@ card.appendChild(cardHeader.element);
 card.appendChild(cardBody.element);
 card.appendChild(cardFooter.element);
 
-render('root', wrapper.element);
+render('root', wrapper.element);*/

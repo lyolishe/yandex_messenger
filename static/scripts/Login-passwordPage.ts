@@ -1,4 +1,4 @@
-import {Wrapper} from "../src/modules/components/Wrapper.js";
+/*import {Wrapper} from "../src/modules/components/Wrapper.js";
 import Block from "../src/modules/components/Block.js";
 import {Button} from "../src/modules/components/Button/Button.js";
 import {render} from "../src/modules/Utilits.js";
@@ -27,11 +27,11 @@ if (cardHeader.element) {
 
 cardFooter.element?.appendChild(submitBtn.element)
 
-const form = new Form({id: "form", method: "ChatListPage.html"}, passwordFormTmpl);
+const form = new Form(, onSubmit: data => data, onSubmit: data => data{id: "form", method: "ChatListPage.html"}, passwordFormTmpl);
 
 cardBody.element?.appendChild(form.element);
 card.appendChild(cardHeader.element);
 card.appendChild(cardBody.element);
 card.appendChild(cardFooter.element);
 
-render('root', wrapper.element);
+render('root', wrapper.element);*/

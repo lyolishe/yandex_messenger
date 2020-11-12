@@ -25,14 +25,21 @@ export class FormItemBlock extends Block<FormItemBlockProps>{
         super('div', {...props, classList: ["formItem"]});
 
         this.errors = [];
+        this.input = this.element.getElementsByTagName('input')[0]
 
-        const input = this.element.getElementsByTagName('input')
-        if (input) {
-            this.validator = new Validation(input[0]!, props.validateMessages, props.validators);
-            input[0].addEventListener('blur', this.appendErrors.bind(this))
-            input[0].addEventListener('focus', this.removeErrors.bind(this))
+        if (this.input) {
+            this.validator = new Validation(this.input!, props.validateMessages, props.validators);
+            this.input.addEventListener('blur', this.appendErrors.bind(this))
+            this.input.addEventListener('focus', this.removeErrors.bind(this))
         }
+    }
 
+    get value () {
+        return this.input.value
+    }
+
+    get name() {
+        return this.input.name
     }
 
     private _checkErrors = ():void => {

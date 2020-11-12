@@ -4,11 +4,17 @@ import {SingUpRequest} from "../data/Contracts.js";
 export class AuthApi extends HTTPTransport {
 
     static signUp = (data: SingUpRequest) => {
-        return HTTPTransport.request('/auth/signup', {method: METHODS.POST, data})
+        return HTTPTransport.request('/auth/signup', {method: METHODS.POST, data, headers: {
+                'content-type':'application/json',
+            }}
+        )
     }
 
     static signIn = (data: SingUpRequest) => {
-        return HTTPTransport.request('/auth/signin', {method: METHODS.POST, data})
+        return HTTPTransport.request('/auth/signin', {method: METHODS.POST, data, headers: {
+                'content-type':'application/json',
+            }}
+        )
     }
 
     static get = () => {

@@ -1,3 +1,4 @@
+
 export function get<T extends Record<string, any>> (obj: T, path: string, defaultValue:unknown = ''): unknown {
     const keys = path.split('.');
     let result = obj;
@@ -22,6 +23,15 @@ export function api<T>(url: string): Promise<T> {
             }
             return response.json()
         })
+}
+
+export function useApi<T>(result: Promise<XMLHttpRequest>): Promise<T> {
+    return result.then(response => {
+        if (!response.status.toString().startsWith('2')){
+            throw new Error(response.statusText)
+        }
+        return response.response as T
+    })
 }
 
 export const render = (id: string, block: HTMLElement ): void => {
@@ -52,6 +62,7 @@ export function queryStringify(data: StringIndexed): string | never {
     if (!data) {
         return '';
     }
+
     if (typeof data !== 'object') {
         throw new Error('Data must be object');
     }

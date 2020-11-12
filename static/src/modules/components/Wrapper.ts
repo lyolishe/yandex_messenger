@@ -1,7 +1,7 @@
 import Block, {DefaultBlockProps} from "./Block.js";
 
 export type WrapperProps = {
-    layers?: Wrapper[]
+    layers?: Block[]
 }
 
 //TODO: Тоже треш, перепридумать заполнение слоёв

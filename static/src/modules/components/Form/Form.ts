@@ -1,6 +1,5 @@
 import Block, {DefaultBlockProps} from "../Block.js";
 import {FormItemBlock, FormItemBlockProps} from "./FormItem/FormItemBlock.js";
-import {logFieldValues} from "../../Utilits.js";
 
 export type FormProps = {
     initialValues?: Record<string, string|number>
@@ -19,7 +18,6 @@ export class Form extends Block<FormProps> {
         if (props.method){
             this.element.setAttribute('method', props.method)
         }
-        this.element.addEventListener('submit', this._onSubmit.bind(this))
     }
 
     private readonly _attachFormItems = () => {
@@ -37,14 +35,9 @@ export class Form extends Block<FormProps> {
 
     }
 
-    private readonly _onSubmit = (e: Event) => {
-        if (this.validateAll()) {
-            e.preventDefault();
-            return;
-        }
-        logFieldValues(e);
+    getFieldValue = <T>(): T => {
+        return (Object.fromEntries(this.formItems.map(item => [item.name, item.value])) as unknown as T)
     }
-
 
     readonly validateAll  = (): boolean => {
         const errors = this.formItems.map(formItem => {
