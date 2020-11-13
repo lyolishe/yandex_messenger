@@ -3,6 +3,6 @@ export const blankDialogBlockTmpl = `
             <div class="iconPreview">
                 ЛОГО В РАЗРАБОТКЕ
             </div>
-            <button class="{{buttonClasses}}" onclick=onNewDialog>{{text}}</button>
+            <children></children>
         </div>
 `

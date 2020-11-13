@@ -210,14 +210,10 @@ export default class Block<T = {}> {
     }
 
     show() {
-        if(this.getContent()) {
-            this.getContent()!.style.display = "block"
-        }
+        this.getContent().style.display = "block"
     }
 
     hide() {
-        if(this.getContent()) {
-            this.getContent()!.style.display = "none"
-        }
+        this.getContent().style.display = "none"
     }
 }

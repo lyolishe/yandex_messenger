@@ -1,37 +1,42 @@
 import Block from "../Block.js";
 import {modalTmpl} from "./ModalTmpl.js";
-import {Button} from "../Button/Button";
 
-export type ModalProps = {
-    header: ModalHeader;
-    content: Block[];
-    footer?: Block[];
-}
-
-export class Modal extends Block<ModalProps>{
-    constructor(header: ModalHeader, content: Block[], footer?: Block[]) {
-        super('div', {classList: ["modal"], header, content, footer}, modalTmpl);
-        document.addEventListener('click', this.onclick.bind(this))
+export class Modal extends Block{
+    content: Block;
+    footer?: Block;
+    constructor(header: ModalHeader, content: Block, footer?: Block) {
+        super('div', {classList: ["modal"]}, modalTmpl);
+        this.content = this._createContent(content)
+        this.footer = this._createFooter(footer)
+        this.setProps({children: [header, this.content, this.footer]})
+        this.element.addEventListener('click', this.close.bind(this))
         this.hide();
-
-        document.appendChild(this.element)
+        document.body.appendChild(this.element)
     }
 
-    onclick: (e: Event) => {
-
+    private _createContent(content: Block) {
+        return new Block('div', {children: [content], classList: ["modalBody"]})
     }
 
+    private _createFooter(footer?: Block) {
+        return footer? new Block('div',{classList: ["modalFooter"], children: [footer]})
+            :  new Block('div',{classList: ["modalFooter"]})
+    }
+
+    show() {
+        this.getContent().style.display = "flex"
+    }
+
+    close(e: MouseEvent) {
+        if (e.target === this.element) {
+            this.hide()
+        }
+    }
 }
 
 export class ModalHeader extends Block {
-    constructor(title: string, close: () => void, extras?: Block[]) {
+    constructor(title: string,  extras?: Block[]) {
         super('div',{classList: ['modalHeader'], children: [new Block('h3', {}, title)]});
-        if (extras) {
-            this.setProps({children: [...this.props.children!, ...extras]})
-        } else {
-            this.setProps({children: [...this.props.children!,
-                new Button({onClick: close, text: '&times;', type: 'button', classList:['button']})
-            ]})
-        }
+        extras && this.setProps({children: [...this.props.children!, ...extras]})
     }
 }

@@ -7,7 +7,10 @@ export class ChatsApi extends HTTPTransport{
     }
 
     static addChat = (data: CreateChatRequest) => {
-        return HTTPTransport.request('/chats', {method: METHODS.POST, data});
+        return HTTPTransport.request('/chats', {method: METHODS.POST, data, headers: {
+            'content-type': 'application/json'
+            }}
+        );
     }
 
     static removeChat = (data: ChatDeleteRequest) => {
