@@ -10,9 +10,13 @@ import {AuthApi} from "../../src/api/AuthApi.js";
 
 export class SettingsPage extends Page {
     menuItemId: string;
+    sideBar: Block;
+    main: Block;
     constructor() {
         super();
         this.menuItemId = 'profile'
+        this.sideBar = new Block('aside', {classList: ["appSideBar"]});
+        this.main = this.createMain();
     }
 
     onPickPoint (menuItemId: string) {
@@ -21,20 +25,18 @@ export class SettingsPage extends Page {
     }
 
     componentDidMount() {
-        const sideBar = new Block('aside', {classList: ["appSideBar"]})
-        const main = this.createMain()
 
         useApi<UserResponse>(AuthApi.get()).then(user => {
             const userBlock = new UserBlock(user)
             const settings = new SettingsList({onPick: this.onPickPoint.bind(this)});
             settings.setProps({children: settingsList.map(point => new SettingItem({onClick: settings.onClick, ...point}))})
-            sideBar.setProps({...sideBar.props, children: [userBlock, new NavTabsBlock(), settings]})
-            this.setProps({children: [sideBar, main]});
+            this.sideBar.setProps({...this.sideBar.props, children: [userBlock, new NavTabsBlock(), settings]})
+            this.setProps({children: [this.sideBar, this.main]});
         })
 
     }
 
-    createMain () {
+    createMain ():Block {
         switch (this.menuItemId) {
             default:
             case "Profile":
