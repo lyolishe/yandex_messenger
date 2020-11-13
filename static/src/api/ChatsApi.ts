@@ -14,7 +14,10 @@ export class ChatsApi extends HTTPTransport{
     }
 
     static removeChat = (data: ChatDeleteRequest) => {
-        return HTTPTransport.request('/chats', {method: METHODS.DELETE, data})
+        return HTTPTransport.request('/chats', {method: METHODS.DELETE, data, headers: {
+                'accept': 'application/json',
+                'content-type': 'application/json'
+            }})
     }
 
     static getChatUsers = (id: number) => {

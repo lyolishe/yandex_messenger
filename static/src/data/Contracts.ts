@@ -57,7 +57,7 @@ export interface ChatsResponse {
 }
 
 export interface ChatDeleteRequest {
-    chatId?: string | null;
+    chatId?: number | null;
 }
 
 export  interface ChatDeleteResponse {

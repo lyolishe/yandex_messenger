@@ -5,21 +5,31 @@ import {useApi} from "../../Utilits.js";
 import {ChatsApi} from "../../../api/ChatsApi.js";
 
 export type ChatItemProps = ChatsResponse & UnreadCountResponse & {
-    onClick?: (e: Event) => void;
+    onClick: (e: Event) => void;
+    setChats: () => void
     isActive?: boolean;
 };
 
 export class ChatItemBlock extends Block<ChatItemProps> {
     id: number
+    setChats: ()=> void
     constructor(props: DefaultBlockProps<ChatItemProps>) {
         super("li", props)
 
         this.id = props.id?? 0;
+        this.setChats = props.setChats
         useApi<UnreadCountResponse>(ChatsApi.getNewMessages(this.id))
             .then(unread_count => this.setProps({...this.props, ...unread_count}))
 
-        if (this.props.onClick) {
-            this.element.onclick = this.props.onClick
+        this.element.addEventListener('click', (e)=> {
+            this._removeChat.bind(this)(e)
+            this.props.onClick(e)
+        })
+    }
+
+    private _removeChat(e: MouseEvent): void {
+        if ((e.target as HTMLElement).classList.contains("remove")) {
+            ChatsApi.removeChat({chatId: this.id}).then(()=> this.setChats())
         }
     }
 

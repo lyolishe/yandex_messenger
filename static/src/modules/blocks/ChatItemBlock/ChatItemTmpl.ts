@@ -9,6 +9,7 @@ export const chatItemTmpl = `
         </p>
     </div>
     <div>
+        <span class="remove">&times;</span>
         {{#if unreadCount}}
         <p class="messageBadge">
             {{unreadCount}}

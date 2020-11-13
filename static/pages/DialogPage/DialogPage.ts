@@ -25,22 +25,22 @@ export class DialogPage extends Page{
         this.chats = new ChatListBlock({onDialogPick: this.onPickDialog.bind(this)});
     }
 
-    onPickDialog (chatId: string) {
+    onPickDialog (chatId: string): void {
         this.menuItemId = chatId
         this.createChat()
     }
 
-    setChats() {
+    setChats():void {
         this._getChats().then(chats => {
             const chatItems = chats.length?
-                chats.map(chat => new ChatItemBlock({onClick: this.chats.onClick, ...chat})) :
+                chats.map(chat => new ChatItemBlock({onClick: this.chats.onClick, setChats: this.setChats.bind(this), ...chat})) :
                 [new Block('li', {}, 'No chats yet')];
 
             this.chats.setProps({...this.chats.props, children: chatItems})
         })
     }
 
-    private _getChats() {
+    private _getChats(): Promise<ChatsResponse[]> {
         return useApi<ChatsResponse[]>(ChatsApi.getChats())
     }
 
