@@ -1,6 +1,6 @@
 import Block from "../../src/modules/components/Block.js";
 import {api, useApi} from "../../src/modules/Utilits.js";
-import {ChatItem, Message, User, UserResponse} from "../../src/data/Contracts.js";
+import {ChatsResponse, Message, User, UserResponse} from "../../src/data/Contracts.js";
 import {UserBlock} from "../../src/modules/blocks/UserBlock/UserBlock.js";
 import {NavTabsBlock} from "../../src/modules/blocks/NavTabs/NavTabsBlock.js";
 import {ChatListBlock} from "../../src/modules/blocks/ChatListBlock/ChatList.js";
@@ -10,6 +10,7 @@ import {MessageInputBlock} from "../../src/modules/blocks/MessageInputBlock/Mess
 import {BlankDialogBlock, blankDialogPageInitProps} from "../../src/modules/blocks/BlankDialogBlock/BlankDialogBlock.js";
 import {Page} from "../../src/modules/components/Page/Page.js";
 import {AuthApi} from "../../src/api/AuthApi.js";
+import {ChatsApi} from "../../src/api/ChatsApi.js";
 
 
 export class DialogPage extends Page{
@@ -30,9 +31,12 @@ export class DialogPage extends Page{
         useApi<UserResponse>(AuthApi.get()).then(user => {
             return [new UserBlock(user), new NavTabsBlock()]
         }).then(([user, navTab]) => {
-            api<ChatItem[]>('../src/api/chatList.json').then(chatList => {
+            useApi<ChatsResponse[]>(ChatsApi.getChats()).then(chatList => {
                 const chats = new ChatListBlock({onDialogPick: this.onPickDialog.bind(this)});
-                chats.setProps({children: chatList.map(chatItem => new ChatItemBlock({onClick: chats.onClick, ...chatItem})), ...chats.props})
+                const chatItems: Block[] = chatList.length?
+                    chatList.map(chatItem => new ChatItemBlock({onClick: chats.onClick, ...chatItem})) :
+                    [new Block('li', {}, 'No chats yet')];
+                chats.setProps({children: chatItems, ...chats.props})
                 sideBar.setProps({...sideBar.props, children: [user, navTab, chats]})
             })
         }).then(() => {

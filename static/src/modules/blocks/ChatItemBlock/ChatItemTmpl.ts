@@ -3,7 +3,7 @@ export const chatItemTmpl = `
         <img src="{{responder.avatarUrl}}">
     </div>
     <div class="w50">
-        <h5 class="m0">{{responder.firstName}} {{responder.lastName}}</h5>
+        <h5 class="m0">{{title}}</h5>
         <p class="chatLastMessage">
             {{lastMessage.text}}
         </p>
@@ -14,8 +14,5 @@ export const chatItemTmpl = `
             {{unreadCount}}
         </p>
         {{/if}}
-        <span class="time">
-            {{lastMessage.time}}
-        </span>
     </div>
 `

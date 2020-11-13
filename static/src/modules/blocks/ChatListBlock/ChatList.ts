@@ -1,7 +1,7 @@
 import Block, {DefaultBlockProps} from "../../components/Block.js";
-import {ChatItemBlock} from "../ChatItemBlock/ChatItemBlock";
+import {ChatItemBlock} from "../ChatItemBlock/ChatItemBlock.js";
 type ChatListBlockProps = {
-    onDialogPick: (chatId: string) => void
+    onDialogPick: (chatId: number) => void
 }
 export class ChatListBlock extends Block<ChatListBlockProps> {
     onClick: (e: Event) => void
@@ -13,8 +13,8 @@ export class ChatListBlock extends Block<ChatListBlockProps> {
                 child.setProps({...child.props, isActive: false})
             })
             const currentTarget: ChatItemBlock = (this.props.children as ChatItemBlock[]).find((child) => child.element == e.currentTarget)!;
-            currentTarget.setProps({isActive: true, unreadCount: 0});
-            this.props.onDialogPick(currentTarget.props.responder?.firstName!)
+            currentTarget.setProps({isActive: true, unread_count: '0'});
+            this.props.onDialogPick(currentTarget.id)
         }).bind(this)
     }
 }
