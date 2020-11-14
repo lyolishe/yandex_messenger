@@ -1,9 +1,9 @@
-import Block from "../../src/modules/components/Block.js";
-import {Wrapper} from "../../src/modules/components/Wrapper.js";
-import {ChangeAvatar} from "../../src/modules/blocks/ChangeAvatar/ChangeAvatar.js";
-import {Form} from "../../src/modules/components/Form/Form.js";
-import {changePasswordTmpl, profileSettingsTmpl} from "../../src/modules/components/Form/FormTamplates/ProfileFormTmpl.js";
-import {UserBlock} from "../../src/modules/blocks/UserBlock/UserBlock.js";
+import Block from "../../modules/components/Block.js";
+import {Wrapper} from "../../modules/components/Wrapper.js";
+import {ChangeAvatar} from "../../modules/blocks/ChangeAvatar/ChangeAvatar.js";
+import {Form} from "../../modules/components/Form/Form.js";
+import {changePasswordTmpl, profileSettingsTmpl} from "../../modules/components/Form/FormTamplates/ProfileFormTmpl.js";
+import {UserBlock} from "../../modules/blocks/UserBlock/UserBlock.js";
 
 export const createProfileSettings = (): Block => {
     const appWrapper = new Wrapper({classList: ['appMainWrap']})

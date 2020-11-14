@@ -1,16 +1,16 @@
-import Block from "../../src/modules/components/Block.js";
-import {api, useApi} from "../../src/modules/Utilits.js";
-import {ChatsResponse, Message, User, UserResponse} from "../../src/data/Contracts.js";
-import {UserBlock} from "../../src/modules/blocks/UserBlock/UserBlock.js";
-import {NavTabsBlock} from "../../src/modules/blocks/NavTabs/NavTabsBlock.js";
-import {ChatListBlock} from "../../src/modules/blocks/ChatListBlock/ChatList.js";
-import {ChatItemBlock} from "../../src/modules/blocks/ChatItemBlock/ChatItemBlock.js";
-import {DialogBlock} from "../../src/modules/blocks/DialogBlock/DialogBlock.js";
-import {MessageInputBlock} from "../../src/modules/blocks/MessageInputBlock/MessageInputBlock.js";
-import {BlankDialogBlock} from "../../src/modules/blocks/BlankDialogBlock/BlankDialogBlock.js";
-import {Page} from "../../src/modules/components/Page/Page.js";
-import {AuthApi} from "../../src/api/AuthApi.js";
-import {ChatsApi} from "../../src/api/ChatsApi.js";
+import Block from "../../modules/components/Block.js";
+import {api, useApi} from "../../modules/Utilits.js";
+import {ChatsResponse, Message, User, UserResponse} from "../../data/Contracts.js";
+import {UserBlock} from "../../modules/blocks/UserBlock/UserBlock.js";
+import {NavTabsBlock} from "../../modules/blocks/NavTabs/NavTabsBlock.js";
+import {ChatListBlock} from "../../modules/blocks/ChatListBlock/ChatList.js";
+import {ChatItemBlock} from "../../modules/blocks/ChatItemBlock/ChatItemBlock.js";
+import {DialogBlock} from "../../modules/blocks/DialogBlock/DialogBlock.js";
+import {MessageInputBlock} from "../../modules/blocks/MessageInputBlock/MessageInputBlock.js";
+import {BlankDialogBlock} from "../../modules/blocks/BlankDialogBlock/BlankDialogBlock.js";
+import {Page} from "../../modules/components/Page/Page.js";
+import {AuthApi} from "../../api/AuthApi.js";
+import {ChatsApi} from "../../api/ChatsApi.js";
 
 
 export class DialogPage extends Page{
@@ -45,9 +45,8 @@ export class DialogPage extends Page{
     }
 
     componentDidMount() {
-
         useApi<UserResponse>(AuthApi.get()).then(user => {
-            return [new UserBlock(user), new NavTabsBlock()]
+            return [new UserBlock(user, true), new NavTabsBlock()]
         }).then(([user, navTab]) => {
             this.setChats()
             this.sidebar.setProps({children: [user, navTab, this.chats]})
@@ -70,6 +69,11 @@ export class DialogPage extends Page{
                 this.setProps({...this.props, children: [this.sidebar, this.main]})
             }
         })
+    }
+
+    show() {
+        super.show();
+        this.componentDidMount()
     }
 
 

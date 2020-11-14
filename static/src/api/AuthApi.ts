@@ -25,6 +25,6 @@ export class AuthApi extends HTTPTransport {
     }
 
     static logout = () => {
-        return HTTPTransport.request('auth/logout', {method: METHODS.POST})
+        return HTTPTransport.request('/auth/logout', {method: METHODS.POST})
     }
 }

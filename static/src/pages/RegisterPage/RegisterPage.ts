@@ -1,14 +1,14 @@
-import {Page} from "../../src/modules/components/Page/Page.js";
-import {Form} from "../../src/modules/components/Form/Form.js";
-import Block from "../../src/modules/components/Block.js";
-import {Button} from "../../src/modules/components/Button/Button.js";
-import {SingUpRequest, UserResponse} from "../../src/data/Contracts.js";
-import {Wrapper} from "../../src/modules/components/Wrapper.js";
-import {Card} from "../../src/modules/blocks/Card/Card.js";
-import {AuthApi} from "../../src/api/AuthApi.js";
-import {useApi} from "../../src/modules/Utilits.js";
-import {Router} from "../../src/modules/Router.js";
-import {registerFormTmpl} from "../../src/modules/components/Form/FormTamplates/RegisterFormTmpl.js";
+import {Page} from "../../modules/components/Page/Page.js";
+import {Form} from "../../modules/components/Form/Form.js";
+import Block from "../../modules/components/Block.js";
+import {Button} from "../../modules/components/Button/Button.js";
+import {SingUpRequest, UserResponse} from "../../data/Contracts.js";
+import {Wrapper} from "../../modules/components/Wrapper.js";
+import {Card} from "../../modules/blocks/Card/Card.js";
+import {AuthApi} from "../../api/AuthApi.js";
+import {useApi} from "../../modules/Utilits.js";
+import {Router} from "../../modules/Router.js";
+import {registerFormTmpl} from "../../modules/components/Form/FormTamplates/RegisterFormTmpl.js";
 
 export class RegisterPage extends Page {
     form: Form

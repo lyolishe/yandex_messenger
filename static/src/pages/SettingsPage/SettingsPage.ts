@@ -1,12 +1,12 @@
-import {Page} from "../../src/modules/components/Page/Page.js";
-import Block from "../../src/modules/components/Block.js";
-import {useApi} from "../../src/modules/Utilits.js";
-import {UserResponse} from "../../src/data/Contracts.js";
-import {UserBlock} from "../../src/modules/blocks/UserBlock/UserBlock.js";
-import {NavTabsBlock} from "../../src/modules/blocks/NavTabs/NavTabsBlock.js";
-import {SettingItem, settingsList, SettingsList} from "../../src/modules/blocks/SettingsList/SettingsList.js";
+import {Page} from "../../modules/components/Page/Page.js";
+import Block from "../../modules/components/Block.js";
+import {useApi} from "../../modules/Utilits.js";
+import {UserResponse} from "../../data/Contracts.js";
+import {UserBlock} from "../../modules/blocks/UserBlock/UserBlock.js";
+import {NavTabsBlock} from "../../modules/blocks/NavTabs/NavTabsBlock.js";
+import {SettingItem, settingsList, SettingsList} from "../../modules/blocks/SettingsList/SettingsList.js";
 import {createProfileSettings} from "./ProffileSettings.js";
-import {AuthApi} from "../../src/api/AuthApi.js";
+import {AuthApi} from "../../api/AuthApi.js";
 
 export class SettingsPage extends Page {
     menuItemId: string;

@@ -10,5 +10,6 @@ export const userBlockTmpl = `
         </div>
         {{/if}}
         <h3>{{first_name}} {{second_name}}</h3>
+        <children></children>
     </div>
 `
