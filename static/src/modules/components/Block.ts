@@ -54,9 +54,6 @@ export default class Block<T = {}> {
     private _createResources() {
         const { tagName } = this._meta!;
         this._element = this._createDocumentElement(tagName);
-        if (this.props.classList) {
-            this._element.classList.add(...this.props.classList)
-        }
     }
 
     init() {
@@ -104,6 +101,12 @@ export default class Block<T = {}> {
         // Нужно не в строку компилировать (или делать это правильно),
         // либо сразу в DOM-элементы возвращать из compile DOM-ноду
         this._element.innerHTML = block;
+
+        if (this.props.classList) {
+            this.element.classList.remove(...this.element.classList)
+            this._element.classList.add(...this.props.classList)
+        }
+
         this._attachListeners()
         this._placeChildren()
     }
