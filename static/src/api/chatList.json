@@ -10,8 +10,7 @@
       "text": "Last message text to be placed here",
       "time": "01:32"
     },
-    "unreadCount": 1,
-    "isActive": true
+    "unreadCount": 1
   },
   {
     "responder": {
@@ -24,8 +23,7 @@
       "text": "Last message text to be placed here",
       "time": "01:32"
     },
-    "unreadCount": 0,
-    "isActive": false
+    "unreadCount": 0
   },
   {
     "responder": {
@@ -38,8 +36,7 @@
       "text": "Last message text to be placed here",
       "time": "01:05"
     },
-    "unreadCount": 0,
-    "isActive": false
+    "unreadCount": 0
   },
   {
     "responder": {
@@ -52,8 +49,7 @@
       "text": "Last message text to be placed here",
       "time": "00:15"
     },
-    "unreadCount": 0,
-    "isActive": false
+    "unreadCount": 0
   },
   {
     "responder": {
@@ -66,8 +62,7 @@
       "text": "Last message text to be placed here",
       "time": "00:15"
     },
-    "unreadCount": 0,
-    "isActive": false
+    "unreadCount": 0
   },
   {
     "responder": {
@@ -80,8 +75,7 @@
       "text": "Last message text to be placed here",
       "time": "00:15"
     },
-    "unreadCount": 0,
-    "isActive": false
+    "unreadCount": 0
   },
   {
     "responder": {
@@ -94,7 +88,6 @@
       "text": "Last message text to be placed here",
       "time": "00:15"
     },
-    "unreadCount": 0,
-    "isActive": false
+    "unreadCount": 0
   }
 ]

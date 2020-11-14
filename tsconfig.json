@@ -1,25 +1,26 @@
 {
   "compilerOptions": {
     "module": "esnext",
-    "target": "ES6",
+    "target": "es2017",
     "sourceMap": true,
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "moduleResolution": "node",
     "alwaysStrict": true,
     "strictNullChecks": true,
     "lib": [
       "dom",
       "es5",
       "ES6",
-      "DOM.Iterable",
+      "dom.Iterable",
       "scripthost",
       "es2015.proxy",
       "es2019"
-    ]
+    ],
+    "outDir": "./static/outDir"
   },
   "exclude": [
     "node_modules"
   ]
-
 }

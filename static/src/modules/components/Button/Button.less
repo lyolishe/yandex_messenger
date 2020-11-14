@@ -1,0 +1,44 @@
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &Link {
+    background-color: transparent;
+    color: @primaryColor;
+    cursor: pointer;
+  }
+
+  &CircleOutline {
+    outline: none;
+    border: 1px solid @primaryColor;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    transition: border 100ms ease ;
+    color: @primaryColor;
+    &:hover {
+      border-width: 2px;
+    }
+  }
+  &Primary {
+    color: #ffffff;
+    background-color: @primaryColor;
+    border-color: @primaryColor;
+    outline-color: rgba(52, 82, 158, 0.8);
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: #34529E;
+}

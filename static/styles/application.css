@@ -1,604 +1,538 @@
-html, body {
-    background: #0B0B0B;
-    height: 100%;
-    width: 100%;
-    font-family: Inter, sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 16px;
+.borderDefault {
+  border: 1px solid #0B0B0B;
 }
-a, p, div {
-    font-family: inherit;
+.colCommon {
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+  padding: 1rem;
 }
-
-.appWrapper {
-    height: 100%;
-}
-
-.container {
-    max-width: 1280px;
-    min-height: 300px;
-    height: 100%;
-    margin: 0 auto;
-}
-
 .row {
-    display: flex;
-    flex-flow: row;
+  display: flex;
+  flex-flow: row;
 }
-
 .col {
-    display: block;
-    box-sizing: border-box;
-    position: relative;
-    padding: 1rem;
-    max-width: 100%;
-    min-width: 8.33333333%;
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+  padding: 1rem;
+  max-width: 100%;
+  min-width: 8.33333333%;
 }
-
 .col-6 {
-    display: block;
-    box-sizing: border-box;
-    position: relative;
-    padding: 1rem;
-    flex: 1 1 50%;
-    width: 50%;
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+  padding: 1rem;
+  flex: 1 1 50%;
+  width: 50%;
 }
-
 .mxAuto {
-    margin-left: auto!important;
-    margin-right: auto!important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
-
 .myAuto {
-    margin-top: auto!important;;
-    margin-bottom: auto!important;;
+  margin-top: auto!important;
+  margin-bottom: auto!important;
 }
-
-
 .mlAuto {
-    margin-left: auto!important;;
+  margin-left: auto!important;
 }
-
 .mrAuto {
-    margin-right: auto;!important;
+  margin-right: auto !important;
 }
-
 .m0 {
-    margin: 0!important;;
+  margin: 0!important;
 }
-
 .mt3 {
-    margin-top: 1rem!important;;
+  margin-top: 1rem!important;
 }
 .mb3 {
-    margin-bottom: 1rem!important;;
+  margin-bottom: 1rem!important;
 }
-
 .ml3 {
-    margin-left: 1rem!important;;
+  margin-left: 1rem!important;
 }
-
 .mr3 {
-    margin-right: 1rem!important;;
+  margin-right: 1rem!important;
 }
-
 .mx3 {
-    margin-right: 1rem!important;;
-    margin-left: 1rem!important;;
+  margin-right: 1rem!important;
+  margin-left: 1rem!important;
 }
-
 .my3 {
-    margin-top: 1rem!important;;
-    margin-bottom: 1rem!important;;
+  margin-top: 1rem!important;
+  margin-bottom: 1rem!important;
 }
-
 .pr0 {
-    padding-right: 0!important;
+  padding-right: 0!important;
 }
-
 .pl0 {
-    padding-left: 0!important;;
+  padding-left: 0!important;
 }
-
 .pt0 {
-    padding-top: 0!important;;
+  padding-top: 0!important;
 }
-
 .pt0 {
-    padding-bottom: 0!important;;
+  padding-bottom: 0!important;
 }
-
 .dNone {
-    display: none!important;;
+  display: none!important;
 }
-
 .w100 {
-    width: 100%;
+  width: 100%;
 }
-
 .w50 {
-    width: 50%;
+  width: 50%;
 }
-
 .flexColumn {
-    display: flex;
-    flex-flow: column;
+  display: flex;
+  flex-flow: column;
 }
-
-.btn {
-    display: inline-block;
-    font-weight: 400;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    user-select: none;
-    border: 1px solid transparent;
-    border-radius: 3px;
+.modal {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2000;
 }
-
-.btn:focus {
-    outline: none;
+.modal .modalContent {
+  width: 400px;
+  height: 230px;
+  background-color: #FFFFFF;
+  margin: auto;
+  overflow: auto;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  padding: 0 1rem;
 }
-
-.card {
-    display: flex;
-    flex-flow: column;
-    position: relative;
-    background-color: #ffffff;
+.modal .modalContent .modalHeader {
+  width: 100%;
+  border-bottom: solid black 1px;
 }
-
-.flexColumn {
-    display: flex;
-    flex-flow: column;
+.modal .modalContent .modalBody {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
 }
-
-.card.logInCard {
-    border-radius: 0.75rem;
-}
-
-.card > .logInHeader {
-    display: flex;
-    justify-content: center;
-}
-
-.card > .logInBody {
-    display: flex;
-    justify-content: center;
-    padding: 0 4rem;
-}
-
-.card > .cardBody {
-    display: flex;
-    justify-content: center;
-}
-
-.card > .loginFooter {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 2.5rem;
-    align-items: center;
-}
-
-.formItem {
-    display: block;
-    padding: 0.7rem;
-}
-
-.formControl {
-    display: block;
-}
-
-.formItem > label {
-    display: block;
-    margin-bottom: .5rem;
-}
-
-.link {
-    text-decoration: none;
-    color: #34529E;
-}
-
-.btn {
-    display: inline-block;
-    font-weight: 400;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    user-select: none;
-    border: 1px solid transparent;
-    border-radius: 3px;
-}
-
-.btnCircleOutline {
-    outline: none;
-    border: 1px solid #34529E;
-    border-radius: 50%;
-    width: 2rem;
-    height: 2rem;
-    transition: border 100ms ease ;
-    color: #34529E
-}
-.btnCircleOutline:hover {
-    border-width: 2px;
-}
-
-.formControl {
-    padding: .1rem .75rem;
-}
-
-.btnPrimary {
-    color: #ffffff;
-    background-color: #34529E;
-    border-color: #34529E;
-    outline-color: rgba(52, 82, 158, 0.8);
-}
-
-.btnPrimary {
-    color: #ffffff;
-    background-color: #34529E;
-    border-color: #34529E;
-    outline-color: rgba(52, 82, 158, 0.8);
-}
-
-.textWhite {
-    color: white!important;
-}
-
-.btnLink {
-    background-color: transparent;
-    color: #34529E;
-    cursor: pointer;
-}
-
-.appWrapper {
-    background-color: #000000;
-    position: relative;
-    overflow: hidden;
-}
-
-.appSideBar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 320px;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    background-color: #ffffff;
-    color: #2e373e;
-}
-
-.sideBarNav {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    z-index: 2;
-    border: 1px solid #727272;
-}
-
-.user {
-    display: flex;
+.modal .modalContent .modalBody > * {
+  margin: 1rem auto;
+  display: block;
 }
 .user {
-    padding: 0.5rem;
+  display: flex;
+  padding: 0.5rem;
 }
-
 .userAvatar {
-    vertical-align: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 0.75rem;
+  vertical-align: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 0.75rem;
 }
-
-.userAvatar img {
-    width: 50px;
-    height: 50px;
+.userAvatar > img {
+  width: 50px;
+  height: 50px;
 }
-
-.avatarFull, .avatarFull img {
-    width: 120px;
-    height: 120px;
-}
-
-.avatarFull {
-    vertical-align: center;
-    overflow: hidden;
-}
-
-.navTabs {
-    position: relative;
-    width: 100%;
-}
-
 .menuTabs {
-    display: flex;
-    position: relative;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  position: relative;
+  margin: 0;
+  padding: 0;
 }
-.menuTabs li {
-    display: block;
-    width: 100%;
-    border: 1px solid #000000;
-    cursor: pointer;
-    text-align: center;
-    padding: 0.75rem;
-    transition: background-color .2s ease;
+.menuTabs > li {
+  display: block;
+  width: 100%;
+  border: 1px solid #0B0B0B;
+  cursor: pointer;
+  text-align: center;
+  padding: 0.75rem;
+  transition: background-color 0.2s ease;
 }
-
-.menuTabs li p {
-    margin: 0;
-    font-size: 1.6rem;
+.menuTabs > li > a {
+  margin: 0;
+  font-size: 1.6rem;
 }
-
-.menuTabs li.active {
-    margin: 0;
-    font-size: 1.6rem;
-    background: #9E9E9E;
+.menuTabs > li.active {
+  background: #9E9E9E;
 }
-
+.menuTabs > li:not(.active):hover {
+  background-color: #c6c5c5;
+}
 .menuTabs li:not(.active):hover {
-    background-color: #c6c5c5;
+  background-color: #c6c5c5;
 }
-
-.chatList {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    position: relative;
-    padding: 0;
-    margin: 0;
-    overflow: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+.navTabs {
+  position: relative;
+  width: 100%;
 }
-
-.chatList::-webkit-scrollbar {
-    display: none;
+.messageInputRow {
+  position: revert;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 60px;
+  border: 1px solid #0B0B0B;
 }
-
-.chatList li {
-    display: flex;
-    position: relative;
-    padding: .75rem 0 .75rem 1rem;
-    border: 1px solid #757575;
-    cursor: pointer;
+.messageInputRow > button {
+  font-size: 30px;
+  margin: auto;
 }
-
-.chatList li:not(.active):hover {
-    background-color: #c6c5c5;
+.messageInput {
+  width: 83.33333333%;
+  height: 30px;
+  font-size: 16px;
+  line-height: 30px;
+  margin: 10px 0;
+  border-radius: 30px;
 }
-
-.chatList li.active {
-    background-color: #9E9E9E;
+.messageInput:focus {
+  outline: none;
 }
-
-.chatAvatar {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    margin-right: 0.75rem;
-    overflow: hidden;
+.tail {
+  display: block;
+  position: absolute;
+  bottom: -6px;
+  width: 30px;
+  height: 20px;
+  border: 0 solid;
 }
-
-.chatAvatar img {
-    width: 70px;
-    height: 70px;
+.chatItem,
+.chatItemResponse {
+  display: block;
+  position: relative;
+  background-color: #ffffff;
+  width: 40%;
+  margin: 1.5rem 0;
+  padding: 10px 25px;
+  border-radius: 6px;
 }
-
-.chatList li div:last-child {
-    margin-left: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-}
-
-.chatList li div .time:only-child {
-    margin-top: auto;
-}
-
-.chatLastMessage {
-    font-size: 12px;
-    text-overflow: ellipsis;
-}
-
-.messageBadge {
-    display: inline-block;
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-    color: white;
-    text-align: center;
-    line-height: 1.5rem;
-    background-color: #34529E;
-}
-
-.time {
-    font-size: 12px;
-}
-
-.settingsList {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    position: relative;
-    padding: 0;
-    margin: 0;
-    overflow: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-.settingsList li {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-    padding: .75rem 0 .75rem 1rem;
-    border: 1px solid #757575;
-    cursor: pointer;
-}
-
-.settingsList li:not(.active):hover {
-    background-color: #c6c5c5;
-}
-
-.settingsList li.active {
-    background-color: #9E9E9E;
-}
-
-.settingsList li  {
-    font-size: 20px;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 320px;
-}
-.appMainWrap {
-    flex: 1 1 auto ;
-    overflow: hidden;
-    position: relative;
-}
-
-.appMain {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
-
-.iconPreview {
-    background-color: #ffffff;
-    width: 100px;
-    height: 100px;
-    margin-bottom: 0.75rem;
-}
-
-.navbar {
-    position: relative;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-between;
-    padding: .5rem 1rem;
-    background-color: #FFFFFF;
-    border: 1px solid #757575;
-    border-top: 0;
-}
-
-.navMenu {
-    font-size: 30px;
-}
-
-.dialog {
-    position: relative;
-    flex: 1 1 auto;
-    overflow-y: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-.dialog::-webkit-scrollbar {
-    display: none;
-}
-
-.messageList {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    list-style: none;
-    padding: 0 2rem;
-    height: 100%;
-}
-
-.chatItem, .chatItemResponse {
-    display: block;
-    position: relative;
-    background-color: #FFFFFF;
-    width: 40%;
-    max-width: 50%;
-    margin: 1.5rem 0;
-    padding: 10px 25px;
-    border-radius: 6px;
-}
-
 .chatItem {
-    align-self: flex-end;
+  align-self: flex-end;
 }
 .chatItem:after {
-    content: url(../img/MessageTailRight.png);
-    display: block;
-    position: absolute;
-    right: -24px;
-    bottom: -6px;
-    width: 30px;
-    height: 20px;
-    border: 0 solid;
+  content: url('../img/MessageTailRight.png');
+  display: block;
+  position: absolute;
+  bottom: -6px;
+  width: 30px;
+  height: 20px;
+  border: 0 solid;
+  right: -24px;
 }
-
 .chatItemResponse {
-    align-self: flex-start;
+  align-self: flex-start;
 }
-
 .chatItemResponse:after {
-    content: url(../img/MessageTailLeft.png);
-    display: block;
-    position: absolute;
-    left: -24px;
-    bottom: -6px;
-    width: 30px;
-    height: 20px;
-    border: 0 solid;
+  content: url('../img/MessageTailLeft.png');
+  display: block;
+  position: absolute;
+  bottom: -6px;
+  width: 30px;
+  height: 20px;
+  border: 0 solid;
+  left: -24px;
 }
-
-.messageInputRow {
-    position: revert;
-    background-color: #FFFFFF;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    height: 60px;
-    border: 1px solid #0B0B0B;
+.navbar {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background-color: #FFFFFF;
+  border: 1px solid #757575;
+  border-top: 0;
 }
-
-.messageInputRow button {
-    font-size: 30px;
-    margin: auto;
+.navMenu {
+  font-size: 30px;
 }
-
-.messageInput {
-    width: 83.3333333333%;
-    height: 30px;
-    font-size: 16px;
-    line-height: 30px;
-    margin: 10px 0;
-    border-radius: 30px;
+.dialog {
+  position: relative;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
-
-.messageInput:focus {
-    outline: none;
+.dialog::-webkit-scrollbar {
+  display: none;
 }
-
+.messageList {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  list-style: none;
+  padding: 0 2rem;
+  height: 100%;
+}
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+.btn:focus {
+  outline: none;
+}
+.btnLink {
+  background-color: transparent;
+  color: #34529E;
+  cursor: pointer;
+}
+.btnCircleOutline {
+  outline: none;
+  border: 1px solid #34529E;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  transition: border 100ms ease ;
+  color: #34529E;
+}
+.btnCircleOutline:hover {
+  border-width: 2px;
+}
+.btnPrimary {
+  color: #ffffff;
+  background-color: #34529E;
+  border-color: #34529E;
+  outline-color: rgba(52, 82, 158, 0.8);
+}
+.link {
+  text-decoration: none;
+  color: #34529E;
+}
+.settingsList {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.settingsList > li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 0.75rem 0 0.75rem 1rem;
+  border: 1px solid #757575;
+  cursor: pointer;
+  font-size: 20px;
+}
+.settingsList > li:not(.active):hover {
+  background-color: #c6c5c5;
+}
+.settingsList > li.active {
+  background-color: #9E9E9E;
+}
+.chatList {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.chatList::-webkit-scrollbar {
+  display: none;
+}
+.chatList > li {
+  display: flex;
+  position: relative;
+  padding: 0.75rem 0 0.75rem 1rem;
+  border: 1px solid #757575;
+  cursor: pointer;
+}
+.chatList > li:not(.active):hover {
+  background-color: #c6c5c5;
+}
+.chatList > li.active {
+  background-color: #9E9E9E;
+}
+.chatList > li > div:last-child {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.chatList > li > div:last-child > .remove {
+  margin-right: 0.5rem;
+}
+.chatAvatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+  overflow: hidden;
+}
+.chatAvatar > img {
+  width: 70px;
+  height: 70px;
+}
+.chatLastMessage {
+  font-size: 12px;
+  text-overflow: ellipsis;
+}
+.messageBadge {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  line-height: 1.5rem;
+  background-color: #34529E;
+}
+.formItem {
+  display: block;
+  padding: 0.7rem;
+}
+.formItem > label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.formControl {
+  display: block;
+  padding: 0.1rem 0.75rem;
+}
+html,
+body {
+  background: #0B0B0B;
+  height: 100%;
+  width: 100%;
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+}
+a,
+p,
+div {
+  font-family: inherit;
+}
+.appWrapper {
+  height: 100%;
+}
+.container {
+  max-width: 1280px;
+  min-height: 300px;
+  height: 100%;
+  margin: 0 auto;
+}
+.card {
+  display: flex;
+  flex-flow: column;
+  position: relative;
+  background-color: #ffffff;
+}
+.card.logInCard {
+  border-radius: 0.75rem;
+}
+.card > .logInHeader {
+  display: flex;
+  justify-content: center;
+}
+.card > .logInBody {
+  display: flex;
+  justify-content: center;
+  padding: 0 4rem;
+}
+.card > .cardBody {
+  display: flex;
+  justify-content: center;
+}
+.card > .loginFooter {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2.5rem;
+  align-items: center;
+}
+.textWhite {
+  color: white!important;
+}
+.appWrapper {
+  background-color: #000000;
+  position: relative;
+  overflow: hidden;
+}
+.appSideBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 320px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  color: #2e373e;
+}
+.sideBarNav {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  border: 1px solid #727272;
+}
+.avatarFull,
+.avatarFull img {
+  width: 120px;
+  height: 120px;
+}
+.avatarFull {
+  vertical-align: center;
+  overflow: hidden;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 320px;
+}
+.appMainWrap {
+  flex: 1 1 auto ;
+  overflow: hidden;
+  position: relative;
+}
+.appMain {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.iconPreview {
+  background-color: #ffffff;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 0.75rem;
+}
 .invalidFeedback {
-    width: 100%;
-    margin-top: .25rem;
-    font-size: 80%;
-    color: #dc3545;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545;
 }

@@ -1,0 +1,36 @@
+.modal {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2000;
+
+  .modalContent {
+    width: 400px;
+    height: 230px;
+    background-color: #FFFFFF;
+    margin: auto;
+    overflow: auto;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    padding: 0 1rem;
+
+    .modalHeader{
+      width: 100%;
+      border-bottom: solid black 1px;
+    }
+
+    .modalBody {
+      width: 100%;
+      display: flex;
+      flex-flow: column wrap;
+
+      >* {
+        margin: 1rem auto;
+        display: block;
+      }
+    }
+  }
+}

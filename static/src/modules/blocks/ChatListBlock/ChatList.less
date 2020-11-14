@@ -1,0 +1,71 @@
+.chatList {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  > li {
+    display: flex;
+    position: relative;
+    padding: .75rem 0 .75rem 1rem;
+    border: 1px solid #757575;
+    cursor: pointer;
+
+    &:not(.active):hover {
+      background-color: #c6c5c5;
+    }
+
+    &.active {
+      background-color: #9E9E9E;
+    }
+
+    >div:last-child {
+      margin-left: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+
+      >.remove {
+        margin-right: .5rem;
+      }
+    }
+  }
+}
+
+.chatAvatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+  overflow: hidden;
+
+  >img {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+.chatLastMessage {
+  font-size: 12px;
+  text-overflow: ellipsis;
+}
+
+.messageBadge {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  line-height: 1.5rem;
+  background-color: #34529E;
+}
