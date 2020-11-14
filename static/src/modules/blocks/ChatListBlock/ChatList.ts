@@ -1,8 +1,10 @@
 import Block, {DefaultBlockProps} from "../../components/Block.js";
 import {ChatItemBlock} from "../ChatItemBlock/ChatItemBlock.js";
+
 type ChatListBlockProps = {
     onDialogPick: (chatId: number) => void
 }
+
 export class ChatListBlock extends Block<ChatListBlockProps> {
     onClick: (e: Event) => void
     constructor(props: DefaultBlockProps<ChatListBlockProps>) {
