@@ -10,7 +10,7 @@ export class DialogBlock extends Block<DialogBlockProps> {
     constructor(props: DefaultBlockProps<DialogBlockProps>) {
         super('div', {...props, classList: ["dialog"]})
 
-        const messageList = new Block('ul', {classList: ["messageList"], children: this.props.messages.map(this._createMessage)}, `<children></children>`)
+        const messageList = new Block('ul', {classList: ["messageList"], children: this.props.messages.map(this._createMessage)})
         this.element.append(messageList.element);
     }
 

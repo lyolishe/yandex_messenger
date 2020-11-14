@@ -1,7 +1,13 @@
 export const chatItemTmpl = `
-    <div class="chatAvatar">
-        <img src="{{responder.avatarUrl}}">
+    {{#if avatar}}
+    <div class="userAvatar">
+        <img src="{{avatar}}"/>
     </div>
+    {{else}}
+    <div class="userAvatar">
+        <img src="./img/defaultAvatar.png"/>
+    </div>
+    {{/if}}
     <div class="w50">
         <h5 class="m0">{{title}}</h5>
         <p class="chatLastMessage">

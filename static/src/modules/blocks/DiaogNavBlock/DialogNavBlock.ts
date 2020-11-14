@@ -9,9 +9,6 @@ export type DialogNavBlockProps = {
 export class DialogNavBlock extends Block<DialogNavBlockProps>{
     constructor(props: DefaultBlockProps<DialogNavBlockProps>) {
         super("nav", {...props, classList: ["navbar"]});
-    }
-
-    componentDidMount() {
         this.element.appendChild(this.props.userBlock.element);
     }
 

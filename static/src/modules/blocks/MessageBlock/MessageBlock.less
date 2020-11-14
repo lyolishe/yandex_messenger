@@ -1,0 +1,38 @@
+.tail {
+  display: block;
+  position: absolute;
+  bottom: -6px;
+  width: 30px;
+  height: 20px;
+  border: 0 solid;
+}
+
+.chatItem, .chatItemResponse {
+  display: block;
+  position: relative;
+  background-color: #ffffff;
+  width: 40%;
+  margin: 1.5rem 0;
+  padding: 10px 25px;
+  border-radius: 6px;
+}
+
+.chatItem {
+  align-self: flex-end;
+
+  &:after {
+    content: url(@messageTailRight);
+    .tail();
+    right: -24px;
+  }
+}
+
+.chatItemResponse {
+  align-self: flex-start;
+
+  &:after {
+    content: url(@messageTailLeft);
+    .tail();
+    left: -24px;
+  }
+}
