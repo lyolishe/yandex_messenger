@@ -1,6 +1,6 @@
 import Block from "../../modules/components/Block.js";
 import {api, useApi} from "../../modules/Utilits.js";
-import {ChatsResponse, Message, User, UserResponse} from "../../data/Contracts.js";
+import {ChatsResponse, Message, UserResponse} from "../../data/Contracts.js";
 import {UserBlock} from "../../modules/blocks/UserBlock/UserBlock.js";
 import {NavTabsBlock} from "../../modules/blocks/NavTabs/NavTabsBlock.js";
 import {ChatListBlock} from "../../modules/blocks/ChatListBlock/ChatList.js";
@@ -9,8 +9,9 @@ import {DialogBlock} from "../../modules/blocks/DialogBlock/DialogBlock.js";
 import {MessageInputBlock} from "../../modules/blocks/MessageInputBlock/MessageInputBlock.js";
 import {BlankDialogBlock} from "../../modules/blocks/BlankDialogBlock/BlankDialogBlock.js";
 import {Page} from "../../modules/components/Page/Page.js";
-import {AuthApi} from "../../api/AuthApi.js";
 import {ChatsApi} from "../../api/ChatsApi.js";
+import {Context} from "../../modules/Context.js";
+import {AuthApi} from "../../api/AuthApi.js";
 
 
 export class DialogPage extends Page{
@@ -46,13 +47,14 @@ export class DialogPage extends Page{
 
     componentDidMount() {
         useApi<UserResponse>(AuthApi.get()).then(user => {
+            new Context().set('user', user)
             return [new UserBlock(user, true), new NavTabsBlock()]
         }).then(([user, navTab]) => {
             this.setChats()
             this.sidebar.setProps({children: [user, navTab, this.chats]})
 
             if (this.menuItemId) {
-                api<{ responder: User, messages: Message[] }>(`../src/api/dialogWith${this.menuItemId}.json`).then(data => {
+                api<{ responder: UserResponse, messages: Message[] }>(`../src/api/dialogWith${this.menuItemId}.json`).then(data => {
                     //const userBlock = new UserBlock(data.responder);
                     //const navBar = new DialogNavBlock({userBlock});
                     const dialog = new DialogBlock({messages: data.messages});
@@ -78,7 +80,7 @@ export class DialogPage extends Page{
 
 
     createChat() {
-        this.menuItemId && api<{ responder: User, messages: Message[] }>(`../src/api/dialogWith${this.menuItemId}.json`).then(data => {
+        this.menuItemId && api<{ responder: UserResponse, messages: Message[] }>(`../src/api/dialogWith${this.menuItemId}.json`).then(data => {
             //const userBlock = new UserBlock(data.responder);
             //const navBar = new DialogNavBlock({userBlock});
             const dialog = new DialogBlock({messages: data.messages});

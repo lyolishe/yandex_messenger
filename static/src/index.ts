@@ -6,9 +6,10 @@ import {AuthApi} from "./api/AuthApi.js";
 import {LoginPage} from "./pages/LoginPage/LoginPage.js";
 import {UserResponse} from "./data/Contracts.js";
 import {RegisterPage} from "./pages/RegisterPage/RegisterPage.js";
+import {Context} from "./modules/Context.js";
 
 const router = new Router("root");
-
+const context = new Context()
 router
     .use('/login', LoginPage)
     .use('/register', RegisterPage)
@@ -21,6 +22,7 @@ useApi<UserResponse>(AuthApi.get())
         if (!user) {
             router.go('/login')
         }
+        context.set('user', user);
         router.go('/')
     })
     .catch(()=>router.go('/login'))

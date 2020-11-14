@@ -3,15 +3,26 @@ import {ChangePasswordRequest, FindUserRequest, UserRequest} from "../data/Contr
 
 export class UsersApi extends HTTPTransport {
     static changeProfile = (data: UserRequest) => {
-        return HTTPTransport.request('/user/profile', {method: METHODS.PUT, data})
+        return HTTPTransport.request('/user/profile', {method: METHODS.PUT, data, headers: {
+                'content-type': 'application/json',
+                'accept': 'application/json',
+            }
+        })
     }
 
-    static changeAvatar = (data: {avatar: File}) => {
-        return HTTPTransport.request('/user/profile/avatar', {method: METHODS.PUT, data})
+    static changeAvatar = (data: FormData) => {
+        return HTTPTransport.request('/user/profile/avatar', {method: METHODS.PUT, data, headers: {
+                "content-type": "multipart/form-data",
+                "accept": 'application/json'
+            }
+        })
     }
 
     static changePassword = (data: ChangePasswordRequest) => {
-        return HTTPTransport.request('/user/password', {method: METHODS.PUT, data})
+        return HTTPTransport.request('/user/password', {method: METHODS.PUT, data, headers: {
+                'content-type': 'application/json',
+            }
+        })
     }
 
     static getUser = (id: number) => {

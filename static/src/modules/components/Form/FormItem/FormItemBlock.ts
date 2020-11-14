@@ -1,8 +1,6 @@
 import Block, {DefaultBlockProps} from "../../Block.js";
 import {Validation, Validator} from "../../../Validation.js";
 import {formItemTmpl} from "./FormItemTmpl.js";
-import * as Handlebars from 'handlebars'
-
 
 export type FormItemBlockProps = {
     label?: string;

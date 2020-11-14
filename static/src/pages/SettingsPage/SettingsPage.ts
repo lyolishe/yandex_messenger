@@ -27,7 +27,7 @@ export class SettingsPage extends Page {
     componentDidMount() {
 
         useApi<UserResponse>(AuthApi.get()).then(user => {
-            const userBlock = new UserBlock(user)
+            const userBlock = new UserBlock(user, true)
             const settings = new SettingsList({onPick: this.onPickPoint.bind(this)});
             settings.setProps({children: settingsList.map(point => new SettingItem({onClick: settings.onClick, ...point}))})
             this.sideBar.setProps({...this.sideBar.props, children: [userBlock, new NavTabsBlock(), settings]})

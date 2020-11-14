@@ -9,7 +9,11 @@ export const userBlockTmpl = `
             <img src="./img/defaultAvatar.png"/>
         </div>
         {{/if}}
-        <h3>{{first_name}} {{second_name}}</h3>
+        {{#if display_name}} 
+            <h3>{{display_name}}</h3>
+        {{else}}
+            <h3>{{first_name}} {{second_name}}</h3>
+        {{/if}}
         <children></children>
     </div>
 `

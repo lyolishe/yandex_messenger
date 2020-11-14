@@ -93,3 +93,5 @@ export function queryStringify(data: StringIndexed): string | never {
         return `${result}${key}=${value}${endLine}`;
     }, '');
 }
+
+export const BasePath = `https://ya-praktikum.tech`

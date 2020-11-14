@@ -1,6 +1,5 @@
 import Block, {DefaultBlockProps} from "../Block.js";
 import {buttonTmpl} from "./ButtonTmpl.js";
-import * as Handlebars from 'handlebars'
 
 export type ButtonProps = {
     onClick?: ()=>void;

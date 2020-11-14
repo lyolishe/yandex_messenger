@@ -10,6 +10,7 @@ import {Form} from "../../modules/components/Form/Form.js";
 import {loginFormTmpl, passwordFormTmpl} from "../../modules/components/Form/FormTamplates/LoginFormTmpl.js";
 import {Card} from "../../modules/blocks/Card/Card.js";
 import {Link} from "../../modules/blocks/Link.js";
+import {Context} from "../../modules/Context.js";
 
 export class LoginPage extends Page{
     form: Form
@@ -49,6 +50,7 @@ export class LoginPage extends Page{
         AuthApi.signIn(data).then(() => {
             useApi<UserResponse>(AuthApi.get()).then(user => {
                 if (user) {
+                    new Context().set('user', user)
                     new Router('root').go('/')
                 }
             })

@@ -4,10 +4,11 @@ import {UserResponse} from "../../../data/Contracts.js";
 import {Button} from "../../components/Button/Button.js";
 import {AuthApi} from "../../../api/AuthApi.js";
 import {Router} from "../../Router.js";
+import {BasePath} from "../../Utilits.js";
 
 export class UserBlock extends Block<UserResponse> {
     constructor(props: DefaultBlockProps<UserResponse>, hasLogout?: boolean) {
-        super("div", props);
+        super("div", {...props, avatar: props.avatar? BasePath+props.avatar : "./img/defaultAvatar.png"});
 
         if (hasLogout) {
             this.setProps({children: [this._createLogoutButton()]})
