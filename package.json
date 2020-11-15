@@ -4,7 +4,8 @@
   "description": "Silence Messenger",
   "scripts": {
     "start": "tsc -w & node ./server.js",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "build": "tsc"
   },
   "homepage": "https://github.com/lyolishe/mf.messenger.praktikum.yandex/blob/master/README.md",
   "devDependencies": {
