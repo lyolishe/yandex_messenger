@@ -38,12 +38,13 @@ export class ChangeAvatar extends Block<UserResponse> {
     onClick(): void {
         const avatar = (this.element as HTMLFormElement).elements[0];
         (avatar as HTMLInputElement).click();
+        avatar.removeEventListener('change', this.upload.bind(this))
         avatar.addEventListener('change', this.upload.bind(this))
     }
 
     upload():void {
-        const form = new FormData((this.element as HTMLFormElement));
-        useApi<UserResponse>(UsersApi.changeAvatar(form)).then(user => {
+        const data = new FormData((this.element as HTMLFormElement));
+        useApi<UserResponse>(UsersApi.changeAvatar(data)).then(user => {
             new Context().set('user', user);
             this.setProps(user)
         })
