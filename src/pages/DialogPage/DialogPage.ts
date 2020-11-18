@@ -1,23 +1,24 @@
 import Block from "../../modules/components/Block.js";
 import {useApi} from "../../modules/Utilits.js";
-import {ChatsResponse, UserResponse} from "../../types/Contracts.js";
+import {ChatsResponse} from "../../types/Contracts.js";
 import {UserBlock} from "../../modules/components/UserBlock/UserBlock.js";
 import {NavTabsBlock} from "../../modules/components/NavTabs/NavTabsBlock.js";
 import {ChatListBlock} from "../../modules/components/ChatListBlock/ChatList.js";
 import {ChatItemBlock} from "../../modules/components/ChatItemBlock/ChatItemBlock.js";
 import {BlankDialogBlock} from "../../modules/components/BlankDialogBlock/BlankDialogBlock.js";
 import {ChatsApi} from "../../api/ChatsApi.js";
-import {Context} from "../../modules/Context.js";
-import {AuthApi} from "../../api/AuthApi.js";
+import {Page} from "../../modules/components/Page/Page.js";
+import {Router} from "../../modules/Router.js";
+import {UserService} from "../../servise/UserService.js";
 
 
-export class DialogPage extends Block{
+export class DialogPage extends Page{
     menuItemId: string
     sidebar: Block;
     main: Block;
     chats: ChatListBlock;
     constructor() {
-        super('div', {})
+        super()
         this.sidebar = new Block('aside', {classList: ["appSideBar"]})
         this.main = new Block('main', {})
         this.chats = new ChatListBlock({onDialogPick: this.onPickDialog.bind(this)});
@@ -43,8 +44,7 @@ export class DialogPage extends Block{
     }
 
     componentDidMount() {
-        useApi<UserResponse>(AuthApi.get()).then(user => {
-            Context.instance.set('user', user)
+        UserService.checkUser().then(user => {
             return [new UserBlock({...user, hasLogout: true}), new NavTabsBlock()]
         }).then(([user, navTab]) => {
             this.setChats()
@@ -55,7 +55,7 @@ export class DialogPage extends Block{
             const appWrapper = new Block('div', {classList: ["appWrapper"], children: [app]})
             this.main.setProps({...this.main.props, children: [appWrapper]});
             this.setProps({...this.props, children: [this.sidebar, this.main]})
-        })
+        }).catch(()=> Router.instanse.go('/login'))
     }
 
     show() {
@@ -64,7 +64,7 @@ export class DialogPage extends Block{
     }
 
 
-    //@TODO: Сделат метод для отображения чатиков
+    //@TODO: Сделать метод для отображения чатиков
     createChat() {
 
     }

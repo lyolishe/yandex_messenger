@@ -10,11 +10,12 @@ import {loginFormTmpl, passwordFormTmpl} from "../../modules/components/Form/For
 import {Card, CardFooter, CardHeader} from "../../modules/components/Card/Card.js";
 import {Link} from "../../modules/components/Link.js";
 import {Context} from "../../modules/Context.js";
+import {Page} from "../../modules/components/Page/Page.js";
 
-export class LoginPage extends Block{
+export class LoginPage extends Page{
     form: Form
     constructor() {
-        super('div', {});
+        super();
 
         this.form = new Form({id: "form"}, loginFormTmpl+passwordFormTmpl);
 
@@ -27,8 +28,7 @@ export class LoginPage extends Block{
                         if (this.form.validateAll()) {
                             return;
                         }
-                        const formdata = this.form.getFieldValue<SignInRequest>()
-                        this.onSubmit(formdata)
+                        this.onSubmit(this.form.getFieldValue<SignInRequest>())
                     }}
                 ) //sign in Button
             ]

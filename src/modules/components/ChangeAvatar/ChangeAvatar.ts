@@ -13,7 +13,7 @@ export class ChangeAvatar extends Block<UserResponse> {
         super('form', {
             ...props,
             classList: ["row"],
-            avatar: props.avatar? BasePath+ props.avatar : "./img/defaultAvatar.png"
+            avatar: props?.avatar? BasePath+ props.avatar : "./img/defaultAvatar.png"
         });
         this.element.setAttribute('id', 'changeAvatar')
         this.setProps({

@@ -21,7 +21,7 @@ export class HTTPTransport {
             xhr.open(method, apiBasePath+url);
             xhr.withCredentials = true
             xhr.timeout = timeout;
-            xhr.setRequestHeader("content-type", "multipart/form-data")
+            xhr.setRequestHeader("content-type", "application/json")
             xhr.setRequestHeader("accept", 'application/json')
             if(headers){
                 for (let key in headers) {

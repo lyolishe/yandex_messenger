@@ -10,7 +10,7 @@ export class ChatListBlock extends Block<ChatListBlockProps> {
         super('ul', {...props, classList: ["chatList"], onDialogPick: props.onDialogPick, });
     }
 
-    onClick(e:Event) {
+    onClick = (e:Event) => {
         (this.props.children as ChatItemBlock[]).filter(child => child.props.isActive)
             .forEach(active => {
                 active.setProps({...active.props, isActive: false})

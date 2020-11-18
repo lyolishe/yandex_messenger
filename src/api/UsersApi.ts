@@ -7,7 +7,10 @@ export class UsersApi {
     }
 
     static changeAvatar = (data: FormData) => {
-        return HTTPTransport.request('/user/profile/avatar', {method: METHODS.PUT, data})
+        return HTTPTransport.request('/user/profile/avatar', {method: METHODS.PUT, data, headers: {
+            'content-type': 'multipart/form-data'
+            }
+        })
     }
 
     static changePassword = (data: ChangePasswordRequest) => {

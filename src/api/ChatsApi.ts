@@ -7,17 +7,12 @@ export class ChatsApi {
     }
 
     static addChat = (data: CreateChatRequest) => {
-        return HTTPTransport.request('/chats', {method: METHODS.POST, data, headers: {
-            'content-type': 'application/json'
-            }}
+        return HTTPTransport.request('/chats', {method: METHODS.POST, data}
         );
     }
 
     static removeChat = (data: ChatDeleteRequest) => {
-        return HTTPTransport.request('/chats', {method: METHODS.DELETE, data, headers: {
-                'accept': 'application/json',
-                'content-type': 'application/json'
-            }})
+        return HTTPTransport.request('/chats', {method: METHODS.DELETE, data})
     }
 
     static getChatUsers = (id: number) => {

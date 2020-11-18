@@ -1,18 +1,18 @@
 import Block from "../../modules/components/Block.js";
-import {useApi} from "../../modules/Utilits.js";
-import {UserResponse} from "../../types/Contracts.js";
 import {UserBlock} from "../../modules/components/UserBlock/UserBlock.js";
 import {NavTabsBlock} from "../../modules/components/NavTabs/NavTabsBlock.js";
 import {SettingItem, settingsList, SettingsList} from "../../modules/components/SettingsList/SettingsList.js";
 import {createProfileSettings} from "./ProffileSettings.js";
-import {AuthApi} from "../../api/AuthApi.js";
+import {Page} from "../../modules/components/Page/Page.js";
+import {Router} from "../../modules/Router.js";
+import {UserService} from "../../servise/UserService.js";
 
-export class SettingsPage extends Block {
+export class SettingsPage extends Page {
     menuItemId: string;
     sideBar: Block;
     main: Block;
     constructor() {
-        super('div', {});
+        super();
         this.menuItemId = 'profile'
         this.sideBar = new Block('aside', {classList: ["appSideBar"]});
         this.main = this.createMain();
@@ -25,13 +25,13 @@ export class SettingsPage extends Block {
 
     componentDidMount() {
 
-        useApi<UserResponse>(AuthApi.get()).then(user => {
+        UserService.checkUser().then(user => {
             const userBlock = new UserBlock({...user, hasLogout:true})
             const settings = new SettingsList({onPick: this.onPickPoint.bind(this)});
             settings.setProps({children: settingsList.map(point => new SettingItem({onClick: settings.onClick, ...point}))})
             this.sideBar.setProps({...this.sideBar.props, children: [userBlock, new NavTabsBlock(), settings]})
             this.setProps({children: [this.sideBar, this.main]});
-        })
+        }).catch(() => Router.instanse.go('/login'))
 
     }
 

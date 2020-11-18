@@ -15,7 +15,10 @@ export class Button extends Block<ButtonProps> {
         this.element.setAttribute('type', props.type)
 
         if (this.props.onClick) {
-            this.element.onclick = this.props.onClick
+            this.element.onclick = (e) => {
+                e.preventDefault()
+                this.props.onClick?.()
+            }
         }
     }
 

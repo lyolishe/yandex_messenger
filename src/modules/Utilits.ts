@@ -17,7 +17,7 @@ export function get<T extends Record<string, any>> (obj: T, path: string, defaul
 
 export function useApi<T>(result: Promise<XMLHttpRequest>): Promise<T> {
     return result.then(response => {
-        if (!response.status.toString().startsWith('2')){
+        if (/^([4,5])/.test(response.status.toString())){
             throw new Error(response.statusText)
         }
         return JSON.parse(response.response) as T

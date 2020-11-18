@@ -9,8 +9,8 @@ export class Context {
         Context.__instance = this;
     }
 
-    get(key: string) {
-        return this._data[key];
+    get(key: string): Record<string, unknown> {
+        return this._data[key] as Record<string, unknown>;
     }
 
     static get instance() {

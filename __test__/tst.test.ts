@@ -10,7 +10,7 @@ test('router test', () => {
     expect(router).toEqual(new Router('test1'))
 });
 
-test('Form element test', ()=> {
+test('Form element test', () => {
     //expect Form element creating correct form items from certain template with correct initial values;
     const id = "test text"
     const formtmpl = `<formitem data-name="id" data-label="test label" data-type="text"></formitem>`
@@ -23,7 +23,7 @@ test('Form element test', ()=> {
     expect((input as HTMLInputElement).value).toEqual(id)
 });
 
-test('base Block test', ()=> {
+test('base Block test', () => {
     //expecting Block class public methods work right;
     const tagName = 'div';
     const classList = ['myClass', 'anotherClass'];
@@ -45,15 +45,15 @@ test('base Block test', ()=> {
 
     //checking how i can change props.
     const newClassList = ['something', 'another']
-    block.setProps({classList:newClassList})
+    block.setProps({classList: newClassList})
     expect(block.element.className).toEqual(newClassList.join(' '))
 });
 
-test('button test', ()=> {
+test('button test', () => {
     //expect Button class to create clickable button with correct text inside;
 
     const fn = jest.fn();
-    const button = new Button({type:"button", onClick: fn, text: ""});
+    const button = new Button({type: "button", onClick: fn, text: ""});
 
     //check if i can click on the button and if there are a correct text
     button.element.click()

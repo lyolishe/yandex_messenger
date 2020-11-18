@@ -8,11 +8,12 @@ import {AuthApi} from "../../api/AuthApi.js";
 import {useApi} from "../../modules/Utilits.js";
 import {Router} from "../../modules/Router.js";
 import {registerFormTmpl} from "../../modules/components/Form/FormTamplates/RegisterFormTmpl.js";
+import {Page} from "../../modules/components/Page/Page.js";
 
-export class RegisterPage extends Block {
+export class RegisterPage extends Page {
     form: Form
     constructor() {
-        super('div', {});
+        super();
 
         this.form = new Form({id: "form"}, registerFormTmpl);
 

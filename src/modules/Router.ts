@@ -1,8 +1,8 @@
 import {Route} from "./Route.js";
-import {Page} from "./components/Page/Page";
-import {UserResponse} from "../types/Contracts";
+import {Page} from "./components/Page/Page.js";
+import {UserResponse} from "../types/Contracts.js";
 
-enum Routes {
+export enum Routes {
     Login = '/login',
     Register = '/register',
     Chats = '/',
@@ -33,6 +33,10 @@ export class Router {
         const route = new Route(pathname, block, {rootQuery: this._rootQuery});
         this.routes.push(route);
         return this
+    }
+
+    static get instanse() {
+        return Router.__instance?? new Router('root')
     }
 
     start(user?: UserResponse) {
