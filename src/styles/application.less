@@ -1,0 +1,152 @@
+@import "constants";
+@import "mixins";
+@import "grid";
+@import "../modules/components/Modal/Modal";
+@import "../modules/components/UserBlock/UserBlock";
+@import "../modules/components/NavTabs/NavTabs";
+@import "../modules/components/DialogBlock/DialogBlock";
+@import "../modules/components/Button/Button";
+@import "../modules/components/SettingsList/SettingsList";
+@import "../modules/components/ChatListBlock/ChatList";
+@import "../modules/components/Form/Form";
+
+html, body {
+    background: #0B0B0B;
+    height: 100%;
+    width: 100%;
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+}
+a, p, div {
+    font-family: inherit;
+}
+
+.appWrapper {
+    height: 100%;
+}
+
+.container {
+    max-width: 1280px;
+    min-height: 300px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.card {
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    background-color: #ffffff;
+}
+
+.card.logInCard {
+    border-radius: 0.75rem;
+}
+
+.card > .logInHeader {
+    display: flex;
+    justify-content: center;
+}
+
+.card > .logInBody {
+    display: flex;
+    justify-content: center;
+    padding: 0 4rem;
+}
+
+.card > .cardBody {
+    display: flex;
+    justify-content: center;
+}
+
+.card > .loginFooter {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2.5rem;
+    align-items: center;
+}
+
+.textWhite {
+    color: white!important;
+}
+
+.appWrapper {
+    background-color: #000000;
+    position: relative;
+    overflow: hidden;
+}
+
+.appSideBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 320px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    color: #2e373e;
+}
+
+.sideBarNav {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    border: 1px solid #727272;
+}
+
+.avatarFull, .avatarFull img {
+    width: 120px;
+    height: 120px;
+}
+
+.avatarFull {
+    vertical-align: center;
+    overflow: hidden;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 320px;
+}
+
+.appMainWrap {
+    flex: 1 1 auto ;
+    overflow: hidden;
+    position: relative;
+}
+
+.appMain {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.iconPreview {
+    background-color: #ffffff;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 0.75rem;
+}
+
+.invalidFeedback {
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+}

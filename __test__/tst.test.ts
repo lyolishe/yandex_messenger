@@ -1,7 +1,7 @@
-import {Router} from "../static/src/modules/Router";
-import {Form} from "../static/src/modules/components/Form/Form";
-import Block from "../static/src/modules/components/Block";
-import {Button} from "../static/src/modules/components/Button/Button";
+import {Router} from "../src/modules/Router";
+import {Form} from "../src/modules/components/Form/Form";
+import Block from "../src/modules/components/Block";
+import {Button} from "../src/modules/components/Button/Button";
 
 test('router test', () => {
     //expect router from different rootQuery to be equal;
