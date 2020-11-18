@@ -4,8 +4,8 @@ import Block from "../src/modules/components/Block";
 import {Button} from "../src/modules/components/Button/Button";
 
 describe('router test', () => {
+    const router = new Router('abc')
     test('expect router from different rootQuery to be equal', () => {
-        const router = new Router('abc')
         expect(router).toEqual(new Router('test1'))
     });
 })
