@@ -17,9 +17,3 @@ or just go to https://wonderful-blackwell-7a88a7.netlify.app
 ### **Resources**
 design: https://www.figma.com/file/HowCClv2lrvhTKe3ilvdED/Chat-Lyonya?node-id=0%3A1
 //WIP
-
-
-*Для ревьюеров*: Окей, почти всё!
-Переложил все страницы на компонентные рельсы, валидации работают и всё такое. 
-Осталось только распилить цсски, чем займусь, как проснусь :)
-А потом с удовольствием поправлю Ваши замечания, и обработую свои TODO'хи.
