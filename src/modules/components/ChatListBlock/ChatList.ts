@@ -1,5 +1,5 @@
-import Block, {DefaultBlockProps} from "../Block.js";
-import {ChatItemBlock} from "../ChatItemBlock/ChatItemBlock.js";
+import Block, {DefaultBlockProps} from "../Block";
+import {ChatItemBlock} from "../ChatItemBlock/ChatItemBlock";
 
 type ChatListBlockProps = {
     onDialogPick: (chatId: number) => void

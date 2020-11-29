@@ -1,14 +1,14 @@
-import {Form} from "../../modules/components/Form/Form.js";
-import Block from "../../modules/components/Block.js";
-import {Button} from "../../modules/components/Button/Button.js";
-import {SingUpRequest, UserResponse} from "../../types/Contracts.js";
-import {Wrapper} from "../../modules/components/Wrapper.js";
-import {Card, CardFooter, CardHeader} from "../../modules/components/Card/Card.js";
-import {AuthApi} from "../../api/AuthApi.js";
-import {useApi} from "../../modules/Utilits.js";
-import {Router} from "../../modules/Router.js";
-import {registerFormTmpl} from "../../modules/components/Form/FormTamplates/RegisterFormTmpl.js";
-import {Page} from "../../modules/components/Page/Page.js";
+import {Form} from "../../modules/components/Form/Form";
+import Block from "../../modules/components/Block";
+import {Button} from "../../modules/components/Button/Button";
+import {SingUpRequest, UserResponse} from "../../types/Contracts";
+import {Wrapper} from "../../modules/components/Wrapper";
+import {Card, CardFooter, CardHeader} from "../../modules/components/Card/Card";
+import {AuthApi} from "../../api/AuthApi";
+import {useApi} from "../../modules/Utilits";
+import {Router} from "../../modules/Router";
+import {registerFormTmpl} from "../../modules/components/Form/FormTamplates/RegisterFormTmpl";
+import {Page} from "../../modules/components/Page/Page";
 
 export class RegisterPage extends Page {
     form: Form

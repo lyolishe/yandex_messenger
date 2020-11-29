@@ -1,5 +1,5 @@
-import {HTTPTransport, METHODS} from "../modules/HTTPTransport.js";
-import {ChangePasswordRequest, FindUserRequest, UserRequest} from "../types/Contracts.js";
+import {HTTPTransport, METHODS} from "../modules/HTTPTransport";
+import {ChangePasswordRequest, FindUserRequest, UserRequest} from "../types/Contracts";
 
 export class UsersApi {
     static changeProfile = (data: UserRequest) => {

@@ -1,16 +1,16 @@
-import {SignInRequest, UserResponse} from "../../types/Contracts.js";
-import {AuthApi} from "../../api/AuthApi.js";
-import {useApi} from "../../modules/Utilits.js";
-import {Router} from "../../modules/Router.js";
-import {Wrapper} from "../../modules/components/Wrapper.js";
-import Block from "../../modules/components/Block.js";
-import {Button} from "../../modules/components/Button/Button.js";
-import {Form} from "../../modules/components/Form/Form.js";
-import {loginFormTmpl, passwordFormTmpl} from "../../modules/components/Form/FormTamplates/LoginFormTmpl.js";
-import {Card, CardFooter, CardHeader} from "../../modules/components/Card/Card.js";
-import {Link} from "../../modules/components/Link.js";
-import {Context} from "../../modules/Context.js";
-import {Page} from "../../modules/components/Page/Page.js";
+import {SignInRequest, UserResponse} from "../../types/Contracts";
+import {AuthApi} from "../../api/AuthApi";
+import {useApi} from "../../modules/Utilits";
+import {Router} from "../../modules/Router";
+import {Wrapper} from "../../modules/components/Wrapper";
+import Block from "../../modules/components/Block";
+import {Button} from "../../modules/components/Button/Button";
+import {Form} from "../../modules/components/Form/Form";
+import {loginFormTmpl, passwordFormTmpl} from "../../modules/components/Form/FormTamplates/LoginFormTmpl";
+import {Card, CardFooter, CardHeader} from "../../modules/components/Card/Card";
+import {Link} from "../../modules/components/Link";
+import {Context} from "../../modules/Context";
+import {Page} from "../../modules/components/Page/Page";
 
 export class LoginPage extends Page{
     form: Form
@@ -50,7 +50,7 @@ export class LoginPage extends Page{
             useApi<UserResponse>(AuthApi.get()).then(user => {
                 if (user) {
                     Context.instance.set('user', user)
-                    new Router('root').go('/')
+                    Router.instanse.go('/')
                 }
             })
         })

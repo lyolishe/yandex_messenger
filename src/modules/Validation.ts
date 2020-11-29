@@ -1,4 +1,4 @@
-import {splitCamelCase} from "./Utilits.js";
+import {splitCamelCase} from "./Utilits";
 
 export type Validator = (val: string|number) => string|void;
 // Проверяет валидность элемента

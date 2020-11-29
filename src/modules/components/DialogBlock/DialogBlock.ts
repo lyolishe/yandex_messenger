@@ -1,5 +1,5 @@
-import {MessageBlock} from "../MessageBlock/MessageBlock.js";
-import Block, {DefaultBlockProps} from "../Block.js";
+import {MessageBlock} from "../MessageBlock/MessageBlock";
+import Block, {DefaultBlockProps} from "../Block";
 import {Message} from "../../../types/Contracts";
 
 export type DialogBlockProps  = {

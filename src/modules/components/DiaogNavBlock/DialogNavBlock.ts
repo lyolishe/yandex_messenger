@@ -1,5 +1,5 @@
-import Block, {DefaultBlockProps} from "../Block.js";
-import {dialogNavTmpl} from "./DialogNavTmpl.js";
+import Block, {DefaultBlockProps} from "../Block";
+import {dialogNavTmpl} from "./DialogNavTmpl";
 import {UserBlock} from "../UserBlock/UserBlock";
 
 export type DialogNavBlockProps = {

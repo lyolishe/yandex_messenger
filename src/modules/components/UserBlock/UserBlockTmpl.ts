@@ -6,7 +6,7 @@ export const userBlockTmpl = `
         </div>
         {{else}}
         <div class="userAvatar">
-            <img src="./img/defaultAvatar.png"/>
+            <img src="./src/img/defaultAvatar.png"/>
         </div>
         {{/if}}
         {{#if display_name}} 

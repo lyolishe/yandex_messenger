@@ -1,4 +1,4 @@
-import Block from "./Block.js";
+import Block from "./Block";
 
 export class Link extends Block {
     constructor(to: string, text?: string) {

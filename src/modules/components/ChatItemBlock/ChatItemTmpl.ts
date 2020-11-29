@@ -5,7 +5,7 @@ export const chatItemTmpl = `
     </div>
     {{else}}
     <div class="userAvatar">
-        <img src="./img/defaultAvatar.png"/>
+        <img src="./src/img/defaultAvatar.png"/>
     </div>
     {{/if}}
     <div class="w50">

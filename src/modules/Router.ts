@@ -1,6 +1,6 @@
-import {Route} from "./Route.js";
-import {Page} from "./components/Page/Page.js";
-import {UserResponse} from "../types/Contracts.js";
+import {Route} from "./Route";
+import {Page} from "./components/Page/Page";
+import {UserResponse} from "../types/Contracts";
 
 export enum Routes {
     Login = '/login',

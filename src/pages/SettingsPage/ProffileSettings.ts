@@ -1,14 +1,14 @@
-import Block from "../../modules/components/Block.js";
-import {Wrapper} from "../../modules/components/Wrapper.js";
-import {ChangeAvatar} from "../../modules/components/ChangeAvatar/ChangeAvatar.js";
-import {Form} from "../../modules/components/Form/Form.js";
-import {changePasswordTmpl, profileSettingsTmpl} from "../../modules/components/Form/FormTamplates/ProfileFormTmpl.js";
-import {UserBlock} from "../../modules/components/UserBlock/UserBlock.js";
-import {Context} from "../../modules/Context.js";
-import {UserRequest} from "../../types/Contracts.js";
-import {UsersApi} from "../../api/UsersApi.js";
-import {useApi} from "../../modules/Utilits.js";
-import {Button} from "../../modules/components/Button/Button.js";
+import Block from "../../modules/components/Block";
+import {Wrapper} from "../../modules/components/Wrapper";
+import {ChangeAvatar} from "../../modules/components/ChangeAvatar/ChangeAvatar";
+import {Form} from "../../modules/components/Form/Form";
+import {changePasswordTmpl, profileSettingsTmpl} from "../../modules/components/Form/FormTamplates/ProfileFormTmpl";
+import {UserBlock} from "../../modules/components/UserBlock/UserBlock";
+import {Context} from "../../modules/Context";
+import {UserRequest} from "../../types/Contracts";
+import {UsersApi} from "../../api/UsersApi";
+import {useApi} from "../../modules/Utilits";
+import {Button} from "../../modules/components/Button/Button";
 
 export const createProfileSettings = (): Block => {
     const appWrapper = new Wrapper({classList: ['appMainWrap']})

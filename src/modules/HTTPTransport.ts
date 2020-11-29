@@ -1,4 +1,4 @@
-import {StringIndexed} from "./Utilits.js";
+import {StringIndexed} from "./Utilits";
 
 export enum METHODS {GET = "GET", PUT = "PUT", POST = "POST", DELETE = "Delete"}
 

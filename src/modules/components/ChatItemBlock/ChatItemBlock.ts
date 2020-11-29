@@ -1,8 +1,10 @@
-import {ChatsResponse, UnreadCountResponse} from "../../../types/Contracts.js";
-import Block, {DefaultBlockProps} from "../Block.js";
-import {chatItemTmpl} from "./ChatItemTmpl.js";
-import {useApi} from "../../Utilits.js";
-import {ChatsApi} from "../../../api/ChatsApi.js";
+import {ChatsResponse, UnreadCountResponse} from "../../../types/Contracts";
+import Block, {DefaultBlockProps} from "../Block";
+import {chatItemTmpl} from "./ChatItemTmpl";
+import {useApi} from "../../Utilits";
+import {ChatsApi} from "../../../api/ChatsApi";
+import * as Handlebars from 'handlebars'
+
 
 export type ChatItemProps = ChatsResponse & UnreadCountResponse & {
     onClick: (e: Event) => void;

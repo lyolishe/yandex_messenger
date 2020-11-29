@@ -1,5 +1,6 @@
-import Block from "../Block.js";
-import {navTabsTmpl} from "./NavTabsTmpl.js";
+import Block from "../Block";
+import {navTabsTmpl} from "./NavTabsTmpl";
+import * as Handlebars from 'handlebars'
 
 export class NavTabsBlock extends Block<{}> {
     constructor() {

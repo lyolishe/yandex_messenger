@@ -1,7 +1,7 @@
-import {useApi} from "../modules/Utilits.js";
-import {AuthApi} from "../api/AuthApi.js";
-import {Router, Routes} from "../modules/Router.js";
-import {UserResponse} from "../types/Contracts.js";
+import {useApi} from "../modules/Utilits";
+import {AuthApi} from "../api/AuthApi";
+import {Router, Routes} from "../modules/Router";
+import {UserResponse} from "../types/Contracts";
 
 export class UserService {
     static checkUser():Promise<UserResponse | void> {

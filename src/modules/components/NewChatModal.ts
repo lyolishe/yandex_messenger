@@ -1,9 +1,9 @@
-import {Modal, ModalHeader} from "./Modal/Modal.js";
-import {Form} from "./Form/Form.js";
-import {Button} from "./Button/Button.js";
-import {useApi} from "../Utilits.js";
-import {ChatsApi} from "../../api/ChatsApi.js";
-import {CreateChatRequest} from "../../types/Contracts.js";
+import {Modal, ModalHeader} from "./Modal/Modal";
+import {Form} from "./Form/Form";
+import {Button} from "./Button/Button";
+import {useApi} from "../Utilits";
+import {ChatsApi} from "../../api/ChatsApi";
+import {CreateChatRequest} from "../../types/Contracts";
 
 export class NewChatModal extends Modal {
     form: Form;

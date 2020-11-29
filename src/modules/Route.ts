@@ -1,5 +1,5 @@
-import {isEqual, render} from "./Utilits.js";
-import {Page} from "./components/Page/Page.js";
+import {isEqual, render} from "./Utilits";
+import {Page} from "./components/Page/Page";
 
 export type RouteProps  = {
     rootQuery: string;

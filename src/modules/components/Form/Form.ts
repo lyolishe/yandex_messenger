@@ -1,5 +1,5 @@
-import Block, {DefaultBlockProps} from "../Block.js";
-import {FormItemBlock, FormItemBlockProps} from "./FormItem/FormItemBlock.js";
+import Block, {DefaultBlockProps} from "../Block";
+import {FormItemBlock, FormItemBlockProps} from "./FormItem/FormItemBlock";
 
 export type FormProps = {
     initialValues?: Record<string, string|number>

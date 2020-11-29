@@ -1,19 +1,21 @@
 //TODO: Сделать нормальный компонент под смену аватарки
 
-import Block from "../Block.js";
-import {UserResponse} from "../../../types/Contracts.js";
-import {BasePath, useApi} from "../../Utilits.js";
-import {UsersApi} from "../../../api/UsersApi.js";
-import {Context} from "../../Context.js";
-import {Button} from "../Button/Button.js";
-import {changeAvatarTmpl} from "./ChangeAvatarTmpl.js";
+import Block from "../Block";
+import {UserResponse} from "../../../types/Contracts";
+import {BasePath, useApi} from "../../Utilits";
+import {UsersApi} from "../../../api/UsersApi";
+import {Context} from "../../Context";
+import {Button} from "../Button/Button";
+import {changeAvatarTmpl} from "./ChangeAvatarTmpl";
+import * as Handlebars from 'handlebars'
+
 
 export class ChangeAvatar extends Block<UserResponse> {
     constructor(props:UserResponse) {
         super('form', {
             ...props,
             classList: ["row"],
-            avatar: props?.avatar? BasePath+ props.avatar : "./img/defaultAvatar.png"
+            avatar: props?.avatar? BasePath+ props.avatar : "./src/img/defaultAvatar.png"
         });
         this.element.setAttribute('id', 'changeAvatar')
         this.setProps({

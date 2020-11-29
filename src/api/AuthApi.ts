@@ -1,5 +1,5 @@
-import {HTTPTransport, METHODS} from "../modules/HTTPTransport.js";
-import {SignInRequest, SingUpRequest} from "../types/Contracts.js";
+import {HTTPTransport, METHODS} from "../modules/HTTPTransport";
+import {SignInRequest, SingUpRequest} from "../types/Contracts";
 
 export class AuthApi {
 

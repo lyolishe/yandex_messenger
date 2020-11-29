@@ -1,15 +1,15 @@
-import Block from "../../modules/components/Block.js";
-import {useApi} from "../../modules/Utilits.js";
-import {ChatsResponse} from "../../types/Contracts.js";
-import {UserBlock} from "../../modules/components/UserBlock/UserBlock.js";
-import {NavTabsBlock} from "../../modules/components/NavTabs/NavTabsBlock.js";
-import {ChatListBlock} from "../../modules/components/ChatListBlock/ChatList.js";
-import {ChatItemBlock} from "../../modules/components/ChatItemBlock/ChatItemBlock.js";
-import {BlankDialogBlock} from "../../modules/components/BlankDialogBlock/BlankDialogBlock.js";
-import {ChatsApi} from "../../api/ChatsApi.js";
-import {Page} from "../../modules/components/Page/Page.js";
-import {Router} from "../../modules/Router.js";
-import {UserService} from "../../servise/UserService.js";
+import Block from "../../modules/components/Block";
+import {useApi} from "../../modules/Utilits";
+import {ChatsResponse} from "../../types/Contracts";
+import {UserBlock} from "../../modules/components/UserBlock/UserBlock";
+import {NavTabsBlock} from "../../modules/components/NavTabs/NavTabsBlock";
+import {ChatListBlock} from "../../modules/components/ChatListBlock/ChatList";
+import {ChatItemBlock} from "../../modules/components/ChatItemBlock/ChatItemBlock";
+import {BlankDialogBlock} from "../../modules/components/BlankDialogBlock/BlankDialogBlock";
+import {ChatsApi} from "../../api/ChatsApi";
+import {Page} from "../../modules/components/Page/Page";
+import {Router} from "../../modules/Router";
+import {UserService} from "../../servise/UserService";
 
 
 export class DialogPage extends Page{
@@ -55,7 +55,10 @@ export class DialogPage extends Page{
             const appWrapper = new Block('div', {classList: ["appWrapper"], children: [app]})
             this.main.setProps({...this.main.props, children: [appWrapper]});
             this.setProps({...this.props, children: [this.sidebar, this.main]})
-        }).catch(()=> Router.instanse.go('/login'))
+        }).catch((err)=> {
+            console.log(err)
+            Router.instanse.go('/login')
+        })
     }
 
     show() {

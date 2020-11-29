@@ -1,5 +1,5 @@
-import {HTTPTransport, METHODS} from "../modules/HTTPTransport.js";
-import {ChatDeleteRequest, CreateChatRequest, UsersRequest} from "../types/Contracts.js";
+import {HTTPTransport, METHODS} from "../modules/HTTPTransport";
+import {ChatDeleteRequest, CreateChatRequest, UsersRequest} from "../types/Contracts";
 
 export class ChatsApi {
     static getChats = () => {

@@ -1,6 +1,6 @@
-import Block from "../Block.js";
-import {Context} from "../../Context.js";
-import {UserService} from "../../../servise/UserService.js";
+import Block from "../Block";
+import {Context} from "../../Context";
+import {UserService} from "../../../servise/UserService";
 
 export class Page extends Block {
     constructor() {

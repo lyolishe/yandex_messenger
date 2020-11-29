@@ -1,9 +1,10 @@
-import Block, {DefaultBlockProps} from "../Block.js";
-import {userBlockTmpl} from "./UserBlockTmpl.js";
-import {Button} from "../Button/Button.js";
-import {AuthApi} from "../../../api/AuthApi.js";
-import {Router} from "../../Router.js";
-import {BasePath} from "../../Utilits.js";
+import Block, {DefaultBlockProps} from "../Block";
+import {userBlockTmpl} from "./UserBlockTmpl";
+import {Button} from "../Button/Button";
+import {AuthApi} from "../../../api/AuthApi";
+import {Router} from "../../Router";
+import {BasePath} from "../../Utilits";
+import * as Handlebars from 'handlebars'
 
 export type UserBlockProps = {
     first_name?: string | null;
@@ -15,7 +16,7 @@ export type UserBlockProps = {
 
 export class UserBlock extends Block<UserBlockProps> {
     constructor(props: DefaultBlockProps<UserBlockProps>) {
-        super("div", {...props, avatar: props.avatar? BasePath+props.avatar : "./img/defaultAvatar.png"});
+        super("div", {...props, avatar: props.avatar? BasePath+props.avatar : "./src/img/defaultAvatar.png"});
 
         if (props.hasLogout) {
             this.setProps({children: [this._createLogoutButton()]})

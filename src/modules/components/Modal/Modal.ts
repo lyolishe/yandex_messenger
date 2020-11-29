@@ -1,5 +1,5 @@
-import Block from "../Block.js";
-import {modalTmpl} from "./ModalTmpl.js";
+import Block from "../Block";
+import {modalTmpl} from "./ModalTmpl";
 
 export class Modal extends Block{
     content: Block;

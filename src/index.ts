@@ -1,9 +1,10 @@
-import {Router} from "./modules/Router.js";
-import {DialogPage} from "./pages/DialogPage/DialogPage.js";
-import {SettingsPage} from "./pages/SettingsPage/SettingsPage.js";
-import {LoginPage} from "./pages/LoginPage/LoginPage.js";
-import {RegisterPage} from "./pages/RegisterPage/RegisterPage.js";
-import {Context} from "./modules/Context.js";
+import {Router} from "./modules/Router";
+import {DialogPage} from "./pages/DialogPage/DialogPage";
+import {SettingsPage} from "./pages/SettingsPage/SettingsPage";
+import {LoginPage} from "./pages/LoginPage/LoginPage";
+import {RegisterPage} from "./pages/RegisterPage/RegisterPage";
+import {Context} from "./modules/Context";
+import './styles/index.less'
 
 const router = new Router("root");
 const context = new Context();

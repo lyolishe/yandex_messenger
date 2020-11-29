@@ -1,11 +1,11 @@
-import Block from "../../modules/components/Block.js";
-import {UserBlock} from "../../modules/components/UserBlock/UserBlock.js";
-import {NavTabsBlock} from "../../modules/components/NavTabs/NavTabsBlock.js";
-import {SettingItem, settingsList, SettingsList} from "../../modules/components/SettingsList/SettingsList.js";
-import {createProfileSettings} from "./ProffileSettings.js";
-import {Page} from "../../modules/components/Page/Page.js";
-import {Router} from "../../modules/Router.js";
-import {UserService} from "../../servise/UserService.js";
+import Block from "../../modules/components/Block";
+import {UserBlock} from "../../modules/components/UserBlock/UserBlock";
+import {NavTabsBlock} from "../../modules/components/NavTabs/NavTabsBlock";
+import {SettingItem, settingsList, SettingsList} from "../../modules/components/SettingsList/SettingsList";
+import {createProfileSettings} from "./ProffileSettings";
+import {Page} from "../../modules/components/Page/Page";
+import {Router} from "../../modules/Router";
+import {UserService} from "../../servise/UserService";
 
 export class SettingsPage extends Page {
     menuItemId: string;
@@ -31,7 +31,10 @@ export class SettingsPage extends Page {
             settings.setProps({children: settingsList.map(point => new SettingItem({onClick: settings.onClick, ...point}))})
             this.sideBar.setProps({...this.sideBar.props, children: [userBlock, new NavTabsBlock(), settings]})
             this.setProps({children: [this.sideBar, this.main]});
-        }).catch(() => Router.instanse.go('/login'))
+        }).catch((err)=> {
+            console.log(err)
+            Router.instanse.go('/login')
+        })
 
     }
 

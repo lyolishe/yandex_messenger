@@ -1,11 +1,7 @@
-import {SettingProps} from "../../../types/Contracts.js";
-import Block, {DefaultBlockProps} from "../Block.js";
-
-export const settingTmpl = `
-<div class="settingsIcon mdi {{class}}"></div>
-<h4 class="m0">{{point}}</h4>
-<div class="mdi mdi-chevron-right"></div>
-`;
+import {SettingProps} from "../../../types/Contracts";
+import Block, {DefaultBlockProps} from "../Block";
+import * as Handlebars from 'handlebars'
+import {settingTmpl} from "./SettingsTmpl";
 
 export const settingsList: SettingProps[] = [
     {active: true, class:"mdi-account-box", point: "Profile"},

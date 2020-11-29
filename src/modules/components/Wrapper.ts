@@ -1,4 +1,4 @@
-import Block, {DefaultBlockProps} from "./Block.js";
+import Block, {DefaultBlockProps} from "./Block";
 
 export type WrapperProps = {
     layers?: Block[]

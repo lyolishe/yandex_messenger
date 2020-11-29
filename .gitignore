@@ -2,4 +2,3 @@
 /.idea
 /static/outDir
 npm-debug.log
-netlify.toml

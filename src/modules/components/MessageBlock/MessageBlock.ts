@@ -1,6 +1,7 @@
-import Block, {DefaultBlockProps} from "../Block.js";
-import {messageBlockTmpl} from "./MessageBlockTmpl.js";
-import {Message} from "../../../types/Contracts.js";
+import Block, {DefaultBlockProps} from "../Block";
+import {messageBlockTmpl} from "./MessageBlockTmpl";
+import {Message} from "../../../types/Contracts";
+import * as Handlebars from 'handlebars'
 
 export type MessageProps = {
     message: Message;
