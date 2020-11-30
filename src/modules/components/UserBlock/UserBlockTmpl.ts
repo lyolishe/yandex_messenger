@@ -1,4 +1,4 @@
-export const userBlockTmpl = `
+const userBlockTmpl = `
     <div class="user">
         {{#if avatar}}
         <div class="userAvatar">
@@ -16,4 +16,6 @@ export const userBlockTmpl = `
         {{/if}}
         <children></children>
     </div>
-`
+`;
+
+export default userBlockTmpl;
