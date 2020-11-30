@@ -1,7 +1,7 @@
-import Block, {DefaultBlockProps} from "../../Block";
-import {Validation, Validator} from "../../../Validation";
-import {formItemTmpl} from "./FormItemTmpl";
-import * as Handlebars from 'handlebars'
+import * as Handlebars from 'handlebars';
+import formItemTmpl from './FormItemTmpl';
+import Block, { DefaultBlockProps } from '../../Block';
+import { Validation, Validator } from '../../../Validation';
 
 export type FormItemBlockProps = {
     label?: string;
@@ -17,30 +17,32 @@ export type FormItemBlockProps = {
     required?: boolean;
 }
 
-export class FormItemBlock extends Block<FormItemBlockProps>{
-    errors: string[]
+export class FormItemBlock extends Block<FormItemBlockProps> {
+    errors: string[];
+
     input: HTMLInputElement;
+
     validator: Validation;
 
     constructor(props: DefaultBlockProps<FormItemBlockProps>) {
-        super('div', {...props, classList: ["formItem"]});
+        super('div', { ...props, classList: ['formItem'] });
 
         this.errors = [];
-        this.input = this.element.getElementsByTagName('input')[0]
+        this.input = this.element.getElementsByTagName('input')[0];
 
         if (this.input) {
             this.validator = new Validation(this.input!, props.validateMessages, props.validators);
-            this.input.addEventListener('blur', this.appendErrors.bind(this))
-            this.input.addEventListener('focus', this.removeErrors.bind(this))
+            this.input.addEventListener('blur', this.appendErrors.bind(this));
+            this.input.addEventListener('focus', this.removeErrors.bind(this));
         }
     }
 
-    get value () {
-        return this.input.value
+    get value(): string | number {
+        return this.input.value;
     }
 
-    get name() {
-        return this.input.name
+    get name(): string {
+        return this.input.name;
     }
 
     private _checkErrors = ():void => {
@@ -48,27 +50,27 @@ export class FormItemBlock extends Block<FormItemBlockProps>{
     }
 
     appendErrors = ():void => {
-        if(this.element.lastElementChild?.tagName === 'span'.toUpperCase()) {
+        if (this.element.lastElementChild?.tagName === 'span'.toUpperCase()) {
             this.removeErrors();
         }
 
-        this._checkErrors()
+        this._checkErrors();
         const errorContainer = document.createElement('span');
-        errorContainer.classList.add('invalidFeedback')
-        errorContainer.innerHTML = this.errors.join('<br/>')
+        errorContainer.classList.add('invalidFeedback');
+        errorContainer.innerHTML = this.errors.join('<br/>');
 
-        this.element?.append(errorContainer)
+        this.element?.append(errorContainer);
     }
 
     removeErrors = (): void => {
-        this.errors = []
+        this.errors = [];
         if (this.element.lastElementChild?.tagName === 'span'.toUpperCase()) {
             this.element.removeChild(this.element.lastElementChild);
         }
     }
 
     render(): string {
-        const tmpl = Handlebars.compile(formItemTmpl)
-        return tmpl(this.props)
+        const tmpl = Handlebars.compile(formItemTmpl);
+        return tmpl(this.props);
     }
 }

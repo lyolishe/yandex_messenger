@@ -1,3 +1,2 @@
-export const avatarBlockTmpl = (avatar?: string): string => {
-    return `<img stc="${avatar?? "./img/defaultAvatar.png"}"/>`
-}
+const avatarBlockTmpl = (avatar?: string): string => `<img stc='${avatar ?? './img/defaultAvatar.png'}'/>`;
+export default avatarBlockTmpl;

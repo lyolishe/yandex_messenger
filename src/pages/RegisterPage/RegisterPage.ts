@@ -4,11 +4,11 @@ import {Button} from "../../modules/components/Button/Button";
 import {SingUpRequest, UserResponse} from "../../types/Contracts";
 import {Wrapper} from "../../modules/components/Wrapper";
 import {Card, CardFooter, CardHeader} from "../../modules/components/Card/Card";
-import {AuthApi} from "../../api/AuthApi";
+import AuthApi from "../../api/AuthApi";
 import {useApi} from "../../modules/Utilits";
 import {Router} from "../../modules/Router";
 import {registerFormTmpl} from "../../modules/components/Form/FormTamplates/RegisterFormTmpl";
-import {Page} from "../../modules/components/Page/Page";
+import Page from "../../modules/components/Page/Page";
 
 export class RegisterPage extends Page {
     form: Form

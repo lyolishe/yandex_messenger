@@ -1,11 +1,12 @@
 import Block from "../../modules/components/Block";
 import {UserBlock} from "../../modules/components/UserBlock/UserBlock";
-import {NavTabsBlock} from "../../modules/components/NavTabs/NavTabsBlock";
-import {SettingItem, settingsList, SettingsList} from "../../modules/components/SettingsList/SettingsList";
+import NavTabsBlock from "../../modules/components/NavTabs/NavTabsBlock";
+import { settingsList, SettingsList } from "../../modules/components/SettingsList/SettingsList";
 import {createProfileSettings} from "./ProffileSettings";
-import {Page} from "../../modules/components/Page/Page";
+import Page from "../../modules/components/Page/Page";
 import {Router} from "../../modules/Router";
 import {UserService} from "../../servise/UserService";
+import SettingItem from "../../modules/components/SettingsList/SettingsItem";
 
 export class SettingsPage extends Page {
     menuItemId: string;

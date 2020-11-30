@@ -1,8 +1,8 @@
-import Block from "../../Block.js";
-import {avatarBlockTmpl} from "./AvatarBlockTmpl.js";
+import Block from '../../Block';
+import avatarBlockTmpl from './AvatarBlockTmpl';
 
-export class AvatarBlock extends Block {
+export default class AvatarBlock extends Block {
     constructor(avatar?: string) {
-        super("div", {classList: ["userAvatar"]}, avatarBlockTmpl(avatar));
+        super('div', { classList: ['userAvatar'] }, avatarBlockTmpl(avatar));
     }
 }

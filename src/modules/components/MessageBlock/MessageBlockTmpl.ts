@@ -1,4 +1,4 @@
-export const messageBlockTmpl = `
+const messageBlockTmpl = `
     {{#if this.messageContent}}
         <div class="messageContent">
             {{this.messageContent}}
@@ -11,4 +11,6 @@ export const messageBlockTmpl = `
             {{/each}}
         </div>
     {{/if}}
-`
+`;
+
+export default messageBlockTmpl;

@@ -1,9 +1,9 @@
 import Block from "../Block";
+import NewChatModal from "../NewChatModal";
 import {blankDialogBlockTmpl} from "./BlankDialogBlockTmpl";
-import {NewChatModal} from "../NewChatModal";
 import {Button} from "../Button/Button";
 import {Form} from "../Form/Form";
-import {newMessageFormModalTmpl} from "../Form/FormTamplates/NewMessageFormTmpl";
+import newMessageFormModalTmpl from "../Form/FormTamplates/NewMessageFormTmpl";
 
 export type BlankDialogBlockProps = {
     iconUrl?: string;

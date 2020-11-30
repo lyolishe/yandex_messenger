@@ -1,14 +1,13 @@
-import Block from "../Block";
-import {navTabsTmpl} from "./NavTabsTmpl";
-import * as Handlebars from 'handlebars'
+import * as Handlebars from 'handlebars';
+import Block from '../Block';
+import navTabsTmpl from './NavTabsTmpl';
 
-export class NavTabsBlock extends Block<{}> {
+export default class NavTabsBlock extends Block {
     constructor() {
-        super('nav', {classList: ["navTabs"]});
+        super('nav', { classList: ['navTabs'] });
     }
 
     render(): string {
-        return Handlebars.compile(navTabsTmpl)(this.props)
+        return Handlebars.compile(navTabsTmpl)(this.props);
     }
 }
-

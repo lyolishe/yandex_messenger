@@ -1,4 +1,4 @@
-export const formItemTmpl = `
+const formItemTmpl = `
     <label for="{{name}}" class="formLabel">
         {{label}}
     </label>
@@ -11,6 +11,7 @@ export const formItemTmpl = `
     {{#if minlength}} minLength="{{minlength}}" {{/if}}
     {{#if pattern}} pattern="{{pattern}}" {{/if}}
     {{#if required}} required {{/if}}
-    {{#if initialValue}} value="{{initialValue}}" {{/if}} />
-    
-`
+    {{#if initialValue}} value="{{initialValue}}" {{/if}} />   
+`;
+
+export default formItemTmpl;

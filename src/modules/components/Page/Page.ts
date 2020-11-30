@@ -1,11 +1,11 @@
-import Block from "../Block";
-import {Context} from "../../Context";
-import {UserService} from "../../../servise/UserService";
+import Block from '../Block';
+import { Context } from '../../Context';
+import { UserService } from '../../../servise/UserService';
 
-export class Page extends Block {
+export default class Page extends Block {
     constructor() {
         super('div', {});
-        this._checkUser()
+        this._checkUser();
     }
 
     private _checkUser() {
@@ -14,8 +14,8 @@ export class Page extends Block {
         }
 
         UserService.checkUser()
-            .then(user => {
-                Context.instance.set('user', user)
-            })
+            .then((user) => {
+                Context.instance.set('user', user);
+            });
     }
 }

@@ -1,13 +1,12 @@
 import Block from "../../modules/components/Block";
-import {useApi} from "../../modules/Utilits";
+import ChatsApi from "../../api/ChatsApi";
+import Page from "../../modules/components/Page/Page";import {useApi} from "../../modules/Utilits";
 import {ChatsResponse} from "../../types/Contracts";
 import {UserBlock} from "../../modules/components/UserBlock/UserBlock";
-import {NavTabsBlock} from "../../modules/components/NavTabs/NavTabsBlock";
+import NavTabsBlock from "../../modules/components/NavTabs/NavTabsBlock";
 import {ChatListBlock} from "../../modules/components/ChatListBlock/ChatList";
 import {ChatItemBlock} from "../../modules/components/ChatItemBlock/ChatItemBlock";
 import {BlankDialogBlock} from "../../modules/components/BlankDialogBlock/BlankDialogBlock";
-import {ChatsApi} from "../../api/ChatsApi";
-import {Page} from "../../modules/components/Page/Page";
 import {Router} from "../../modules/Router";
 import {UserService} from "../../servise/UserService";
 

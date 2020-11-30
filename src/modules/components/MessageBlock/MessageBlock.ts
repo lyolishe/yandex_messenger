@@ -1,7 +1,7 @@
-import Block, {DefaultBlockProps} from "../Block";
-import {messageBlockTmpl} from "./MessageBlockTmpl";
-import {Message} from "../../../types/Contracts";
-import * as Handlebars from 'handlebars'
+import * as Handlebars from 'handlebars';
+import Block, { DefaultBlockProps } from '../Block';
+import messageBlockTmpl from './MessageBlockTmpl';
+import { Message } from '../../../types/Contracts';
 
 export type MessageProps = {
     message: Message;
@@ -9,7 +9,7 @@ export type MessageProps = {
 
 export class MessageBlock extends Block<MessageProps> {
     constructor(props: DefaultBlockProps<MessageProps>) {
-        super("li", props);
+        super('li', props);
     }
 
     render(): string {

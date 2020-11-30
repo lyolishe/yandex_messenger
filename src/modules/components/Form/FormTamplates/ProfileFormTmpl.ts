@@ -11,4 +11,4 @@ export const profileSettingsTmpl = `
 <formitem data-name="email" data-type="email" data-label="Email" data-required="true"></formitem>
 <formitem data-name="login" data-type="text" data-label="Login" data-required="true"></formitem>
 <formitem data-name="phone" data-type="tel" data-label="Phone" data-required="true"></formitem>
-`
+`;

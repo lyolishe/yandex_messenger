@@ -1,12 +1,8 @@
-import Block, {DefaultBlockProps} from "../Block.js";
-import {messageInputTmpl} from "./MessageInputTmpl.js";
+import Block, { DefaultBlockProps } from '../Block';
+import messageInputTmpl from './MessageInputTmpl';
 
-export class MessageInputBlock extends Block<{}> {
-    constructor(props?: DefaultBlockProps<{}>) {
-        super("div", {...props, classList: ["messageInputRow"]});
-    }
-    
-    render(): string {
-        return messageInputTmpl;
+export default class MessageInputBlock extends Block {
+    constructor(props?: DefaultBlockProps) {
+        super('div', { ...props, classList: ['messageInputRow'] }, messageInputTmpl);
     }
 }

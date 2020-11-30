@@ -1,8 +1,8 @@
-import Block from "./Block";
+import Block from './Block';
 
-export class Link extends Block {
+export default class Link extends Block {
     constructor(to: string, text?: string) {
-        super('a', {classList: ['link']}, text?? '');
-        (this.element as HTMLLinkElement).href = to
+        super('a', { classList: ['link'] }, text ?? '');
+        (this.element as HTMLLinkElement).href = to;
     }
 }

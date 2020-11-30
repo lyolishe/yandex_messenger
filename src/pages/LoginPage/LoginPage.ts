@@ -1,5 +1,5 @@
 import {SignInRequest, UserResponse} from "../../types/Contracts";
-import {AuthApi} from "../../api/AuthApi";
+import AuthApi from "../../api/AuthApi";
 import {useApi} from "../../modules/Utilits";
 import {Router} from "../../modules/Router";
 import {Wrapper} from "../../modules/components/Wrapper";
@@ -8,9 +8,9 @@ import {Button} from "../../modules/components/Button/Button";
 import {Form} from "../../modules/components/Form/Form";
 import {loginFormTmpl, passwordFormTmpl} from "../../modules/components/Form/FormTamplates/LoginFormTmpl";
 import {Card, CardFooter, CardHeader} from "../../modules/components/Card/Card";
-import {Link} from "../../modules/components/Link";
+import Link from "../../modules/components/Link";
 import {Context} from "../../modules/Context";
-import {Page} from "../../modules/components/Page/Page";
+import Page from "../../modules/components/Page/Page";
 
 export class LoginPage extends Page{
     form: Form
