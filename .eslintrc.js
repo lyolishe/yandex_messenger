@@ -41,6 +41,15 @@ module.exports = {
         ],
         "no-underscore-dangle": 0,
         "camelcase": 0,
-        "linebreak-style": 0
+        "linebreak-style": 0,
+        "class-methods-use-this": 0,
+        '@typescript-eslint/no-non-null-assertion': 'off',
+        "no-continue": 0,
+        "no-param-reassign": 0,
+        "no-undef": 0,
+        "no-loop-func": 0,
+        "no-use-before-define": 0,
+        "no-shadow": 0,
+        "react/static-property-placement": "off"
     }
 };

@@ -28,7 +28,7 @@ export class FormItemBlock extends Block<FormItemBlockProps> {
         super('div', { ...props, classList: ['formItem'] });
 
         this.errors = [];
-        this.input = this.element.getElementsByTagName('input')[0];
+        [this.input] = this.element.getElementsByTagName('input');
 
         if (this.input) {
             this.validator = new Validation(this.input!, props.validateMessages, props.validators);

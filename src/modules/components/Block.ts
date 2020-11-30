@@ -1,54 +1,58 @@
-import {EventBus} from '../EventBus'
+import { EventBus } from '../EventBus';
 
-export const enum Events {
-    INIT = "init",
-    FLOW_CDM = "flow:component-did-mount",
-    FLOW_CDU = "flow:component-did-update",
-    FLOW_RENDER = "flow:render",
+export const enum EVENTS {
+    INIT = 'init',
+    FLOW_CDM = 'flow:component-did-mount',
+    FLOW_CDU = 'flow:component-did-update',
+    FLOW_RENDER = 'flow:render',
 }
 
-interface Meta<T ={}> {
-    tagName:keyof HTMLElementTagNameMap,
-    props: DefaultBlockProps<T>
-}
-
-export type DefaultBlockProps<T = {}>  = {
+export type DefaultBlockProps<T = Record<string, unknown>> = {
     classList?: string[];
-    handlers?: Record<string, Function>;
+    handlers?: Record<string, (...args: unknown[]) => void>;
     children?: Block[];
 } & T
 
-export default class Block<T = {}> {
+interface Meta<T = Record<string, unknown>> {
+    tagName: keyof HTMLElementTagNameMap,
+    props: DefaultBlockProps<T>
+}
+
+export default class Block<T = Record<string, unknown>> {
     props: DefaultBlockProps<T>;
+
     eventBus: ()=>EventBus;
 
     private _element: HTMLElement;
-    private readonly _meta: Meta<DefaultBlockProps<T>>;
-    private _subscriptions: Map<Element, Record<string, Function>>;
-    private _tmpl: string;
 
-    constructor(tagName:keyof HTMLElementTagNameMap = "div", props: DefaultBlockProps<T>, tmpl: string = `<children></children>`) {
+    private readonly _meta: Meta<DefaultBlockProps<T>>;
+
+    private _subscriptions: Map<Element, Record<string, (...args: unknown[]) => void>>;
+
+    private readonly _tmpl: string;
+
+    constructor(tagName:keyof HTMLElementTagNameMap = 'div', props: DefaultBlockProps<T>, tmpl = '<children></children>') {
         const eventBus = new EventBus();
         this._meta = {
             tagName,
-            props: props
+            props,
         };
         this._tmpl = tmpl;
 
-        if(props){
+        if (props) {
             this.props = this._makePropsProxy(props);
         }
         this.eventBus = () => eventBus;
 
         this._registerEvents(eventBus);
-        eventBus.emit(Events.INIT);
+        eventBus.emit(EVENTS.INIT);
     }
 
     private _registerEvents(eventBus: EventBus) {
-        eventBus.on(Events.INIT, this.init.bind(this));
-        eventBus.on(Events.FLOW_CDM, this._componentDidMount.bind(this));
-        eventBus.on(Events.FLOW_RENDER, this._render.bind(this));
-        eventBus.on(Events.FLOW_CDU, this._componentDidUpdate.bind(this));
+        eventBus.on(EVENTS.INIT, this.init.bind(this));
+        eventBus.on(EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
+        eventBus.on(EVENTS.FLOW_RENDER, this._render.bind(this));
+        eventBus.on(EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
     }
 
     private _createResources() {
@@ -56,33 +60,36 @@ export default class Block<T = {}> {
         this._element = this._createDocumentElement(tagName);
     }
 
-    init() {
+    init(): void {
         this._createResources();
-        this.eventBus().emit(Events.FLOW_CDM)
+        this.eventBus().emit(EVENTS.FLOW_CDM);
     }
 
     private _componentDidMount() {
         this.componentDidMount();
-        this.eventBus().emit(Events.FLOW_RENDER);
+        this.eventBus().emit(EVENTS.FLOW_RENDER);
     }
 
-    componentDidMount() {
+    componentDidMount(): void {
+        return undefined;
     }
 
-    private _componentDidUpdate(oldProps: DefaultBlockProps<T>, newProps: DefaultBlockProps<T>)  {
+    private _componentDidUpdate(oldProps: DefaultBlockProps<T>, newProps: DefaultBlockProps<T>) {
         const response = this.componentDidUpdate(oldProps, newProps);
-        if(response) this.eventBus().emit(Events.FLOW_RENDER);
+        if (response) {
+            this.eventBus().emit(EVENTS.FLOW_RENDER);
+        }
     }
 
     // Может переопределять пользователь, необязательно трогать
     componentDidUpdate(oldProps: DefaultBlockProps<T>, newProps: DefaultBlockProps<T>): boolean {
-        if(oldProps && newProps){
-            return true
+        if (oldProps && newProps) {
+            return true;
         }
         return true;
     }
 
-    setProps = (nextProps: DefaultBlockProps<T>) => {
+    setProps = (nextProps: DefaultBlockProps<T>): void => {
         if (!nextProps) {
             return;
         }
@@ -94,7 +101,7 @@ export default class Block<T = {}> {
         return this._element;
     }
 
-    private _render() {
+    private _render(): void {
         const block = this.render();
         // Этот небезопасный метод для упрощения логики
         // Используйте шаблонизатор из npm или напишите свой безопасный
@@ -103,68 +110,65 @@ export default class Block<T = {}> {
         this._element.innerHTML = block;
 
         if (this.props.classList) {
-            this.element.classList.remove(...this.element.classList)
-            this._element.classList.add(...this.props.classList)
+            this.element.classList.remove(...this.element.classList);
+            this._element.classList.add(...this.props.classList);
         }
 
-        this._attachListeners()
-        this._placeChildren()
+        this._attachListeners();
+        this._placeChildren();
     }
 
     render():string {
-        return this._tmpl
+        return this._tmpl;
     }
 
-    getContent(): HTMLElement{
+    getContent(): HTMLElement {
         return this.element;
     }
 
     private _makePropsProxy(props:DefaultBlockProps<T>):DefaultBlockProps<T> {
-
         const proxy = new Proxy<DefaultBlockProps<T> >(props, {
             set: (target, prop:keyof (DefaultBlockProps<T>), value) => {
                 const oldProps = { ...this._meta?.props };
                 if (target[prop] !== value) {
                     target[prop] = value;
-                    this.eventBus().emit(Events.FLOW_CDU, oldProps, this.props);
+                    this.eventBus().emit(EVENTS.FLOW_CDU, oldProps, this.props);
                 }
                 return true;
             },
-            deleteProperty: ()=> {
-
-                throw new Error('нет доступа')
-            }
-
-        })
-
+            deleteProperty: () => {
+                throw new Error('нет доступа');
+            },
+        });
         return proxy;
     }
 
     private _createDocumentElement(tagName: keyof HTMLElementTagNameMap) {
-        //TODO: Нужно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
+        // TODO: Нужно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
         return document.createElement(tagName);
     }
 
     private _placeChildren() {
-        const place = this._element.getElementsByTagName('children')[0]
+        const [place] = this._element.getElementsByTagName('children');
 
         if (this.props.children?.length && place) {
-            this.props.children.forEach(child => {
+            this.props.children.forEach((child) => {
                 place.parentElement?.append(child?.element);
-            })
+            });
         }
-        place && place.remove()
-
+        if (place) {
+            place.remove();
+        }
     }
 
     private _attachListeners(): void {
         this._gatherListeners();
 
-        const iterator = this._subscriptions?.entries();
-        let item = iterator?.next();
-        while (!item?.done) {
-            const [elem, events] = item?.value!;
-            Object.keys(events).forEach(eventName => {
+        const iterator = this._subscriptions.entries();
+        let item = iterator.next();
+        while (!item.done) {
+            const [elem, events] = item.value;
+            Object.keys(events).forEach((eventName) => {
                 elem.addEventListener(eventName, (events[eventName] as EventHandlerNonNull));
             });
             item = iterator?.next();
@@ -174,13 +178,15 @@ export default class Block<T = {}> {
     private _gatherListeners() {
         const block = this._element;
         const stack = [block];
-        const subscriptions: Map<Element, Record<string, Function>> = new Map();
+        const subscriptions: Map<Element, Record<string, (...args: unknown[]) => void>> = new Map();
 
         while (stack.length) {
             const current = stack.pop();
-            if (!current)
+            if (!current) {
                 break;
-            const attrs = Array.from(current.attributes).filter(attr => attr.name.startsWith('on'));
+            }
+
+            const attrs = Array.from(current.attributes).filter((attr) => attr.name.startsWith('on'));
 
             if (!attrs.length) {
                 const children = Array.from(current.children);
@@ -193,11 +199,10 @@ export default class Block<T = {}> {
             }
             const events = subscriptions.get(current);
 
-
-            attrs.forEach(attr => {
+            attrs.forEach((attr) => {
                 const eventName = attr.name.substring(2).toLocaleLowerCase();
 
-                const handler = (this.props.handlers as Record<string, Function>)[attr.value]
+                const handler = this.props.handlers![attr.value];
 
                 if (events) {
                     events[eventName] = handler;
@@ -212,11 +217,11 @@ export default class Block<T = {}> {
         this._subscriptions = subscriptions;
     }
 
-    show() {
-        this.getContent().style.display = "block"
+    show(): void {
+        this.getContent().style.display = 'block';
     }
 
-    hide() {
-        this.getContent().style.display = "none"
+    hide(): void {
+        this.getContent().style.display = 'none';
     }
 }

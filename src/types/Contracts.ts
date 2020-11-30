@@ -109,7 +109,7 @@ export interface ChangePasswordRequest {
     newPassword: string;
 }
 
-export interface UserResponse {
+export type UserResponse = {
     id?: number | null;
     first_name?: string | null;
     second_name?: string | null;

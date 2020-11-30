@@ -1,21 +1,24 @@
-import {MessageBlock} from "../MessageBlock/MessageBlock";
-import Block, {DefaultBlockProps} from "../Block";
-import {Message} from "../../../types/Contracts";
+import { MessageBlock } from '../MessageBlock/MessageBlock';
+import Block, { DefaultBlockProps } from '../Block';
+import { Message } from '../../../types/Contracts';
 
-export type DialogBlockProps  = {
+export type DialogBlockProps = {
     messages: Message[];
 }
 
 export class DialogBlock extends Block<DialogBlockProps> {
     constructor(props: DefaultBlockProps<DialogBlockProps>) {
-        super('div', {...props, classList: ["dialog"]})
+        super('div', { ...props, classList: ['dialog'] });
 
-        const messageList = new Block('ul', {classList: ["messageList"], children: this.props.messages.map(this._createMessage)})
-        this.element.append(messageList.element);
+        const messageList = new Block('ul', {
+            classList: ['messageList'],
+            children: this.props.messages.map(this._createMessage),
+        });
+        this.setProps({ ...this.props, children: [messageList] });
     }
 
-    private _createMessage = (message: Message) => {
-        return new MessageBlock({message, classList: message.isResponder? ["chatItemResponse"] : ["chatItem"]})
-    }
-
+    private _createMessage = (message: Message): MessageBlock => new MessageBlock({
+        message,
+        classList: message.isResponder ? ['chatItemResponse'] : ['chatItem'],
+    })
 }

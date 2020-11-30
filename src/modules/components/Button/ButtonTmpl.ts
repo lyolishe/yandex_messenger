@@ -1,4 +1,5 @@
-export const buttonTmpl =
-`
+const buttonTmpl = `
     {{text}}
 `;
+
+export default buttonTmpl;

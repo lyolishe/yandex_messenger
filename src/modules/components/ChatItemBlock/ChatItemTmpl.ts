@@ -1,4 +1,4 @@
-export const chatItemTmpl = `
+const chatItemTmpl = `
     {{#if avatar}}
     <div class="userAvatar">
         <img src="{{avatar}}"/>
@@ -22,4 +22,6 @@ export const chatItemTmpl = `
         </p>
         {{/if}}
     </div>
-`
+`;
+
+export default chatItemTmpl;

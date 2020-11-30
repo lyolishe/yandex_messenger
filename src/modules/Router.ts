@@ -1,5 +1,5 @@
 import {Route} from "./Route";
-import {Page} from "./components/Page/Page";
+import Page from "./components/Page/Page";
 import {UserResponse} from "../types/Contracts";
 
 export enum Routes {

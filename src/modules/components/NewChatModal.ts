@@ -26,7 +26,7 @@ export default class NewChatModal extends Modal {
     }
 
     onCreateChat(): void {
-        useApi<CreateChatRequest>(ChatsApi.addChat(this.form.getFieldValue<CreateChatRequest>()))
+        useApi<CreateChatRequest>(ChatsApi.addChat(this.form.getFieldsValue<CreateChatRequest>()))
             .then(() => this.setChats());
     }
 }

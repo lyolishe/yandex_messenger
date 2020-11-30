@@ -1,10 +1,9 @@
-import {ChatsResponse, UnreadCountResponse} from "../../../types/Contracts";
-import Block, {DefaultBlockProps} from "../Block";
-import {chatItemTmpl} from "./ChatItemTmpl";
-import {useApi} from "../../Utilits";
-import {ChatsApi} from "../../../api/ChatsApi";
-import * as Handlebars from 'handlebars'
-
+import * as Handlebars from 'handlebars';
+import ChatsApi from '../../../api/ChatsApi';
+import chatItemTmpl from './ChatItemTmpl';
+import Block, { DefaultBlockProps } from '../Block';
+import { ChatsResponse, UnreadCountResponse } from '../../../types/Contracts';
+import { useApi } from '../../Utilits';
 
 export type ChatItemProps = ChatsResponse & UnreadCountResponse & {
     onClick: (e: Event) => void;
@@ -14,27 +13,28 @@ export type ChatItemProps = ChatsResponse & UnreadCountResponse & {
 
 export class ChatItemBlock extends Block<ChatItemProps> {
     id: number
+
     setChats: ()=> void
+
     constructor(props: DefaultBlockProps<ChatItemProps>) {
-        super("li", props)
+        super('li', props);
 
-        this.id = props.id?? 0;
-        this.setChats = props.setChats
+        this.id = props.id ?? 0;
+        this.setChats = props.setChats;
         useApi<UnreadCountResponse>(ChatsApi.getNewMessages(this.id))
-            .then(unread_count => this.setProps({...this.props, ...unread_count}))
+            .then((unread_count) => this.setProps({ ...this.props, ...unread_count }));
 
-        this.element.addEventListener('click', (e)=> {
-            this._removeChat.bind(this)(e)
-            this.props.onClick(e)
-        })
+        this.element.addEventListener('click', (e) => {
+            this._removeChat.bind(this)(e);
+            this.props.onClick(e);
+        });
     }
 
     private _removeChat(e: MouseEvent): void {
-        if ((e.target as HTMLElement).classList.contains("remove")) {
-            ChatsApi.removeChat({chatId: this.id}).then(()=> this.setChats())
+        if ((e.target as HTMLElement).classList.contains('remove')) {
+            ChatsApi.removeChat({ chatId: this.id }).then(() => this.setChats());
         }
     }
-
 
     render(): string {
         if (this.props.isActive) {
@@ -45,5 +45,4 @@ export class ChatItemBlock extends Block<ChatItemProps> {
 
         return Handlebars.compile(chatItemTmpl)(this.props);
     }
-
 }

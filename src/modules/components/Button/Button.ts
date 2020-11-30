@@ -1,9 +1,9 @@
-import Block, {DefaultBlockProps} from "../Block";
-import {buttonTmpl} from "./ButtonTmpl";
-import * as Handlebars from 'handlebars'
+import * as Handlebars from 'handlebars';
+import Block, { DefaultBlockProps } from '../Block';
+import buttonTmpl from './ButtonTmpl';
 
 export type ButtonProps = {
-    onClick?: ()=>void;
+    onClick?: () =>void;
     text: string;
     type: string;
     form?: string;
@@ -11,19 +11,19 @@ export type ButtonProps = {
 
 export class Button extends Block<ButtonProps> {
     constructor(props: DefaultBlockProps<ButtonProps>) {
-        super("button", props);
+        super('button', props);
         this.element.setAttribute('form', props.form!);
-        this.element.setAttribute('type', props.type)
+        this.element.setAttribute('type', props.type);
 
         if (this.props.onClick) {
             this.element.onclick = (e) => {
-                e.preventDefault()
-                this.props.onClick?.()
-            }
+                e.preventDefault();
+                this.props.onClick?.();
+            };
         }
     }
 
     render(): string {
-        return Handlebars.compile(buttonTmpl)(this.props)
+        return Handlebars.compile(buttonTmpl)(this.props);
     }
 }
