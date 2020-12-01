@@ -1,4 +1,4 @@
-import { useApi } from '../modules/Utilits';
+import {useApi } from '../modules/Utilits';
 import AuthApi from '../api/AuthApi';
 import { Router, Routes } from '../modules/Router';
 import { UserResponse } from '../types/Contracts';
