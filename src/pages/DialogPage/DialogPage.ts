@@ -68,7 +68,7 @@ export default class DialogPage extends Page {
             this.main.setProps({ ...this.main.props, children: [appWrapper] });
             this.setProps({ ...this.props, children: [this.sidebar, this.main] });
         }).catch(() => {
-            Router.instanse.go('/login');
+            Router.instance.go('/login');
         });
     }
 

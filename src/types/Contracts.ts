@@ -1,4 +1,3 @@
-
 export type Message = {
     isResponder?: boolean;
     messageText?: string;
@@ -44,7 +43,7 @@ export interface ChatDeleteRequest {
     chatId: number;
 }
 
-export  interface ChatDeleteResponse {
+export interface ChatDeleteResponse {
     userId?: number | null;
     result?: ChatsResponse | null;
 }
@@ -132,4 +131,4 @@ export interface ChatUserResponse {
     role?: UserRole | null;
 }
 
-export type UserRole = "admin" | "regular";
+export type UserRole = 'admin' | 'regular';

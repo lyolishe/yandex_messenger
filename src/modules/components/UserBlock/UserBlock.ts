@@ -25,7 +25,7 @@ export class UserBlock extends Block<UserBlockProps> {
 
     private _logout(): void {
         AuthApi.logout().then(() => {
-            Router.instanse.go('/login');
+            Router.instance.go('/login');
         });
     }
 

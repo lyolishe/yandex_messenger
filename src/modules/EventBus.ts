@@ -1,6 +1,6 @@
 type CallBack = (...args: unknown[]) => void
 
-export class EventBus {
+export default class EventBus {
     listeners: { [event: string]:CallBack[] };
 
     constructor() {
@@ -15,22 +15,22 @@ export class EventBus {
         this.listeners[event].push(callback);
     }
 
-    off(event: string, callback: CallBack):void {
+    off(event: string, callback: CallBack): void {
         if (!this.listeners[event]) {
             throw new Error(`Нет события: ${event}`);
         }
 
         this.listeners[event] = this.listeners[event].filter(
-            listener => listener !== callback
+            (listener) => listener !== callback,
         );
     }
 
-    emit(event:string, ...args:any):void {
+    emit(event: string, ...args: unknown[]): void {
         if (!this.listeners[event]) {
             throw new Error(`Нет события: ${event}`);
         }
 
-        this.listeners[event].forEach(function(listener) {
+        this.listeners[event].forEach((listener) => {
             listener(...args);
         });
     }

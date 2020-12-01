@@ -5,7 +5,7 @@ import changeAvatarTmpl from './ChangeAvatarTmpl';
 import Block from '../Block';
 import { UserResponse } from '../../../types/Contracts';
 import { BasePath, useApi } from '../../Utilits';
-import { Context } from '../../Context';
+import Context from '../../Context';
 import { Button } from '../Button/Button';
 
 export default class ChangeAvatar extends Block<UserResponse> {

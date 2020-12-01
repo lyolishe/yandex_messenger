@@ -1,6 +1,6 @@
 import Block from '../Block';
-import { Context } from '../../Context';
-import { UserService } from '../../../servise/UserService';
+import Context from '../../Context';
+import UserService from '../../../servise/UserService';
 
 export default class Page extends Block {
     constructor() {

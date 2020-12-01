@@ -1,15 +1,18 @@
-import {isEqual, render} from "./Utilits";
-import Page from "./components/Page/Page";
+import { isEqual, render } from './Utilits';
+import Page from './components/Page/Page';
 
-export type RouteProps  = {
+export type RouteProps = {
     rootQuery: string;
 }
 
 export class Route {
     pathname: string;
+
     private readonly _blockClass: typeof Page;
+
     private _block: Page | null;
-    private _props: RouteProps
+
+    private _props: RouteProps;
 
     constructor(pathname: string, view: typeof Page, props: RouteProps) {
         this.pathname = pathname;
@@ -18,30 +21,29 @@ export class Route {
         this._props = props;
     }
 
-    navigate(pathname: string) {
+    navigate(pathname: string): void {
         if (this.match(pathname)) {
             this.pathname = pathname;
             this.render();
         }
     }
 
-    leave() {
+    leave(): void {
         if (this._block) {
             this._block.hide();
         }
     }
 
-    match(pathname: string) {
+    match(pathname: string): boolean {
         return isEqual(pathname, this.pathname);
     }
 
-    render() {
+    render(): void {
         if (!this._block) {
             this._block = new this._blockClass();
-            render(this._props.rootQuery, this._block?.element!);
-            return;
+            return render(this._props.rootQuery, this._block.element!);
         }
 
-        this._block.show();
+        return this._block.show();
     }
 }

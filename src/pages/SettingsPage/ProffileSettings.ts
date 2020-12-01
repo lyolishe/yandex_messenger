@@ -5,7 +5,7 @@ import { Wrapper } from '../../modules/components/Wrapper';
 import { Form } from '../../modules/components/Form/Form';
 import { changePasswordTmpl, profileSettingsTmpl } from '../../modules/components/Form/FormTamplates/ProfileFormTmpl';
 import { UserBlock } from '../../modules/components/UserBlock/UserBlock';
-import { Context } from '../../modules/Context';
+import Context from '../../modules/Context';
 import { UserRequest, UserResponse } from '../../types/Contracts';
 import { useApi } from '../../modules/Utilits';
 import { Button } from '../../modules/components/Button/Button';

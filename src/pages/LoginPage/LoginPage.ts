@@ -8,7 +8,7 @@ import { Button } from '../../modules/components/Button/Button';
 import { Form } from '../../modules/components/Form/Form';
 import { loginFormTmpl, passwordFormTmpl } from '../../modules/components/Form/FormTamplates/LoginFormTmpl';
 import Link from '../../modules/components/Link';
-import { Context } from '../../modules/Context';
+import Context from '../../modules/Context';
 import Page from '../../modules/components/Page/Page';
 import CardHeader from '../../modules/components/Card/CardHeader';
 import CardFooter from '../../modules/components/Card/CardFooter';
@@ -57,7 +57,7 @@ export default class LoginPage extends Page {
             useApi<UserResponse>(AuthApi.get()).then((user) => {
                 if (user) {
                     Context.instance.set('user', user);
-                    Router.instanse.go('/');
+                    Router.instance.go('/');
                 }
             });
         });

@@ -3,10 +3,10 @@ import Page from '../../modules/components/Page/Page';
 import NavTabsBlock from '../../modules/components/NavTabs/NavTabsBlock';
 import SettingItem from '../../modules/components/SettingsList/SettingsItem';
 import createProfileSettings from './ProffileSettings';
+import UserService from '../../servise/UserService';
 import { UserBlock } from '../../modules/components/UserBlock/UserBlock';
 import { settingsList, SettingsList } from '../../modules/components/SettingsList/SettingsList';
 import { Router } from '../../modules/Router';
-import { UserService } from '../../servise/UserService';
 
 export default class SettingsPage extends Page {
     menuItemId: string;
@@ -42,7 +42,7 @@ export default class SettingsPage extends Page {
             });
             this.setProps({ children: [this.sideBar, this.main] });
         }).catch(() => {
-            Router.instanse.go('/login');
+            Router.instance.go('/login');
         });
     }
 

@@ -50,6 +50,8 @@ module.exports = {
         "no-loop-func": 0,
         "no-use-before-define": 0,
         "no-shadow": 0,
-        "react/static-property-placement": "off"
+        "react/static-property-placement": "off",
+        "no-restricted-syntax": "off",
+        "no-prototype-builtins": "off"
     }
 };
