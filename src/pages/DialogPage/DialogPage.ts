@@ -9,7 +9,7 @@ import ChatListBlock from '../../modules/components/ChatListBlock/ChatList';
 import { ChatItemBlock } from '../../modules/components/ChatItemBlock/ChatItemBlock';
 import { BlankDialogBlock } from '../../modules/components/BlankDialogBlock/BlankDialogBlock';
 import { Router } from '../../modules/Router';
-import { UserService } from '../../servise/UserService';
+import UserService from '../../servise/UserService';
 
 export default class DialogPage extends Page {
     menuItemId: string
