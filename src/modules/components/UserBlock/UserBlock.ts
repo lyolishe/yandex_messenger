@@ -6,6 +6,8 @@ import { Button } from '../Button/Button';
 import { Router } from '../../Router';
 import { BasePath } from '../../Utilits';
 
+const defaultAvatar = require('../../../img/defaultAvatar.png').default;
+
 export type UserBlockProps = {
     first_name?: string | null;
     second_name?: string| null;
@@ -16,7 +18,7 @@ export type UserBlockProps = {
 
 export class UserBlock extends Block<UserBlockProps> {
     constructor(props: DefaultBlockProps<UserBlockProps>) {
-        super('div', { ...props, avatar: props.avatar ? BasePath + props.avatar : './src/img/defaultAvatar.png' });
+        super('div', { ...props, avatar: props.avatar ? BasePath + props.avatar : defaultAvatar });
 
         if (props.hasLogout) {
             this.setProps({ children: [this._createLogoutButton()] });

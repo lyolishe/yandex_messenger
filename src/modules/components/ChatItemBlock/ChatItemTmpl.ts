@@ -1,3 +1,5 @@
+const defaultAvatar = require('../../../img/defaultAvatar.png').default;
+
 const chatItemTmpl = `
     {{#if avatar}}
     <div class="userAvatar">
@@ -5,7 +7,7 @@ const chatItemTmpl = `
     </div>
     {{else}}
     <div class="userAvatar">
-        <img src="./src/img/defaultAvatar.png"/>
+        <img src="${defaultAvatar}"/>
     </div>
     {{/if}}
     <div class="w50">

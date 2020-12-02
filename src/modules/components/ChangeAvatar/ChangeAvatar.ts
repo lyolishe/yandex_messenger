@@ -8,12 +8,14 @@ import { BasePath, useApi } from '../../Utilits';
 import Context from '../../Context';
 import { Button } from '../Button/Button';
 
+const defaultAvatar = require('../../../img/defaultAvatar.png').default;
+
 export default class ChangeAvatar extends Block<UserResponse> {
     constructor(props:UserResponse) {
         super('form', {
             ...props,
             classList: ['row'],
-            avatar: props?.avatar ? BasePath + props.avatar : './src/img/defaultAvatar.png',
+            avatar: props?.avatar ? BasePath + props.avatar : defaultAvatar,
         });
         this.element.setAttribute('id', 'changeAvatar');
         this.setProps({

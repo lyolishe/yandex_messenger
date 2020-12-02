@@ -52,6 +52,7 @@ module.exports = {
         "no-shadow": 0,
         "react/static-property-placement": "off",
         "no-restricted-syntax": "off",
-        "no-prototype-builtins": "off"
+        "no-prototype-builtins": "off",
+        '@typescript-eslint/no-var-requires': 0
     }
 };
