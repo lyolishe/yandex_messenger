@@ -18,4 +18,4 @@ or just go to https://wonderful-blackwell-7a88a7.netlify.app
 design: https://www.figma.com/file/HowCClv2lrvhTKe3ilvdED/Chat-Lyonya?node-id=0%3A1
 //WIP
 
-**_Для ревьюеров:_** 
+**_Для ревьюеров:_** На хероку можно достучаться по адресу https://nameless-scrubland-49576.herokuapp.com/
