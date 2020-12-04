@@ -20,4 +20,7 @@ design: https://www.figma.com/file/HowCClv2lrvhTKe3ilvdED/Chat-Lyonya?node-id=0%
 //WIP
 
 **_Для ревьюеров:_**
- На хероку можно достучаться по адресу https://nameless-scrubland-49576.herokuapp.com/
+Обожаю, когда в формальной обстановке приходит не формальный ответ, сразу дружеской атмосфера становится! Спасибо)
+Досадную ошибку с линтером поправил, плюс впилил .eslintignore, чтобы ide-хе сказать куда смотреть.
+Про ярн тоже написал в ридми)
+На хероку можно достучаться по адресу https://nameless-scrubland-49576.herokuapp.com/
