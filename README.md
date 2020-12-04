@@ -16,10 +16,10 @@ do "~git clone https://github.com/lyolishe/mf.messenger.praktikum.yandex.git"
 or just go to https://wonderful-blackwell-7a88a7.netlify.app
 
 ### **Commands**
--The "start" command is command for dewelopers to start dev-server;
--The "test" command is command for running jest tests;
--The "build" command is command for webpack to build the app to release it further;
--The "lint" command is command for running eslint tests in source directory;
+- The "start" command is command for dewelopers to start dev-server;
+- The "test" command is command for running jest tests;
+- The "build" command is command for webpack to build the app to release it further;
+- The "lint" command is command for running eslint tests in source directory;
 
 ### **Resources**
 design: https://www.figma.com/file/HowCClv2lrvhTKe3ilvdED/Chat-Lyonya?node-id=0%3A1
