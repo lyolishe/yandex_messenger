@@ -10,7 +10,7 @@ export type SettingProps = {
     class?: string;
 }
 
-export interface SingUpRequest {
+export type SingUpRequest = {
     first_name: string;
     second_name: string;
     login: string;
@@ -19,7 +19,7 @@ export interface SingUpRequest {
     phone: string;
 }
 
-export interface SignInRequest {
+export type SignInRequest = {
     login: string;
     password: string;
 }

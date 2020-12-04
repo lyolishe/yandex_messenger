@@ -6,7 +6,7 @@
     "start": "webpack-dev-server",
     "test": "jest",
     "build": "webpack --mode=production",
-    "lint": "eslint C:\\Users\\fishe\\projects\\mf.messenger.praktikum.yandex\\src"
+    "lint": "eslint ./src"
   },
   "homepage": "https://github.com/lyolishe/mf.messenger.praktikum.yandex/blob/master/README.md",
   "devDependencies": {
