@@ -11,11 +11,11 @@ export default class ChatListBlock extends Block<ChatListBlockProps> {
     }
 
     onClick = (e:Event): void => {
-        (this.props.children as ChatItemBlock[]).filter((child) => child.props.isActive)
+        (this.props.children as unknown as ChatItemBlock[]).filter((child) => child.props.isActive)
             .forEach((active) => {
                 active.setProps({ ...active.props, isActive: false });
             });
-        const currentTarget = (this.props.children as ChatItemBlock[]).find(
+        const currentTarget = (this.props.children as unknown as ChatItemBlock[]).find(
             (child) => child.element === e.currentTarget,
         )!;
         currentTarget.setProps({ ...currentTarget.props, isActive: true, unread_count: '0' });

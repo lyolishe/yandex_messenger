@@ -1,5 +1,3 @@
-import { StringIndexed } from './Utilits';
-
 export enum METHODS {
     GET = 'GET',
     PUT = 'PUT',
@@ -9,7 +7,7 @@ export enum METHODS {
 
 export interface HTTPTransportOptions {
     timeout?: number;
-    data?: StringIndexed;
+    data?: any;
     headers?: Record<string, string>
     method: METHODS;
 }
