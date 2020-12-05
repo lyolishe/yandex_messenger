@@ -40,7 +40,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn test && yarn lint && yarn build"
+      "pre-commit": "yarn test && yarn lint && yarn build --mode=development"
     }
   }
 }
