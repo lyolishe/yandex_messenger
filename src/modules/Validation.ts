@@ -3,7 +3,7 @@ import { splitCamelCase } from './Utilits';
 export type Validator = (val: string|number) => string|void;
 // Проверяет валидность элемента
 // Принимает на проверку элемент, кастомные сообщения и функциональные валидаторы.
-// Каждый раз валидирует заново воизбежание повторных выводов.
+// Каждый раз валидирует заново во избежание повторных выводов.
 export class Validation {
     private _errors: string[];
 

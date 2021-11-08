@@ -1,4 +1,4 @@
-import { HTTPTransport, METHODS } from '../modules/HTTPTransport';
+import { HTTPTransport, METHODS } from './HTTPTransport';
 import { ChangePasswordRequest, FindUserRequest, UserRequest } from '../types/Contracts';
 
 export default class UsersApi {

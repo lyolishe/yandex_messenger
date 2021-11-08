@@ -1,4 +1,4 @@
-import { HTTPTransport, METHODS } from '../modules/HTTPTransport';
+import { HTTPTransport, METHODS } from './HTTPTransport';
 import { SignInRequest, SingUpRequest } from '../types/Contracts';
 
 export default class AuthApi {

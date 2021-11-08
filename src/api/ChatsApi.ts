@@ -1,4 +1,4 @@
-import { HTTPTransport, METHODS } from '../modules/HTTPTransport';
+import { HTTPTransport, METHODS } from './HTTPTransport';
 import { ChatDeleteRequest, CreateChatRequest, UsersRequest } from '../types/Contracts';
 
 export default class ChatsApi {
